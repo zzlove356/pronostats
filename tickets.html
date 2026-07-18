@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Vérification de tickets · PronoStats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="dot">P</span>Prono<b>Stats</b></a>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html" data-i18n="nav_matches">Analyse des matchs</a>
+          <a href="bankroll.html" data-i18n="nav_bankroll">Gestion du bankroll</a>
+          <a href="tickets.html" class="active" data-i18n="nav_tickets">Vérifier un ticket</a>
+        </nav>
+        <div class="lang-switch">
+          <button data-lang="fr" onclick="setLang('fr')">FR</button>
+          <button data-lang="it" onclick="setLang('it')">IT</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="padding-bottom:6px">
+      <span class="eyebrow" data-i18n="tk_eyebrow">🎫</span>
+      <h1 data-i18n="tk_title">Vérification de tickets</h1>
+      <p class="lead" data-i18n="tk_lead">Fais juger ton combiné…</p>
+    </section>
+
+    <!-- Calculateur instantané -->
+    <div class="panel">
+      <h3 data-i18n="tk_calc_h">⚡ Calculateur de combiné instantané</h3>
+      <p style="font-size:.88rem;color:var(--txt-mute)" data-i18n="tk_calc_sub">Ajoute chaque sélection…</p>
+      <div class="ticket-legs" id="ticketLegs"></div>
+      <div class="badges" style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="addLeg()" data-i18n="tk_add_leg">＋ Ajouter une sélection</button>
+        <button class="btn primary" onclick="evaluateTicket()" data-i18n="tk_eval">Évaluer le ticket</button>
+      </div>
+      <div class="reco" id="ticketResult" style="margin-top:18px"><p class="muted" data-i18n="tk_note_min">Ajoute au moins une sélection…</p></div>
+    </div>
+
+    <!-- Avis pro via Cowork -->
+    <div class="panel">
+      <h3 data-i18n="tk_pro_h">🔎 Avis pro complet (via Cowork)</h3>
+      <p data-i18n="tk_pro_p" style="color:var(--txt-dim)">Pour une analyse en profondeur…</p>
+    </div>
+
+    <!-- Tickets vérifiés -->
+    <div class="section-head"><h2 data-i18n="tk_verified_h">Tickets vérifiés récemment</h2></div>
+    <div id="verifiedTickets"></div>
+
+    <div class="disclaimer" data-i18n="tk_disclaimer">Rappel…</div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span data-i18n="footer_note">PronoStats</span>
+      <span data-i18n="footer_18">18+</span>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="data.js"></script>
+  <script src="tickets.js"></script>
+</body>
+</html>

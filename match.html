@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Analyse du match · PronoStats</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,10 +12,17 @@
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="index.html"><span class="dot">P</span>Prono<b>Stats</b></a>
-      <nav class="nav-links">
-        <a href="index.html" class="active">Analyse des matchs</a>
-        <a href="bankroll.html">Gestion du bankroll</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html" class="active" data-i18n="nav_matches">Analyse des matchs</a>
+          <a href="bankroll.html" data-i18n="nav_bankroll">Gestion du bankroll</a>
+          <a href="tickets.html" data-i18n="nav_tickets">Vérifier un ticket</a>
+        </nav>
+        <div class="lang-switch">
+          <button data-lang="fr" onclick="setLang('fr')">FR</button>
+          <button data-lang="it" onclick="setLang('it')">IT</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -23,11 +30,12 @@
 
   <footer class="site">
     <div class="wrap">
-      <span>PronoStats — outil personnel d’analyse. Aucun pari n’est placé par le site.</span>
-      <span>18+ · Jouez responsable</span>
+      <span data-i18n="footer_note">PronoStats</span>
+      <span data-i18n="footer_18">18+</span>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

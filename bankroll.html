@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Gestion du bankroll · PronoStats</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,99 +12,101 @@
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="index.html"><span class="dot">P</span>Prono<b>Stats</b></a>
-      <nav class="nav-links">
-        <a href="index.html">Analyse des matchs</a>
-        <a href="bankroll.html" class="active">Gestion du bankroll</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html" data-i18n="nav_matches">Analyse des matchs</a>
+          <a href="bankroll.html" class="active" data-i18n="nav_bankroll">Gestion du bankroll</a>
+          <a href="tickets.html" data-i18n="nav_tickets">Vérifier un ticket</a>
+        </nav>
+        <div class="lang-switch">
+          <button data-lang="fr" onclick="setLang('fr')">FR</button>
+          <button data-lang="it" onclick="setLang('it')">IT</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero" style="padding-bottom:6px">
-      <span class="eyebrow">💰 Ton capital, tes mises, tes suggestions</span>
-      <h1>Gestion du bankroll</h1>
-      <p class="lead">Suis ton capital, calcule une mise prudente pour chaque pari selon sa valeur et sa fiabilité, et garde une vue d’ensemble de ton historique. Tout est stocké sur ton navigateur — rien n’est envoyé, aucun pari n’est placé.</p>
+      <span class="eyebrow" data-i18n="bk_eyebrow">💰</span>
+      <h1 data-i18n="bk_title">Gestion du bankroll</h1>
+      <p class="lead" data-i18n="bk_lead">Suis ton capital…</p>
     </section>
 
-    <!-- KPIs -->
     <div class="kpi-grid" id="kpis"></div>
 
-    <!-- Réglages capital -->
     <div class="panel">
-      <h3>⚙️ Mon capital</h3>
+      <h3 data-i18n="bk_capital">⚙️ Mon capital</h3>
       <div class="form-grid">
         <div>
-          <label class="f" for="bkStart">Bankroll de départ (€)</label>
+          <label class="f" for="bkStart" data-i18n="bk_start">Bankroll de départ (€)</label>
           <input class="f" type="number" id="bkStart" min="0" step="10" value="100">
         </div>
         <div>
-          <label class="f" for="kellySel">Prudence du calcul de mise (fraction de Kelly)</label>
+          <label class="f" for="kellySel" data-i18n="bk_prudence">Prudence du calcul de mise</label>
           <select class="f" id="kellySel" onchange="setKelly(this.value)">
-            <option value="0.25">Quart de Kelly — très prudent (recommandé)</option>
-            <option value="0.5">Demi-Kelly — modéré</option>
-            <option value="1">Kelly complet — agressif (déconseillé)</option>
+            <option value="0.25" data-i18n="bk_k_quarter">Quart de Kelly</option>
+            <option value="0.5" data-i18n="bk_k_half">Demi-Kelly</option>
+            <option value="1" data-i18n="bk_k_full">Kelly complet</option>
           </select>
         </div>
-        <div>
-          <button class="btn primary" onclick="saveBankroll()">Enregistrer</button>
-        </div>
+        <div><button class="btn primary" onclick="saveBankroll()" data-i18n="bk_save">Enregistrer</button></div>
       </div>
-      <p style="margin-top:12px;font-size:.85rem;color:var(--txt-mute)">Le bankroll actuel se recalcule automatiquement à partir de ton capital de départ + le résultat des paris réglés (gagnés/perdus).</p>
+      <p style="margin-top:12px;font-size:.85rem;color:var(--txt-mute)" data-i18n="bk_recalc">Le bankroll actuel se recalcule…</p>
     </div>
 
-    <!-- Calculateur de mise -->
     <div class="panel">
-      <h3>🧮 Calculateur de mise (value + Kelly prudent)</h3>
+      <h3 data-i18n="bk_calc_h">🧮 Calculateur de mise</h3>
       <div class="form-grid">
         <div style="grid-column:1/-1">
-          <label class="f" for="cLabel">Pari (libellé)</label>
-          <input class="f" type="text" id="cLabel" placeholder="Ex : France – Angleterre : Victoire France">
+          <label class="f" for="cLabel" data-i18n="bk_bet_label">Pari (libellé)</label>
+          <input class="f" type="text" id="cLabel" data-i18n-ph="bk_bet_ph" placeholder="Ex : …">
         </div>
         <div>
-          <label class="f" for="cOdds">Cote proposée</label>
+          <label class="f" for="cOdds" data-i18n="bk_odds">Cote proposée</label>
           <input class="f" type="number" id="cOdds" min="1.01" step="0.01" placeholder="1.91" oninput="computeReco()">
         </div>
         <div>
-          <label class="f" for="cProb">Probabilité réelle estimée (%)</label>
+          <label class="f" for="cProb" data-i18n="bk_prob">Probabilité réelle estimée (%)</label>
           <input class="f" type="number" id="cProb" min="1" max="99" step="1" placeholder="58" oninput="computeReco()">
         </div>
         <div>
-          <label class="f" for="cConf">Confiance de l’analyse</label>
+          <label class="f" for="cConf" data-i18n="bk_conf">Confiance de l’analyse</label>
           <select class="f" id="cConf" onchange="computeReco()">
-            <option value="eleve">Élevée</option>
-            <option value="moyen" selected>Moyenne</option>
-            <option value="faible">Faible</option>
+            <option value="eleve" data-i18n="bk_conf_high">Élevée</option>
+            <option value="moyen" selected data-i18n="bk_conf_mid">Moyenne</option>
+            <option value="faible" data-i18n="bk_conf_low">Faible</option>
           </select>
         </div>
       </div>
-      <div class="reco" id="recoOut"><p class="muted">Renseigne une cote et une probabilité estimée pour obtenir une suggestion de mise.</p></div>
+      <div class="reco" id="recoOut"><p class="muted" data-i18n="bk_calc_ph">Renseigne une cote…</p></div>
     </div>
 
-    <!-- Ajout manuel + historique -->
     <div class="panel">
-      <h3>📊 Suivi de mes paris</h3>
+      <h3 data-i18n="bk_track_h">📊 Suivi de mes paris</h3>
       <div class="form-grid" style="margin-bottom:16px">
         <div style="grid-column:1/-1">
-          <label class="f" for="mLabel">Ajouter un pari manuellement — libellé</label>
-          <input class="f" type="text" id="mLabel" placeholder="Ex : PSG – OM : Plus de 2,5 buts">
+          <label class="f" for="mLabel" data-i18n="bk_add_label">Ajouter un pari — libellé</label>
+          <input class="f" type="text" id="mLabel" data-i18n-ph="bk_add_ph" placeholder="Ex : …">
         </div>
-        <div><label class="f" for="mOdds">Cote</label><input class="f" type="number" id="mOdds" min="1.01" step="0.01" placeholder="1.75"></div>
-        <div><label class="f" for="mStake">Mise (€)</label><input class="f" type="number" id="mStake" min="0" step="1" placeholder="15"></div>
-        <div><button class="btn" onclick="addManualBet()">＋ Ajouter</button></div>
+        <div><label class="f" for="mOdds" data-i18n="bk_add_odds">Cote</label><input class="f" type="number" id="mOdds" min="1.01" step="0.01" placeholder="1.75"></div>
+        <div><label class="f" for="mStake" data-i18n="bk_add_stake">Mise (€)</label><input class="f" type="number" id="mStake" min="0" step="1" placeholder="15"></div>
+        <div><button class="btn" onclick="addManualBet()" data-i18n="bk_add">＋ Ajouter</button></div>
       </div>
       <div id="betsTable"></div>
     </div>
 
-    <div class="disclaimer"><b>⚠ Rappel important.</b> Cet outil calcule et conseille, il ne place jamais aucun pari nulle part. La décision finale et la responsabilité t’appartiennent entièrement. Les paris sportifs restent aléatoires. 18+ · Jouez responsable.</div>
+    <div class="disclaimer" data-i18n="bk_disclaimer">Rappel important…</div>
   </main>
 
   <footer class="site">
     <div class="wrap">
-      <span>PronoStats — données stockées localement sur ton navigateur.</span>
-      <span>18+ · Jouez responsable</span>
+      <span data-i18n="footer_note">PronoStats</span>
+      <span data-i18n="footer_18">18+</span>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="bankroll.js"></script>
 </body>
 </html>

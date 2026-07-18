@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>PronoStats · Analyses football approfondies</title>
-  <meta name="description" content="Analyses de pronostics football détaillées : xG, compos, charge physique, arbitre, meilleures cotes et gestion de bankroll.">
+  <meta name="description" content="Analyses de pronostics football détaillées : xG, compos, charge physique, arbitre, meilleures cotes, paris safe/simple et gestion de bankroll.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -13,36 +13,44 @@
   <header class="site">
     <div class="wrap nav">
       <a class="brand" href="index.html"><span class="dot">P</span>Prono<b>Stats</b></a>
-      <nav class="nav-links">
-        <a href="index.html" class="active">Analyse des matchs</a>
-        <a href="bankroll.html">Gestion du bankroll</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html" class="active" data-i18n="nav_matches">Analyse des matchs</a>
+          <a href="bankroll.html" data-i18n="nav_bankroll">Gestion du bankroll</a>
+          <a href="tickets.html" data-i18n="nav_tickets">Vérifier un ticket</a>
+        </nav>
+        <div class="lang-switch">
+          <button data-lang="fr" onclick="setLang('fr')">FR</button>
+          <button data-lang="it" onclick="setLang('it')">IT</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <span class="eyebrow">● Analyses approfondies, pas juste les 5 derniers résultats</span>
-      <h1>Des pronostics football<br>argumentés par la donnée.</h1>
-      <p class="lead">xG, compositions probables, charge physique, style de jeu, arbitre, historique, météo — puis une prédiction claire, un niveau de confiance et la meilleure cote comparée sur oddschecker. Le tout relié à ta gestion de bankroll.</p>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Analyses approfondies</span>
+      <h1><span data-i18n="hero_title_1">Des pronostics football</span><br><span data-i18n="hero_title_2">argumentés par la donnée.</span></h1>
+      <p class="lead" data-i18n="hero_lead">xG, compositions, charge physique…</p>
     </section>
 
     <div class="section-head">
-      <h2>Matchs analysés récemment</h2>
-      <span class="sub">Clique sur un match pour l’analyse complète</span>
+      <h2 data-i18n="home_recent">Matchs analysés récemment</h2>
+      <span class="sub" data-i18n="home_recent_sub">Clique sur un match</span>
     </div>
     <div class="grid" id="matchGrid"></div>
 
-    <div class="disclaimer" style="margin-top:30px"><b>⚠ Rappel.</b> Ce site est un outil d’aide à la décision et d’information. Les paris sportifs restent aléatoires : aucune analyse ne garantit un résultat. Joue de façon responsable, uniquement avec de l’argent que tu peux te permettre de perdre. Interdit aux mineurs.</div>
+    <div class="disclaimer" data-i18n="disclaimer_home" style="margin-top:30px">Rappel…</div>
   </main>
 
   <footer class="site">
     <div class="wrap">
-      <span>PronoStats — outil personnel d’analyse. Aucun pari n’est placé par le site.</span>
-      <span>18+ · Jouez responsable</span>
+      <span data-i18n="footer_note">PronoStats</span>
+      <span data-i18n="footer_18">18+</span>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
