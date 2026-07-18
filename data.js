@@ -11,6 +11,200 @@
 
 const MATCHES = [
   {
+    id: "espagne-argentine-2026-07-19",
+    competition: { fr: "Coupe du Monde 2026 — FINALE", it: "Mondiali 2026 — FINALE" },
+    date: { fr: "Dimanche 19 juillet 2026", it: "Domenica 19 luglio 2026" },
+    kickoff: { fr: "21:00 (heure de Paris)", it: "21:00 (ora italiana)" },
+    venue: "MetLife Stadium, East Rutherford, New Jersey (USA)",
+    home: { name: { fr: "Espagne", it: "Spagna" }, flag: "🇪🇸" },
+    away: { name: { fr: "Argentine", it: "Argentina" }, flag: "🇦🇷" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2, 90 min)", it: "Esito finale (1X2, 90 min)" },
+      source: "oddschecker.com",
+      checkedAt: "18/07/2026",
+      aiProb: { home: 50, draw: 27, away: 23 },
+      best: {
+        home: { dec: 2.35, frac: "27/20", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 3.20, frac: "11/5", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 3.80, frac: "14/5", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Espagne remboursé si match nul (Draw No Bet)", it: "Spagna rimborso se pareggio (Draw No Bet)" },
+      dec: 1.57, frac: "4/7", book: "top des bookmakers (oddschecker)", ai: 68,
+      why: {
+        fr: "Le pari safe pour un combiné : l'Espagne n'a qu'à ne pas perdre en 90 min, et le nul est remboursé. Elle a la meilleure défense du tournoi (1 seul but encaissé en 7 matchs, clean sheet contre la France) et reste invaincue en 5 matchs sous l'arbitre Vinčić.",
+        it: "La scommessa sicura per una multipla: alla Spagna basta non perdere nei 90 minuti, e il pareggio è rimborsato. Ha la miglior difesa del torneo (1 solo gol subito in 7 gare, clean sheet contro la Francia) ed è imbattuta in 5 partite con l'arbitro Vinčić."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Victoire Espagne (temps réglementaire)", it: "Vittoria Spagna (tempi regolamentari)" },
+      dec: 2.35, frac: "27/20", book: "meilleure cote du comparateur oddschecker", ai: 50,
+      why: {
+        fr: "Le pari value : l'Espagne est favorite logique (AI 50%) et la cote de 2.35 est généreuse (cote juste ~2.00, soit +17,5% de valeur). Sa maîtrise et sa défense de fer face à une Argentine dépendante de Messi justifient le pari. À noter : c'est le résultat sur 90 min — en cas de prolongation, « Espagne soulève le trophée » (1.70) est l'alternative plus sûre.",
+        it: "La scommessa value: la Spagna è favorita logica (AI 50%) e la quota 2.35 è generosa (quota equa ~2.00, cioè +17,5% di valore). Il suo controllo e la difesa di ferro contro un'Argentina dipendente da Messi giustificano la scommessa. Nota: è l'esito sui 90 min — in caso di supplementari, « Spagna alza il trofeo » (1.70) è l'alternativa più sicura."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Résultat, remboursé si nul & vainqueur final", it: "Esito, rimborso se pareggio & vincitore finale" },
+        rows: [
+          { sel: { fr: "Espagne (1)", it: "Spagna (1)" }, dec: 2.35, frac: "27/20", ai: "50%" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.20, frac: "11/5", ai: "27%" },
+          { sel: { fr: "Argentine (2)", it: "Argentina (2)" }, dec: 3.80, frac: "14/5", ai: "23%" },
+          { sel: { fr: "Espagne remboursé si nul (Draw No Bet)", it: "Spagna rimborso se pareggio (DNB)" }, dec: 1.57, frac: "4/7", ai: "~68%" },
+          { sel: { fr: "Argentine remboursé si nul (Draw No Bet)", it: "Argentina rimborso se pareggio (DNB)" }, dec: 2.40, frac: "7/5", ai: "~32%" },
+          { sel: { fr: "Espagne championne du monde (prolong./tab incluses)", it: "Spagna campione del mondo (suppl./rigori inclusi)" }, dec: 1.70, frac: "7/10" },
+          { sel: { fr: "Argentine championne du monde (prolong./tab incluses)", it: "Argentina campione del mondo (suppl./rigori inclusi)" }, dec: 2.40, frac: "7/5" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps / fin de match", it: "Primo tempo / finale" },
+        rows: [
+          { sel: { fr: "Espagne / Espagne", it: "Spagna / Spagna" }, dec: 3.75, frac: "11/4" },
+          { sel: { fr: "Nul / Espagne", it: "Pareggio / Spagna" }, dec: 5.75, frac: "19/4" },
+          { sel: { fr: "Nul / Nul", it: "Pareggio / Pareggio" }, dec: 4.75, frac: "15/4" },
+          { sel: { fr: "Argentine / Argentine", it: "Argentina / Argentina" }, dec: 6.00, frac: "5/1" },
+          { sel: { fr: "Nul / Argentine", it: "Pareggio / Argentina" }, dec: 8.00, frac: "7/1" }
+        ]
+      },
+      {
+        category: { fr: "Buteurs (à tout moment)", it: "Marcatori (in qualsiasi momento)" },
+        rows: [
+          { sel: "Lionel Messi", dec: 2.75, frac: "7/4", ai: "57%" },
+          { sel: "Mikel Oyarzabal", dec: 2.90, frac: "19/10", ai: "47%" },
+          { sel: "Borja Iglesias", dec: 3.40, frac: "12/5", ai: "38%" },
+          { sel: "Ferran Torres", dec: 3.60, frac: "13/5" },
+          { sel: "Lamine Yamal", dec: 3.80, frac: "14/5" },
+          { sel: "Julián Álvarez", dec: 4.50, frac: "7/2" },
+          { sel: "Lautaro Martínez", dec: 4.60, frac: "18/5" },
+          { sel: "Nico Williams", dec: 4.60, frac: "18/5" },
+          { sel: "Mikel Merino", dec: 5.00, frac: "4/1" },
+          { sel: "Dani Olmo", dec: 5.75, frac: "19/4" }
+        ]
+      },
+      {
+        category: { fr: "Passeurs & divers", it: "Assist & varie" },
+        rows: [
+          { sel: { fr: "Lionel Messi — passe décisive (Over 0,5)", it: "Lionel Messi — assist (Over 0,5)" }, dec: 4.50, frac: "7/2", ai: "35%" },
+          { sel: { fr: "Bet Builder — Messi buteur & Oyarzabal buteur & +1,5 but Argentine & Messi passeur (bet365)", it: "Bet Builder — Messi marcatore & Oyarzabal marcatore & +1,5 gol Argentina & Messi assist (bet365)" }, dec: 34.0, frac: "33/1" },
+          { sel: { fr: "Autres marchés : score exact, over/under, corners, cartons, handicaps — voir oddschecker", it: "Altri mercati: risultato esatto, over/under, corner, cartellini, handicap — vedi oddschecker" }, dec: null, frac: "voir oddschecker" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Victoire Espagne (1N2, 90 min)", it: "Vittoria Spagna (1X2, 90 min)" }, dec: 2.35, ai: 50,
+        note: { fr: "Favorite logique avec la meilleure défense du tournoi ; cote généreuse à 2.35 pour une proba de 50%.", it: "Favorita logica con la miglior difesa del torneo; quota generosa a 2.35 per una probabilità del 50%." } },
+      { label: { fr: "Espagne remboursé si nul (Draw No Bet)", it: "Spagna rimborso se pareggio (DNB)" }, dec: 1.57, ai: 68,
+        note: { fr: "Version plus sûre : l'Espagne ne perd pas en 90 min, le nul est remboursé. Idéal en combiné.", it: "Versione più sicura: la Spagna non perde nei 90 min, il pareggio è rimborsato. Ideale in multipla." } },
+      { label: { fr: "Lionel Messi buteur à tout moment", it: "Lionel Messi marcatore in qualsiasi momento" }, dec: 2.75, ai: 57,
+        note: { fr: "⚠ L'AI d'oddschecker flaire une grosse valeur, MAIS le marché est bien plus prudent (proba implicite ~36%) et l'Espagne n'a encaissé qu'1 but en 7 matchs. À jouer avec prudence, la défense espagnole est le vrai risque.", it: "⚠ L'AI di oddschecker fiuta un grande valore, MA il mercato è molto più prudente (prob. implicita ~36%) e la Spagna ha subito solo 1 gol in 7 gare. Da giocare con prudenza, la difesa spagnola è il vero rischio." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Espagne", it: "Vittoria Spagna" },
+      pickShort: "Espagne",
+      score: "1 – 0",
+      goals: { fr: "Match plutôt fermé, Under 2,5 buts plausible", it: "Gara piuttosto chiusa, Under 2,5 gol plausibile" },
+      confidence: "moyen",
+      value: true,
+      summary: {
+        fr: "L'Espagne part favorite logique (AI 50%) avec la meilleure défense du tournoi : 1 seul but encaissé en 7 matchs, dont un clean sheet contre la France, l'attaque la plus puissante de la compétition. La cote de 2.35 offre de la valeur (cote juste ~2.00). Mais une finale reste à variance élevée : l'Argentine est tenante du titre, spécialiste des remontées et des scénarios de prolongation, avec Messi (8 buts, 4 passes) en facteur X. D'où une confiance « moyenne » et un pari safe (Draw No Bet 1.57) pour sécuriser un combiné.",
+        it: "La Spagna parte favorita logica (AI 50%) con la miglior difesa del torneo: 1 solo gol subito in 7 gare, incluso un clean sheet contro la Francia, l'attacco più potente della competizione. La quota 2.35 offre valore (quota equa ~2.00). Ma una finale resta ad alta varianza: l'Argentina è campione in carica, specialista di rimonte e scenari da supplementari, con Messi (8 gol, 4 assist) come fattore X. Da qui la fiducia « media » e una scommessa sicura (Draw No Bet 1.57) per blindare una multipla."
+      },
+      basedOn: {
+        fr: [
+          "Meilleure défense du tournoi : 1 seul but encaissé en 7 matchs (clean sheet contre la France)",
+          "Valeur mathématique : cote 2.35 > cote juste 2.00 issue de l'AI Probability (50%)",
+          "Espagne invaincue en 5 matchs sous l'arbitre Slavko Vinčić",
+          "Maîtrise et possession supérieures (Rodri, Fabián Ruiz, Dani Olmo au milieu)",
+          "Argentine très dépendante de Messi face à une défense qui a muselé Mbappé et la France"
+        ],
+        it: [
+          "Miglior difesa del torneo: 1 solo gol subito in 7 gare (clean sheet contro la Francia)",
+          "Valore matematico: quota 2.35 > quota equa 2.00 dall'AI Probability (50%)",
+          "Spagna imbattuta in 5 partite con l'arbitro Slavko Vinčić",
+          "Maggiore controllo e possesso (Rodri, Fabián Ruiz, Dani Olmo a centrocampo)",
+          "Argentina molto dipendente da Messi contro una difesa che ha imbrigliato Mbappé e la Francia"
+        ]
+      },
+      against: {
+        fr: [
+          "Une finale = enjeu maximal et variance élevée, matchs souvent fermés et décidés sur un détail",
+          "Argentine tenante du titre, habituée des remontées et des scénarios de prolongation / tirs au but",
+          "Messi facteur X (8 buts, 4 passes) capable de débloquer n'importe quel match",
+          "Emiliano Martínez, spécialiste des séances de tirs au but"
+        ],
+        it: [
+          "Una finale = posta massima e varianza elevata, gare spesso chiuse e decise da un dettaglio",
+          "Argentina campione in carica, abituata a rimonte e scenari da supplementari / rigori",
+          "Messi fattore X (8 gol, 4 assist) capace di sbloccare qualsiasi partita",
+          "Emiliano Martínez, specialista delle sequenze di rigori"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Espagne", it: "Spagna" }, flag: "🇪🇸", coach: "Luis de la Fuente",
+        lineup: "Simón — Porro, Cubarsí, Laporte, Cucurella — Rodri, Fabián Ruiz, Dani Olmo — Yamal, Oyarzabal, Baena (4-3-3)",
+        style: { fr: "Possession, pressing haut, contrôle du milieu ; défense la plus solide du tournoi. Yamal en différence sur le côté droit.", it: "Possesso, pressing alto, controllo del centrocampo; difesa più solida del torneo. Yamal a fare la differenza sulla destra." },
+        absences: {
+          fr: ["Groupe considéré au complet à l'approche de la finale", "Rotation minimale attendue pour une finale"],
+          it: ["Rosa considerata al completo verso la finale", "Turnover minimo atteso per una finale"]
+        },
+        physical: { fr: "Parcours maîtrisé, peu de temps fort défensif à gérer (1 but encaissé). Fraîcheur correcte pour une finale.", it: "Percorso gestito, poche difficoltà difensive (1 gol subito). Buona freschezza per una finale." },
+        form: { fr: "7 matchs, 1 seul but encaissé, victoire 2-0 en demie contre la France (meilleure attaque du tournoi muselée).", it: "7 gare, 1 solo gol subito, vittoria 2-0 in semifinale contro la Francia (miglior attacco del torneo neutralizzato)." },
+        xg: { fr: "Défense d'élite (xG concédé le plus bas du tournoi) ; attaque efficace via Yamal/Oyarzabal.", it: "Difesa d'élite (xG concesso più basso del torneo); attacco efficace tramite Yamal/Oyarzabal." },
+        context: { fr: "De la Fuente s'appuie sur un bloc rodé ; l'Espagne vise un 2ᵉ titre mondial (après 2010).", it: "De la Fuente si affida a un blocco collaudato; la Spagna punta al 2° titolo mondiale (dopo il 2010)." },
+        source: "RotoWire / Forbes / CBS Sports (18/07/2026)"
+      },
+      away: {
+        name: { fr: "Argentine", it: "Argentina" }, flag: "🇦🇷", coach: "Lionel Scaloni",
+        lineup: "E. Martínez — Molina, Romero, Otamendi, Tagliafico — Paredes, Enzo Fernández, Mac Allister — Simeone, J. Álvarez, Messi (4-3-3)",
+        style: { fr: "Bloc compact, transitions et coups de génie de Messi ; spécialiste des fins de match et des scénarios de prolongation.", it: "Blocco compatto, transizioni e giocate di Messi; specialista dei finali di gara e degli scenari da supplementari." },
+        absences: {
+          fr: ["Groupe des 26 déclaré pleinement disponible (Romero et Paredes remis de crampes)", "De Paul hors du onze projeté, Paredes titularisé"],
+          it: ["Rosa dei 26 dichiarata pienamente disponibile (Romero e Paredes recuperati dai crampi)", "De Paul fuori dall'undici previsto, Paredes titolare"]
+        },
+        physical: { fr: "Tenante du titre au vécu énorme ; capacité à tenir 120 minutes et à gérer les tirs au but.", it: "Campione in carica con enorme esperienza; capacità di reggere 120 minuti e gestire i rigori." },
+        form: { fr: "Parcours de battante, victoire 2-1 en demie contre l'Angleterre. Messi porte l'équipe (8 buts, 4 passes).", it: "Percorso da combattente, vittoria 2-1 in semifinale contro l'Inghilterra. Messi trascina la squadra (8 gol, 4 assist)." },
+        xg: { fr: "Production offensive concentrée autour de Messi/Álvarez ; efficacité clinique dans les moments clés.", it: "Produzione offensiva incentrata su Messi/Álvarez; efficacia clinica nei momenti chiave." },
+        context: { fr: "L'Argentine défend son titre de 2022 ; dernière grande finale probable pour Messi.", it: "L'Argentina difende il titolo del 2022; probabile ultima grande finale per Messi." },
+        source: "RotoWire / Yahoo Sports (18/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🇪🇸", name: "Lamine Yamal", pos: { fr: "Ailier", it: "Ala" }, stat: { fr: "Différence sur le côté droit, créateur n°1", it: "Fa la differenza sulla destra, creatore n°1" }, note: { fr: "L'arme offensive majeure de l'Espagne.", it: "L'arma offensiva principale della Spagna." } },
+      { team: "🇪🇸", name: "Rodri", pos: { fr: "Milieu défensif", it: "Mediano" }, stat: { fr: "Métronome, base de la maîtrise espagnole", it: "Metronomo, base del controllo spagnolo" }, note: { fr: "Contrôle le tempo et protège la défense.", it: "Controlla il ritmo e protegge la difesa." } },
+      { team: "🇪🇸", name: "Unai Simón", pos: { fr: "Gardien", it: "Portiere" }, stat: { fr: "1 but encaissé sur le tournoi", it: "1 gol subito nel torneo" }, note: { fr: "Pilier de la meilleure défense de la compétition.", it: "Pilastro della miglior difesa della competizione." } },
+      { team: "🇦🇷", name: "Lionel Messi", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "8 buts + 4 passes D. — course au Soulier d'Or", it: "8 gol + 4 assist — corsa alla Scarpa d'Oro" }, note: { fr: "Facteur X capable de tout faire basculer.", it: "Fattore X capace di ribaltare tutto." } },
+      { team: "🇦🇷", name: "Julián Álvarez", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Point d'appui et finisseur", it: "Riferimento e finalizzatore" }, note: { fr: "Complément idéal de Messi devant.", it: "Complemento ideale di Messi in attacco." } },
+      { team: "🇦🇷", name: "Emiliano Martínez", pos: { fr: "Gardien", it: "Portiere" }, stat: { fr: "Spécialiste des tirs au but", it: "Specialista dei rigori" }, note: { fr: "Décisif si la finale va jusqu'aux tirs au but.", it: "Decisivo se la finale arriva ai rigori." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "Affiche inédite en finale de Coupe du Monde entre l'Espagne (championne 2010) et l'Argentine (tenante du titre 2022). Les deux nations ne se rencontrent que rarement en match officiel.", it: "Sfida inedita in una finale dei Mondiali tra Spagna (campione 2010) e Argentina (campione in carica 2022). Le due nazionali si affrontano solo raramente in gare ufficiali." },
+      referee: { fr: "Slavko Vinčić (Slovénie) — premier Slovène à arbitrer une finale de Coupe du Monde. Très expérimenté (50 matchs de Ligue des Champions). L'Espagne est invaincue lors de ses 5 matchs sous sa direction (dont 2-1 vs France à l'Euro 2024).", it: "Slavko Vinčić (Slovenia) — primo sloveno ad arbitrare una finale dei Mondiali. Molto esperto (50 gare di Champions League). La Spagna è imbattuta nelle sue 5 partite con lui (incluso il 2-1 vs Francia a Euro 2024)." },
+      stake: { fr: "Finale de Coupe du Monde : le titre mondial. L'Espagne vise un 2ᵉ sacre, l'Argentine défend sa couronne de 2022. Enjeu maximal, probable dernière grande finale de Messi.", it: "Finale dei Mondiali: il titolo mondiale. La Spagna punta al 2° trionfo, l'Argentina difende la corona del 2022. Posta massima, probabile ultima grande finale di Messi." },
+      external: { fr: "MetLife Stadium (New Jersey), chaleur et humidité de juillet possibles. Une finale se joue souvent sur la tension et les détails, avec un scénario fermé fréquent.", it: "MetLife Stadium (New Jersey), possibile caldo e umidità di luglio. Una finale si gioca spesso sulla tensione e sui dettagli, con uno scenario chiuso frequente." },
+      supercomputer: { fr: "Les bookmakers font de l'Espagne une favorite légère (AI 50% vs 23% pour l'Argentine, 27% de nul).", it: "I bookmaker rendono la Spagna una favorita leggera (AI 50% vs 23% per l'Argentina, 27% di pareggio)." }
+    },
+
+    sources: [
+      { label: "Squawka — prédiction finale", url: "https://www.squawka.com/us/news/world-cup/world-cup-2026-final-predictions/" },
+      { label: "Yahoo Sports — preview finale", url: "https://sports.yahoo.com/soccer/article/world-cup-final-early-preview-argentinas-comebacks-meet-spains-impenetrable-defense-214251519.html" },
+      { label: "RotoWire — lineups & team news", url: "https://www.rotowire.com/soccer/article/spain-vs-argentina-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-final-123191" },
+      { label: "ESPN — arbitre Vinčić", url: "https://www.espn.com/soccer/story/_/id/49382615/who-slavko-vincic-spain-vs-argentina-referee-world-cup-final-real-madrid-jose-mourinho-jude-bellingham" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/world-cup/spain-v-argentina/winner" }
+    ]
+  },
+  {
     id: "france-angleterre-2026-07-18",
     competition: { fr: "Coupe du Monde 2026 — Match pour la 3ᵉ place", it: "Mondiali 2026 — Finale per il 3° posto" },
     date: { fr: "Samedi 18 juillet 2026", it: "Sabato 18 luglio 2026" },
