@@ -270,19 +270,19 @@ const MATCHES = [
 
     /* --- PARIS RECOMMANDÉS : un safe (combiné) + un simple --- */
     safeBet: {
-      sel: { fr: "France remboursé si match nul (Draw No Bet)", it: "Francia rimborso se pareggio (Draw No Bet)" },
-      dec: 1.44, frac: "4/9", book: "bet365 / William Hill", ai: 72,
+      sel: { fr: "Les deux équipes marquent — Oui (BTTS)", it: "Entrambe le squadre segnano — Sì (BTTS)" },
+      dec: 1.48, frac: "10/21", book: "top des bookmakers (oddschecker)", ai: 68,
       why: {
-        fr: "Le pari safe idéal pour un combiné : la France n'a qu'à ne pas perdre, et si le match finit sur un nul ta mise est remboursée. Elle reste favorite (AI ~72% de ne pas perdre) avec la meilleure attaque du tournoi face à une défense anglaise diminuée (James sorti).",
-        it: "La scommessa sicura ideale per una multipla: alla Francia basta non perdere e, se finisce in pareggio, la puntata viene rimborsata. Resta favorita (AI ~72% di non perdere) con il miglior attacco del torneo contro una difesa inglese ridotta (James uscito)."
+        fr: "Choisi après avoir passé TOUS les marchés : ce match pour la 3ᵉ place est ouvert (le total le plus probable est 3 buts, la France favorite même à la mi-temps) et les deux équipes ont des finisseurs d'élite (Mbappé côté France, Kane côté Angleterre). BTTS « Oui » à 1.48 est le meilleur pari safe (~cible 1,50) pour un combiné. Alternatives tout aussi fiables sur les tirs cadrés : Kane +0,5 tir cadré (1.40), Thuram +0,5 tir cadré (1.40) ou Mbappé +0,5 tir cadré (1.18, AI 82%).",
+        it: "Scelto dopo aver passato TUTTI i mercati: questa finale per il 3° posto è aperta (il totale più probabile è 3 gol, la Francia favorita anche all'intervallo) ed entrambe hanno finalizzatori d'élite (Mbappé per la Francia, Kane per l'Inghilterra). BTTS « Sì » a 1.48 è la migliore scommessa sicura (~obiettivo 1,50) per una multipla. Alternative altrettanto affidabili sui tiri in porta: Kane +0,5 (1.40), Thuram +0,5 (1.40) o Mbappé +0,5 (1.18, AI 82%)."
       }
     },
     simpleBet: {
       sel: { fr: "Kylian Mbappé buteur à tout moment", it: "Kylian Mbappé marcatore in qualsiasi momento" },
-      dec: 1.75, frac: "3/4", book: "plusieurs bookmakers", ai: 64,
+      dec: 1.80, frac: "4/5", book: "plusieurs bookmakers", ai: 64,
       why: {
-        fr: "Le meilleur rapport valeur/fiabilité en simple : Mbappé a marqué 8 buts sur le tournoi, joue le Soulier d'Or (dernier match pour dépasser Messi) et affronte une défense remaniée. AI 64% pour une cote de 1.75 → +12% de valeur.",
-        it: "Il miglior rapporto valore/affidabilità in singola: Mbappé ha segnato 8 gol nel torneo, gioca per la Scarpa d'Oro (ultima gara per superare Messi) e affronta una difesa rimaneggiata. AI 64% per una quota di 1.75 → +12% di valore."
+        fr: "Le meilleur rapport valeur/fiabilité en simple, retenu parmi tous les marchés : Mbappé a marqué 8 buts sur le tournoi, joue le Soulier d'Or (dernier match pour dépasser Messi) et affronte une défense remaniée. AI 64% pour une cote de 1.80 → +15,6% de valeur. Encore plus de value (mais plus risqué) : Kane buteur à 2.50 (AI 47%, +17,2%).",
+        it: "Il miglior rapporto valore/affidabilità in singola, scelto tra tutti i mercati: Mbappé ha segnato 8 gol nel torneo, gioca per la Scarpa d'Oro (ultima gara per superare Messi) e affronta una difesa rimaneggiata. AI 64% per una quota di 1.80 → +15,6% di valore. Ancora più value (ma più rischioso): Kane marcatore a 2.50 (AI 47%, +17,2%)."
       }
     },
 
@@ -301,75 +301,96 @@ const MATCHES = [
         ]
       },
       {
-        category: { fr: "Méthode de qualification (match à élimination)", it: "Metodo di qualificazione (gara a eliminazione)" },
+        category: { fr: "Méthode de victoire & remboursé si nul", it: "Metodo di vittoria & rimborso se pareggio" },
         rows: [
-          { sel: { fr: "France gagne dans le temps réglementaire", it: "Francia vince nei tempi regolamentari" }, dec: 1.85, frac: "17/20" },
+          { sel: { fr: "France gagne dans le temps réglementaire", it: "Francia vince nei tempi regolamentari" }, dec: 1.83, frac: "5/6" },
           { sel: { fr: "Angleterre gagne dans le temps réglementaire", it: "Inghilterra vince nei tempi regolamentari" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "France remboursé si nul (Draw No Bet)", it: "Francia rimborso se pareggio (DNB)" }, dec: 1.44, frac: "4/9", ai: "~72%" },
           { sel: { fr: "France se qualifie après prolongation", it: "Francia si qualifica ai supplementari" }, dec: 10.0, frac: "9/1" },
-          { sel: { fr: "France se qualifie aux tirs au but", it: "Francia si qualifica ai rigori" }, dec: 13.0, frac: "12/1" },
-          { sel: { fr: "Angleterre après prolongation", it: "Inghilterra ai supplementari" }, dec: 17.0, frac: "16/1" },
-          { sel: { fr: "Angleterre aux tirs au but", it: "Inghilterra ai rigori" }, dec: 15.0, frac: "14/1" }
+          { sel: { fr: "France se qualifie aux tirs au but", it: "Francia si qualifica ai rigori" }, dec: 13.0, frac: "12/1" }
         ]
       },
       {
-        category: { fr: "Nombre de buts", it: "Numero di gol" },
+        category: { fr: "Tirs cadrés (marché fiable pour combiné)", it: "Tiri in porta (mercato affidabile per multipla)" },
         rows: [
-          { sel: { fr: "Total 3 buts exact (issue la plus probable)", it: "Totale 3 gol esatti (esito più probabile)" }, dec: 4.50, frac: "7/2" },
+          { sel: { fr: "Kylian Mbappé — plus de 0,5", it: "Kylian Mbappé — oltre 0,5" }, dec: 1.18, frac: "2/11", ai: "82%" },
+          { sel: { fr: "Harry Kane — plus de 0,5", it: "Harry Kane — oltre 0,5" }, dec: 1.40, frac: "2/5" },
+          { sel: { fr: "Marcus Thuram — plus de 0,5", it: "Marcus Thuram — oltre 0,5" }, dec: 1.40, frac: "2/5" },
+          { sel: { fr: "Ousmane Dembélé — plus de 0,5", it: "Ousmane Dembélé — oltre 0,5" }, dec: 1.44, frac: "4/9" },
+          { sel: { fr: "Ivan Toney — plus de 0,5", it: "Ivan Toney — oltre 0,5" }, dec: 1.60, frac: "3/5" },
+          { sel: { fr: "Jude Bellingham — plus de 0,5", it: "Jude Bellingham — oltre 0,5" }, dec: 1.65, frac: "13/20" }
+        ]
+      },
+      {
+        category: { fr: "Nombre de buts total & marge de victoire", it: "Numero di gol totali & scarto" },
+        note: { fr: "Match ouvert : 3 buts est le total le plus probable, France par 1 but la marge la plus probable.", it: "Gara aperta: 3 gol è il totale più probabile, Francia di 1 gol lo scarto più probabile." },
+        rows: [
+          { sel: { fr: "Total 3 buts exact (le plus probable)", it: "Totale 3 gol esatti (il più probabile)" }, dec: 4.35, frac: "57/17" },
           { sel: { fr: "Total 2 buts exact", it: "Totale 2 gol esatti" }, dec: 4.75, frac: "15/4" },
-          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 5.25, frac: "17/4" },
-          { sel: { fr: "Total 1 but exact", it: "Totale 1 gol esatto" }, dec: 8.00, frac: "7/1" },
-          { sel: { fr: "Total 5 buts exact", it: "Totale 5 gol esatti" }, dec: 7.00, frac: "6/1" }
+          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 5.00, frac: "4/1" },
+          { sel: { fr: "France gagne par 1 but (marge la plus probable)", it: "Francia vince di 1 gol (scarto più probabile)" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "France gagne par 2 buts", it: "Francia vince di 2 gol" }, dec: 5.50, frac: "9/2" },
+          { sel: { fr: "France 2-1 ou nul 1-1 (scores les plus probables)", it: "Francia 2-1 o pareggio 1-1 (risultati più probabili)" }, dec: 9.50, frac: "17/2" }
         ]
       },
       {
-        category: { fr: "Score exact (favoris du marché)", it: "Risultato esatto (favoriti del mercato)" },
+        category: { fr: "Buts par équipe & BTTS", it: "Gol per squadra & BTTS" },
         rows: [
-          { sel: { fr: "France 2-1", it: "Francia 2-1" }, dec: 9.50, frac: "17/2" },
-          { sel: { fr: "Match nul 1-1", it: "Pareggio 1-1" }, dec: 9.50, frac: "17/2" },
-          { sel: { fr: "France 2-0", it: "Francia 2-0" }, dec: 15.0, frac: "14/1" },
-          { sel: { fr: "France 1-0", it: "Francia 1-0" }, dec: 15.0, frac: "14/1" },
-          { sel: { fr: "France 3-1", it: "Francia 3-1" }, dec: 15.0, frac: "14/1" },
-          { sel: { fr: "Angleterre 2-1", it: "Inghilterra 2-1" }, dec: 15.0, frac: "14/1" }
+          { sel: { fr: "France marque (plus de 0,5 but)", it: "Segna la Francia (oltre 0,5 gol)" }, dec: 1.57, frac: "4/7" },
+          { sel: { fr: "France plus de 1,5 but (2+ buts)", it: "Francia oltre 1,5 gol (2+ gol)" }, dec: 1.60, frac: "6/10" },
+          { sel: { fr: "Angleterre marque (plus de 0,5 but)", it: "Segna l'Inghilterra (oltre 0,5 gol)" }, dec: 1.29, frac: "2/7" },
+          { sel: { fr: "Angleterre moins de 1,5 but", it: "Inghilterra meno di 1,5 gol" }, dec: 1.62, frac: "8/13" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.48, frac: "10/21" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 3.00, frac: "2/1" },
+          { sel: { fr: "France gagne & les deux marquent", it: "Vince la Francia & entrambe segnano" }, dec: 3.00, frac: "2/1" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps (résultat & score 1ère MT)", it: "Primo tempo (esito & risultato 1° tempo)" },
+        rows: [
+          { sel: { fr: "Résultat mi-temps : France", it: "Esito primo tempo: Francia" }, dec: 2.35, frac: "27/20" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 2.60, frac: "8/5" },
+          { sel: { fr: "Résultat mi-temps : Angleterre", it: "Esito primo tempo: Inghilterra" }, dec: 4.20, frac: "16/5" },
+          { sel: { fr: "Score 1ère MT : 0-0 (favori)", it: "Risultato 1° tempo: 0-0 (favorito)" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "Score 1ère MT : France 1-0", it: "Risultato 1° tempo: Francia 1-0" }, dec: 4.60, frac: "18/5" }
         ]
       },
       {
         category: { fr: "Buteurs (à tout moment)", it: "Marcatori (in qualsiasi momento)" },
         rows: [
-          { sel: "Kylian Mbappé", dec: 1.75, frac: "3/4", ai: "64%" },
-          { sel: "Harry Kane", dec: 2.40, frac: "7/5", ai: "47%" },
-          { sel: "Jean-Philippe Mateta", dec: 2.70, frac: "17/10" },
+          { sel: "Kylian Mbappé", dec: 1.80, frac: "4/5", ai: "64%" },
+          { sel: "Harry Kane", dec: 2.50, frac: "6/4", ai: "47%" },
+          { sel: "Jean-Philippe Mateta", dec: 2.70, frac: "17/10", ai: "35%" },
           { sel: "Marcus Thuram", dec: 2.75, frac: "7/4" },
-          { sel: "Ivan Toney", dec: 2.88, frac: "15/8" },
-          { sel: "Ollie Watkins", dec: 3.00, frac: "2/1" },
-          { sel: "Bradley Barcola", dec: 3.70, frac: "27/10" },
+          { sel: "Ousmane Dembélé", dec: 2.88, frac: "15/8" },
+          { sel: "Ivan Toney", dec: 3.30, frac: "23/10" },
+          { sel: "Ollie Watkins", dec: 3.50, frac: "5/2" },
           { sel: "Michael Olise", dec: 3.75, frac: "11/4" },
-          { sel: "Jude Bellingham", dec: 4.10, frac: "31/10" },
-          { sel: "Marcus Rashford", dec: 4.75, frac: "15/4" },
+          { sel: "Jude Bellingham", dec: 3.80, frac: "14/5" },
           { sel: "Bukayo Saka", dec: 5.00, frac: "4/1" }
         ]
       },
       {
-        category: { fr: "Handicaps & combinés (exemples)", it: "Handicap & multiple (esempi)" },
+        category: { fr: "Passeurs, buteurs multiples, arrêts & combiné", it: "Assist, doppiette, parate & multipla" },
         rows: [
+          { sel: { fr: "Michael Olise — passe décisive (plus de 0,5)", it: "Michael Olise — assist (oltre 0,5)" }, dec: 3.20, frac: "11/5", ai: "40%" },
+          { sel: { fr: "Kylian Mbappé — 2 buts ou plus", it: "Kylian Mbappé — 2 o più gol" }, dec: 4.60, frac: "18/5" },
+          { sel: { fr: "Jordan Pickford — plus de 2,5 arrêts", it: "Jordan Pickford — oltre 2,5 parate" }, dec: 1.29, frac: "29/100" },
           { sel: { fr: "Bet Builder — Mbappé +3,5 tirs & Mbappé buteur & Kane buteur (BetMGM)", it: "Bet Builder — Mbappé +3,5 tiri & Mbappé marcatore & Kane marcatore (BetMGM)" }, dec: 5.80, frac: "24/5" },
-          { sel: { fr: "Dispo aussi : handicap asiatique/européen, corners, cartons, penalty, clean sheet, mi-temps", it: "Disponibili anche: handicap asiatico/europeo, corner, cartellini, rigore, clean sheet, primo tempo" }, dec: null, frac: "voir oddschecker" }
-        ],
-        note: {
-          fr: "Arbitre Jesús Valenzuela ≈ 4,9 cartons/match : les marchés « nombre de cartons » et « joueur cartonné » sont à surveiller pour du over-cartons.",
-          it: "Arbitro Jesús Valenzuela ≈ 4,9 cartellini/partita: i mercati « numero di cartellini » e « giocatore ammonito » sono da tenere d'occhio per l'over-cartellini."
-        }
+          { sel: { fr: "Aussi dispo : corners, cartons, handicaps, hat-trick — voir oddschecker", it: "Disponibili anche: corner, cartellini, handicap, tripletta — vedi oddschecker" }, dec: null, frac: "voir oddschecker" }
+        ]
       }
     ],
 
     valueBets: [
-      { label: { fr: "Harry Kane buteur à tout moment", it: "Harry Kane marcatore in qualsiasi momento" }, dec: 2.40, ai: 47,
-        note: { fr: "Kane joue le Soulier d'Or (6 buts), voudra jouer et tirer ; principal danger anglais sur coups de pied arrêtés.", it: "Kane gioca per la Scarpa d'Oro (6 gol), vorrà giocare e tirare; principale pericolo inglese sui calci piazzati." } },
-      { label: { fr: "Kylian Mbappé buteur à tout moment", it: "Kylian Mbappé marcatore in qualsiasi momento" }, dec: 1.75, ai: 64,
-        note: { fr: "8 buts, motivation maximale (dépasser Messi), en pleine confiance.", it: "8 gol, motivazione massima (superare Messi), in piena fiducia." } },
+      { label: { fr: "Harry Kane buteur à tout moment", it: "Harry Kane marcatore in qualsiasi momento" }, dec: 2.50, ai: 47,
+        note: { fr: "Le plus gros edge du match (+17%) : Kane joue le Soulier d'Or (6 buts), voudra tirer, et l'AI le donne à 47% pour une cote de 2.50. Plus risqué mais gros value.", it: "L'edge più alto della partita (+17%): Kane gioca per la Scarpa d'Oro (6 gol), vorrà tirare, e l'AI lo dà al 47% per una quota di 2.50. Più rischioso ma grande value." } },
+      { label: { fr: "Kylian Mbappé buteur à tout moment", it: "Kylian Mbappé marcatore in qualsiasi momento" }, dec: 1.80, ai: 64,
+        note: { fr: "Le meilleur combo valeur + fiabilité : 8 buts, Soulier d'Or en jeu, défense anglaise remaniée. AI 64% pour 1.80 → +15,6%.", it: "Il miglior mix valore + affidabilità: 8 gol, Scarpa d'Oro in palio, difesa inglese rimaneggiata. AI 64% per 1.80 → +15,6%." } },
       { label: { fr: "Victoire France (1N2)", it: "Vittoria Francia (1X2)" }, dec: 1.91, ai: 58,
-        note: { fr: "Le pari principal : favori logique avec une cote généreuse.", it: "La scommessa principale: favorita logica con una quota generosa." } },
-      { label: { fr: "France remboursé si nul (Draw No Bet)", it: "Francia rimborso se pareggio (DNB)" }, dec: 1.44, ai: 72,
-        note: { fr: "Version plus sûre du pari France : le nul est remboursé. Value plus légère mais risque réduit.", it: "Versione più sicura della scommessa Francia: il pareggio è rimborsato. Valore più leggero ma rischio ridotto." } }
+        note: { fr: "Le meilleur value sur le résultat : favori logique (AI 58%) pour une cote de 1.91 (+10,8%).", it: "Il miglior value sull'esito: favorita logica (AI 58%) per una quota di 1.91 (+10,8%)." } },
+      { label: { fr: "Les deux équipes marquent — Oui (BTTS)", it: "Entrambe segnano — Sì (BTTS)" }, dec: 1.48, ai: 68,
+        note: { fr: "La base safe pour un combiné : match ouvert, deux attaques dangereuses, BTTS « Oui » fortement favori à 1.48.", it: "La base sicura per una multipla: gara aperta, due attacchi pericolosi, BTTS « Sì » nettamente favorito a 1.48." } }
     ],
 
     prediction: {
