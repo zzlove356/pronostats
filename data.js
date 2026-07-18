@@ -32,11 +32,11 @@ const MATCHES = [
     },
 
     safeBet: {
-      sel: { fr: "Espagne remboursé si match nul (Draw No Bet)", it: "Spagna rimborso se pareggio (Draw No Bet)" },
-      dec: 1.57, frac: "4/7", book: "top des bookmakers (oddschecker)", ai: 68,
+      sel: { fr: "Lionel Messi — plus de 0,5 tir cadré", it: "Lionel Messi — oltre 0,5 tiri in porta" },
+      dec: 1.40, frac: "2/5", book: "top des bookmakers (oddschecker)", ai: 82,
       why: {
-        fr: "Le pari safe pour un combiné : l'Espagne n'a qu'à ne pas perdre en 90 min, et le nul est remboursé. Elle a la meilleure défense du tournoi (1 seul but encaissé en 7 matchs, clean sheet contre la France) et reste invaincue en 5 matchs sous l'arbitre Vinčić.",
-        it: "La scommessa sicura per una multipla: alla Spagna basta non perdere nei 90 minuti, e il pareggio è rimborsato. Ha la miglior difesa del torneo (1 solo gol subito in 7 gare, clean sheet contro la Francia) ed è imbattuta in 5 partite con l'arbitro Vinčić."
+        fr: "Le pari le plus SÛR de toute la page, choisi après avoir passé en revue chaque marché (pas juste un DNB). Le marché « tirs cadrés » est le plus fiable pour un combiné : Messi cadre au moins un tir dans ~86% des cas selon l'AI d'oddschecker. Deux options selon la cote voulue — la version la plus sûre : Messi +0,5 tir cadré à 1.25 (AI 86%) ; la version ~1,40 retenue ici (proche de ta cible 1,50) reste très fiable. Alternatives équivalentes : Lamine Yamal +0,5 tir cadré (1.40) ou Mikel Oyarzabal +0,5 tir cadré (1.53), les deux principaux tireurs espagnols.",
+        it: "La scommessa più SICURA di tutta la pagina, scelta dopo aver passato ogni mercato (non solo un DNB). Il mercato « tiri in porta » è il più affidabile per una multipla: Messi centra almeno un tiro in porta nel ~86% dei casi secondo l'AI di oddschecker. Due opzioni secondo la quota: la più sicura è Messi +0,5 tiri in porta a 1.25 (AI 86%); la versione ~1,40 qui scelta (vicina al tuo obiettivo 1,50) resta molto affidabile. Alternative equivalenti: Lamine Yamal +0,5 tiri in porta (1.40) o Mikel Oyarzabal +0,5 tiri in porta (1.53), i due principali tiratori spagnoli."
       }
     },
     simpleBet: {
@@ -50,25 +50,64 @@ const MATCHES = [
 
     markets: [
       {
-        category: { fr: "Résultat, remboursé si nul & vainqueur final", it: "Esito, rimborso se pareggio & vincitore finale" },
+        category: { fr: "Résultat, doubles chances & vainqueur final", it: "Esito, doppie chance & vincitore finale" },
         rows: [
           { sel: { fr: "Espagne (1)", it: "Spagna (1)" }, dec: 2.35, frac: "27/20", ai: "50%" },
           { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.20, frac: "11/5", ai: "27%" },
           { sel: { fr: "Argentine (2)", it: "Argentina (2)" }, dec: 3.80, frac: "14/5", ai: "23%" },
           { sel: { fr: "Espagne remboursé si nul (Draw No Bet)", it: "Spagna rimborso se pareggio (DNB)" }, dec: 1.57, frac: "4/7", ai: "~68%" },
-          { sel: { fr: "Argentine remboursé si nul (Draw No Bet)", it: "Argentina rimborso se pareggio (DNB)" }, dec: 2.40, frac: "7/5", ai: "~32%" },
           { sel: { fr: "Espagne championne du monde (prolong./tab incluses)", it: "Spagna campione del mondo (suppl./rigori inclusi)" }, dec: 1.70, frac: "7/10" },
           { sel: { fr: "Argentine championne du monde (prolong./tab incluses)", it: "Argentina campione del mondo (suppl./rigori inclusi)" }, dec: 2.40, frac: "7/5" }
         ]
       },
       {
-        category: { fr: "Mi-temps / fin de match", it: "Primo tempo / finale" },
+        category: { fr: "Tirs cadrés (le marché le plus fiable)", it: "Tiri in porta (il mercato più affidabile)" },
+        note: { fr: "Marché idéal pour des bases de combiné à haute probabilité.", it: "Mercato ideale come base per multiple ad alta probabilità." },
         rows: [
-          { sel: { fr: "Espagne / Espagne", it: "Spagna / Spagna" }, dec: 3.75, frac: "11/4" },
-          { sel: { fr: "Nul / Espagne", it: "Pareggio / Spagna" }, dec: 5.75, frac: "19/4" },
-          { sel: { fr: "Nul / Nul", it: "Pareggio / Pareggio" }, dec: 4.75, frac: "15/4" },
-          { sel: { fr: "Argentine / Argentine", it: "Argentina / Argentina" }, dec: 6.00, frac: "5/1" },
-          { sel: { fr: "Nul / Argentine", it: "Pareggio / Argentina" }, dec: 8.00, frac: "7/1" }
+          { sel: { fr: "Lionel Messi — plus de 0,5", it: "Lionel Messi — oltre 0,5" }, dec: 1.25, frac: "1/4", ai: "86%" },
+          { sel: { fr: "Lamine Yamal — plus de 0,5", it: "Lamine Yamal — oltre 0,5" }, dec: 1.40, frac: "2/5" },
+          { sel: { fr: "Mikel Oyarzabal — plus de 0,5", it: "Mikel Oyarzabal — oltre 0,5" }, dec: 1.53, frac: "8/15" },
+          { sel: { fr: "Julián Álvarez — plus de 0,5", it: "Julián Álvarez — oltre 0,5" }, dec: 1.78, frac: "7/9" },
+          { sel: { fr: "Ferran Torres — plus de 0,5", it: "Ferran Torres — oltre 0,5" }, dec: 1.85, frac: "17/20" },
+          { sel: { fr: "Pedro Porro — moins de 0,5", it: "Pedro Porro — meno di 0,5" }, dec: 1.18, frac: "2/11", ai: "80%" }
+        ]
+      },
+      {
+        category: { fr: "Nombre de buts total & marge de victoire", it: "Numero di gol totali & scarto" },
+        note: { fr: "La distribution penche vers un match fermé : 2 buts est le total le plus probable, l'Espagne par 1 but la marge la plus probable.", it: "La distribuzione indica una gara chiusa: 2 gol è il totale più probabile, la Spagna di 1 gol lo scarto più probabile." },
+        rows: [
+          { sel: { fr: "Total 2 buts exact (le plus probable)", it: "Totale 2 gol esatti (il più probabile)" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "Total 1 but exact", it: "Totale 1 gol esatto" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "Total 3 buts exact", it: "Totale 3 gol esatti" }, dec: 4.75, frac: "15/4" },
+          { sel: { fr: "Total 0 but exact", it: "Totale 0 gol esatti" }, dec: 8.00, frac: "7/1" },
+          { sel: { fr: "Espagne gagne par 1 but (marge la plus probable)", it: "Spagna vince di 1 gol (scarto più probabile)" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Espagne gagne par 2 buts", it: "Spagna vince di 2 gol" }, dec: 7.00, frac: "6/1" },
+          { sel: { fr: "Nul 0-0 (temps réglementaire)", it: "Pareggio 0-0 (tempi regolamentari)" }, dec: 8.50, frac: "15/2" }
+        ]
+      },
+      {
+        category: { fr: "Buts par équipe & BTTS", it: "Gol per squadra & BTTS" },
+        rows: [
+          { sel: { fr: "Espagne marque (plus de 0,5 but)", it: "Segna la Spagna (oltre 0,5 gol)" }, dec: 1.30, frac: "3/10" },
+          { sel: { fr: "Espagne moins de 1,5 but", it: "Spagna meno di 1,5 gol" }, dec: 1.60, frac: "6/10" },
+          { sel: { fr: "Espagne plus de 1,5 but", it: "Spagna oltre 1,5 gol" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Argentine moins de 1,5 but (défense espagnole d'élite)", it: "Argentina meno di 1,5 gol (difesa spagnola d'élite)" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Argentine marque (plus de 0,5 but)", it: "Segna l'Argentina (oltre 0,5 gol)" }, dec: 1.50, frac: "1/2" },
+          { sel: { fr: "Argentine ne marque pas (Espagne clean sheet)", it: "Argentina non segna (Spagna clean sheet)" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.95, frac: "19/20" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.00, frac: "1/1" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps (résultat, score, mi-temps/fin)", it: "Primo tempo (esito, risultato, PT/finale)" },
+        note: { fr: "Un 0-0 à la pause est l'issue favorite : première période souvent fermée en finale.", it: "Lo 0-0 all'intervallo è l'esito favorito: primo tempo spesso chiuso in finale." },
+        rows: [
+          { sel: { fr: "Score à la mi-temps : 0-0 (favori)", it: "Risultato all'intervallo: 0-0 (favorito)" }, dec: 1.75, frac: "3/4" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 2.05, frac: "21/20" },
+          { sel: { fr: "Résultat mi-temps : Espagne", it: "Esito primo tempo: Spagna" }, dec: 3.10, frac: "21/10" },
+          { sel: { fr: "Résultat mi-temps : Argentine", it: "Esito primo tempo: Argentina" }, dec: 4.20, frac: "16/5" },
+          { sel: { fr: "Mi-temps/fin : Espagne / Espagne", it: "PT/Finale: Spagna / Spagna" }, dec: 3.75, frac: "11/4" },
+          { sel: { fr: "Mi-temps/fin : Nul / Espagne", it: "PT/Finale: Pareggio / Spagna" }, dec: 5.75, frac: "19/4" }
         ]
       },
       {
@@ -87,22 +126,26 @@ const MATCHES = [
         ]
       },
       {
-        category: { fr: "Passeurs & divers", it: "Assist & varie" },
+        category: { fr: "Passeurs, buteurs multiples & combiné", it: "Assist, doppiette & multipla" },
         rows: [
-          { sel: { fr: "Lionel Messi — passe décisive (Over 0,5)", it: "Lionel Messi — assist (Over 0,5)" }, dec: 4.50, frac: "7/2", ai: "35%" },
+          { sel: { fr: "Lionel Messi — passe décisive (plus de 0,5)", it: "Lionel Messi — assist (oltre 0,5)" }, dec: 4.50, frac: "7/2", ai: "35%" },
+          { sel: { fr: "Lionel Messi — 2 buts ou plus", it: "Lionel Messi — 2 o più gol" }, dec: 11.0, frac: "10/1" },
+          { sel: { fr: "Mikel Oyarzabal — 2 buts ou plus", it: "Mikel Oyarzabal — 2 o più gol" }, dec: 11.0, frac: "10/1" },
           { sel: { fr: "Bet Builder — Messi buteur & Oyarzabal buteur & +1,5 but Argentine & Messi passeur (bet365)", it: "Bet Builder — Messi marcatore & Oyarzabal marcatore & +1,5 gol Argentina & Messi assist (bet365)" }, dec: 34.0, frac: "33/1" },
-          { sel: { fr: "Autres marchés : score exact, over/under, corners, cartons, handicaps — voir oddschecker", it: "Altri mercati: risultato esatto, over/under, corner, cartellini, handicap — vedi oddschecker" }, dec: null, frac: "voir oddschecker" }
+          { sel: { fr: "Aussi dispo : corners, cartons, handicaps, hat-trick — voir oddschecker", it: "Disponibili anche: corner, cartellini, handicap, tripletta — vedi oddschecker" }, dec: null, frac: "voir oddschecker" }
         ]
       }
     ],
 
     valueBets: [
       { label: { fr: "Victoire Espagne (1N2, 90 min)", it: "Vittoria Spagna (1X2, 90 min)" }, dec: 2.35, ai: 50,
-        note: { fr: "Favorite logique avec la meilleure défense du tournoi ; cote généreuse à 2.35 pour une proba de 50%.", it: "Favorita logica con la miglior difesa del torneo; quota generosa a 2.35 per una probabilità del 50%." } },
-      { label: { fr: "Espagne remboursé si nul (Draw No Bet)", it: "Spagna rimborso se pareggio (DNB)" }, dec: 1.57, ai: 68,
-        note: { fr: "Version plus sûre : l'Espagne ne perd pas en 90 min, le nul est remboursé. Idéal en combiné.", it: "Versione più sicura: la Spagna non perde nei 90 min, il pareggio è rimborsato. Ideale in multipla." } },
-      { label: { fr: "Lionel Messi buteur à tout moment", it: "Lionel Messi marcatore in qualsiasi momento" }, dec: 2.75, ai: 57,
-        note: { fr: "⚠ L'AI d'oddschecker flaire une grosse valeur, MAIS le marché est bien plus prudent (proba implicite ~36%) et l'Espagne n'a encaissé qu'1 but en 7 matchs. À jouer avec prudence, la défense espagnole est le vrai risque.", it: "⚠ L'AI di oddschecker fiuta un grande valore, MA il mercato è molto più prudente (prob. implicita ~36%) e la Spagna ha subito solo 1 gol in 7 gare. Da giocare con prudenza, la difesa spagnola è il vero rischio." } }
+        note: { fr: "Le meilleur pari value du 1N2 : favorite logique avec la meilleure défense du tournoi, cote généreuse à 2.35 pour une proba de 50% (cote juste 2.00).", it: "Il miglior value del 1X2: favorita logica con la miglior difesa del torneo, quota generosa a 2.35 per una probabilità del 50% (quota equa 2.00)." } },
+      { label: { fr: "Lionel Messi — plus de 0,5 tir cadré", it: "Lionel Messi — oltre 0,5 tiri in porta" }, dec: 1.25, ai: 86,
+        note: { fr: "Le pari le plus SÛR de toute la page avec en prime un petit edge (+7,5%) : AI 86% pour une cote de 1.25. La base idéale d'un combiné.", it: "La scommessa più SICURA di tutta la pagina con anche un piccolo edge (+7,5%): AI 86% per una quota di 1.25. Base ideale per una multipla." } },
+      { label: { fr: "Mikel Oyarzabal buteur à tout moment", it: "Mikel Oyarzabal marcatore in qualsiasi momento" }, dec: 2.90, ai: 47,
+        note: { fr: "Le buteur value : avant-centre d'une Espagne favorite et dominante, l'AI le donne à 47% pour une cote de 2.90. Plus crédible que la value affichée sur Messi vu la solidité défensive espagnole.", it: "Il marcatore value: centravanti di una Spagna favorita e dominante, l'AI lo dà al 47% per una quota di 2.90. Più credibile del value su Messi vista la solidità difensiva spagnola." } },
+      { label: { fr: "Argentine moins de 1,5 but", it: "Argentina meno di 1,5 gol" }, dec: 1.36, ai: 74,
+        note: { fr: "Adossé à la meilleure défense du tournoi (1 but encaissé en 7 matchs) : l'Argentine marquant 2 buts ou plus est peu probable. Base safe alternative à ~1.36.", it: "Appoggiato alla miglior difesa del torneo (1 gol subito in 7 gare): un'Argentina che segna 2+ gol è poco probabile. Base sicura alternativa a ~1.36." } }
     ],
 
     prediction: {
@@ -113,8 +156,8 @@ const MATCHES = [
       confidence: "moyen",
       value: true,
       summary: {
-        fr: "L'Espagne part favorite logique (AI 50%) avec la meilleure défense du tournoi : 1 seul but encaissé en 7 matchs, dont un clean sheet contre la France, l'attaque la plus puissante de la compétition. La cote de 2.35 offre de la valeur (cote juste ~2.00). Mais une finale reste à variance élevée : l'Argentine est tenante du titre, spécialiste des remontées et des scénarios de prolongation, avec Messi (8 buts, 4 passes) en facteur X. D'où une confiance « moyenne » et un pari safe (Draw No Bet 1.57) pour sécuriser un combiné.",
-        it: "La Spagna parte favorita logica (AI 50%) con la miglior difesa del torneo: 1 solo gol subito in 7 gare, incluso un clean sheet contro la Francia, l'attacco più potente della competizione. La quota 2.35 offre valore (quota equa ~2.00). Ma una finale resta ad alta varianza: l'Argentina è campione in carica, specialista di rimonte e scenari da supplementari, con Messi (8 gol, 4 assist) come fattore X. Da qui la fiducia « media » e una scommessa sicura (Draw No Bet 1.57) per blindare una multipla."
+        fr: "L'Espagne part favorite logique (AI 50%) avec la meilleure défense du tournoi : 1 seul but encaissé en 7 matchs, dont un clean sheet contre la France, l'attaque la plus puissante de la compétition. La cote de 2.35 offre de la valeur (cote juste ~2.00). Le profil du match penche vers une finale fermée : le total le plus probable est 2 buts, le 0-0 est favori à la mi-temps, et l'Espagne par 1 but est la marge la plus probable. Mais une finale reste à variance élevée : l'Argentine est tenante du titre, spécialiste des remontées et des scénarios de prolongation, avec Messi (8 buts, 4 passes) en facteur X. D'où une confiance « moyenne » — et pour un combiné, plutôt que le résultat, la base la plus fiable est le marché des tirs cadrés (Messi/Yamal +0,5), le pari le plus sûr de toute la page.",
+        it: "La Spagna parte favorita logica (AI 50%) con la miglior difesa del torneo: 1 solo gol subito in 7 gare, incluso un clean sheet contro la Francia, l'attacco più potente della competizione. La quota 2.35 offre valore (quota equa ~2.00). Il profilo della gara indica una finale chiusa: il totale più probabile è 2 gol, lo 0-0 è favorito all'intervallo e la Spagna di 1 gol è lo scarto più probabile. Ma una finale resta ad alta varianza: l'Argentina è campione in carica, specialista di rimonte e scenari da supplementari, con Messi (8 gol, 4 assist) come fattore X. Da qui la fiducia « media » — e per una multipla, più che l'esito, la base più affidabile è il mercato dei tiri in porta (Messi/Yamal +0,5), la scommessa più sicura di tutta la pagina."
       },
       basedOn: {
         fr: [
