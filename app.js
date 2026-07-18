@@ -130,12 +130,36 @@ function renderMatch(){
           <tr><td>${esc(m.away.name)}</td><td class="${pickKey==='away'?'best':''}">${o.best.away.dec.toFixed(2)}</td><td>${esc(o.best.away.frac)}</td><td>${esc(o.best.away.book)}</td><td>${o.aiProb.away}%</td></tr>
         </tbody>
       </table>
-      ${o.extra && o.extra.length ? `
-      <p style="margin-top:16px;font-size:.85rem;color:var(--txt-mute)">Autres marchés relevés :</p>
-      <table class="odds"><thead><tr><th>Marché</th><th>Cote</th><th>Fraction</th><th>AI</th></tr></thead><tbody>
-        ${o.extra.map(e=>`<tr><td>${esc(e.label)}</td><td>${e.dec.toFixed(2)}</td><td>${esc(e.frac)}</td><td>${esc(e.ai)}</td></tr>`).join("")}
-      </tbody></table>` : ""}
     </div>
+
+    ${m.valueBets && m.valueBets.length ? `
+    <!-- VALUE BETS -->
+    <div class="block">
+      <h3><span class="ic">💎</span> Les value bets repérés (tous marchés confondus)</h3>
+      <p style="font-size:.85rem;color:var(--txt-mute)">On croise la meilleure cote disponible avec l’« AI Probability » d’oddschecker : si la cote est plus haute que la cote « juste », il y a de la valeur. Classés du plus fort edge au plus faible.</p>
+      <table class="odds">
+        <thead><tr><th>Pari</th><th>Cote</th><th>Proba (AI)</th><th>Cote juste</th><th>Valeur</th></tr></thead>
+        <tbody>
+          ${m.valueBets.map(v=>{const fair=100/v.ai;const edge=((v.ai/100)*v.dec-1)*100;return `<tr><td><b>${esc(v.label)}</b><br><span style="color:var(--txt-mute);font-size:.82rem">${esc(v.note)}</span></td><td>${v.dec.toFixed(2)}</td><td>${v.ai}%</td><td>${fair.toFixed(2)}</td><td class="${edge>=0?'best':''}">${edge>=0?'+':''}${edge.toFixed(1)}%</td></tr>`;}).join("")}
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:.82rem;color:var(--txt-mute)">💡 Un edge positif ne garantit rien sur un seul match : c’est un avantage statistique qui ne paie qu’à long terme et sur beaucoup de paris. Utilise le calculateur de mise pour dimensionner prudemment.</p>
+    </div>` : ""}
+
+    ${m.markets && m.markets.length ? `
+    <!-- TOUS LES MARCHÉS -->
+    <div class="block">
+      <h3><span class="ic">📈</span> Tous les marchés (meilleures cotes relevées)</h3>
+      <p style="font-size:.85rem;color:var(--txt-mute)">Parcours complet des catégories oddschecker (résultat, doubles chances, buts, score exact, buteurs, handicaps, stats…). Cotes en décimal.</p>
+      ${m.markets.map(mk=>`
+        <div style="margin-top:16px">
+          <div style="font-weight:700;color:var(--gold);font-size:.9rem;margin-bottom:6px">${esc(mk.category)}</div>
+          <table class="odds"><tbody>
+            ${mk.rows.map(r=>`<tr><td>${esc(r.sel)}</td><td style="text-align:right;font-weight:700">${r.dec!=null?r.dec.toFixed(2):'—'}</td><td style="color:var(--txt-mute);width:120px">${esc(r.frac||'')}${r.ai?' · AI '+esc(r.ai):''}</td></tr>`).join("")}
+          </tbody></table>
+          ${mk.note?`<p style="font-size:.8rem;color:var(--txt-mute);margin-top:6px">ℹ ${esc(mk.note)}</p>`:""}
+        </div>`).join("")}
+    </div>` : ""}
 
     <!-- COMPARATIF ÉQUIPES -->
     <div class="section-head"><h2>Analyse par équipe</h2></div>

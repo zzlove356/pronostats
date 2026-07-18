@@ -36,6 +36,88 @@ const MATCHES = [
       ]
     },
 
+    /* --- TOUS LES MARCHÉS relevés sur oddschecker (meilleures cotes, décimal) --- */
+    markets: [
+      {
+        category: "Résultat & doubles chances",
+        rows: [
+          { sel: "France (1)", dec: 1.91, frac: "10/11", ai: "58%" },
+          { sel: "Match nul (N)", dec: 4.20, frac: "16/5", ai: "21%" },
+          { sel: "Angleterre (2)", dec: 4.20, frac: "16/5", ai: "22%" },
+          { sel: "Double chance — France ou nul (1N)", dec: 1.29, frac: "2/7", ai: "~79%" },
+          { sel: "Double chance — Angleterre ou nul (N2)", dec: 2.00, frac: "1/1", ai: "~43%" },
+          { sel: "Double chance — France ou Angleterre (12, sans nul)", dec: 1.25, frac: "1/4", ai: "~80%" },
+          { sel: "France — remboursé si nul (Draw No Bet)", dec: 1.44, frac: "4/9", ai: "~72%" },
+          { sel: "Angleterre — remboursé si nul (Draw No Bet)", dec: 2.90, frac: "19/10", ai: "~28%" }
+        ]
+      },
+      {
+        category: "Méthode de qualification (match à élimination)",
+        rows: [
+          { sel: "France gagne dans le temps réglementaire", dec: 1.85, frac: "17/20" },
+          { sel: "Angleterre gagne dans le temps réglementaire", dec: 3.80, frac: "14/5" },
+          { sel: "France se qualifie après prolongation", dec: 10.0, frac: "9/1" },
+          { sel: "France se qualifie aux tirs au but", dec: 13.0, frac: "12/1" },
+          { sel: "Angleterre après prolongation", dec: 17.0, frac: "16/1" },
+          { sel: "Angleterre aux tirs au but", dec: 15.0, frac: "14/1" }
+        ]
+      },
+      {
+        category: "Nombre de buts",
+        rows: [
+          { sel: "Total 3 buts exact (issue la plus probable)", dec: 4.50, frac: "7/2" },
+          { sel: "Total 2 buts exact", dec: 4.75, frac: "15/4" },
+          { sel: "Total 4 buts exact", dec: 5.25, frac: "17/4" },
+          { sel: "Total 1 but exact", dec: 8.00, frac: "7/1" },
+          { sel: "Total 5 buts exact", dec: 7.00, frac: "6/1" },
+          { sel: "0 but / 6+ buts", dec: 11.0, frac: "10/1 à 22/1" }
+        ]
+      },
+      {
+        category: "Score exact (favoris du marché)",
+        rows: [
+          { sel: "France 2-1", dec: 9.50, frac: "17/2" },
+          { sel: "Match nul 1-1", dec: 9.50, frac: "17/2" },
+          { sel: "France 2-0", dec: 15.0, frac: "14/1" },
+          { sel: "France 1-0", dec: 15.0, frac: "14/1" },
+          { sel: "France 3-1", dec: 15.0, frac: "14/1" },
+          { sel: "Angleterre 2-1", dec: 15.0, frac: "14/1" }
+        ]
+      },
+      {
+        category: "Buteurs (à tout moment)",
+        rows: [
+          { sel: "Kylian Mbappé", dec: 1.75, frac: "3/4", ai: "64%" },
+          { sel: "Harry Kane", dec: 2.40, frac: "7/5", ai: "47%" },
+          { sel: "Jean-Philippe Mateta", dec: 2.70, frac: "17/10" },
+          { sel: "Marcus Thuram", dec: 2.75, frac: "7/4" },
+          { sel: "Ivan Toney", dec: 2.88, frac: "15/8" },
+          { sel: "Ollie Watkins", dec: 3.00, frac: "2/1" },
+          { sel: "Bradley Barcola", dec: 3.70, frac: "27/10" },
+          { sel: "Michael Olise", dec: 3.75, frac: "11/4" },
+          { sel: "Jude Bellingham", dec: 4.10, frac: "31/10" },
+          { sel: "Marcus Rashford", dec: 4.75, frac: "15/4" },
+          { sel: "Bukayo Saka", dec: 5.00, frac: "4/1" }
+        ]
+      },
+      {
+        category: "Handicaps & combinés (exemples)",
+        rows: [
+          { sel: "Bet Builder — Mbappé +3,5 tirs & Mbappé buteur & Kane buteur (BetMGM)", dec: 5.80, frac: "24/5" },
+          { sel: "Marchés dispo aussi : handicap asiatique/européen, corners, cartons, penalty, clean sheet, mi-temps/fin de match", dec: null, frac: "voir oddschecker" }
+        ],
+        note: "Arbitre Jesús Valenzuela ≈ 4,9 cartons/match : les marchés « nombre de cartons » et « joueur cartonné » sont à surveiller pour du over-cartons."
+      }
+    ],
+
+    /* --- VALUE BETS : croisement meilleure cote × AI Probability oddschecker --- */
+    valueBets: [
+      { label: "Harry Kane buteur à tout moment", dec: 2.40, ai: 47, note: "Kane joue le Soulier d'Or (6 buts), voudra jouer et tirer ; principal danger anglais sur coups de pied arrêtés." },
+      { label: "Kylian Mbappé buteur à tout moment", dec: 1.75, ai: 64, note: "8 buts, motivation maximale (dépasser Messi), en pleine confiance." },
+      { label: "Victoire France (1N2)", dec: 1.91, ai: 58, note: "Le pari principal : favori logique avec une cote généreuse." },
+      { label: "France remboursé si nul (Draw No Bet)", dec: 1.44, ai: 72, note: "Version plus sûre du pari France : le nul est remboursé. Value plus légère mais risque réduit." }
+    ],
+
     /* --- Prédiction --- */
     prediction: {
       pick: "Victoire France",
