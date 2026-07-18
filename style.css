@@ -47,8 +47,9 @@ body {
   min-height: 100vh;
 }
 
-/* évite qu'un mot long (URL, nom) pousse la page en largeur */
-p, li, td, th, h1, h2, h3, a, span, div { overflow-wrap: anywhere; word-break: break-word; }
+/* évite qu'un mot long (URL) pousse la page, SANS couper les mots normaux */
+p, li, h1, h2, h3 { overflow-wrap: break-word; word-break: normal; }
+a { overflow-wrap: anywhere; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -216,9 +217,20 @@ header.site {
 .team-panel li b { color: var(--txt); font-weight: 700; }
 .team-panel .src { color: var(--txt-mute); font-size: .76rem; }
 
-/* Tables : scroll interne sur mobile plutôt que déborder la page */
+/* Tables : scroll interne au cadre sur mobile plutôt que déborder la page */
 .tscroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table.players, table.odds, table.bets { width: 100%; border-collapse: collapse; font-size: .88rem; }
+/* largeur minimale lisible : le cadre .tscroll défile si l'écran est plus étroit */
+table.odds { min-width: 460px; }
+table.players { min-width: 580px; }
+table.bets { min-width: 520px; }
+/* mots normaux : jamais coupés au milieu */
+table.players th, table.players td,
+table.odds th, table.odds td,
+table.bets th, table.bets td { white-space: normal; overflow-wrap: normal; word-break: normal; hyphens: none; }
+/* colonnes chiffrées (tout sauf le libellé) : jamais coupées */
+table.odds td:not(:first-child), table.odds th:not(:first-child),
+table.bets td:not(:first-child):not(:nth-child(2)), table.bets th:not(:first-child):not(:nth-child(2)) { white-space: nowrap; }
 table.players th, table.players td,
 table.odds th, table.odds td,
 table.bets th, table.bets td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
