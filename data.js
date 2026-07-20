@@ -11,6 +11,250 @@
 
 const MATCHES = [
   {
+    id: "orgryte-djurgarden-2026-07-20",
+    competition: { fr: "Allsvenskan (Suède) — 13ᵉ journée", it: "Allsvenskan (Svezia) — 13ª giornata" },
+    date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
+    kickoff: { fr: "19:00 (heure de Paris)", it: "19:00 (ora italiana)" },
+    venue: "Gamla Ullevi, Göteborg (Suède)",
+    home: { name: { fr: "Örgryte IS", it: "Örgryte IS" }, flag: "🔴" },
+    away: { name: { fr: "Djurgården IF", it: "Djurgården IF" }, flag: "🔵" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 12, draw: 18, away: 70 },
+      best: {
+        home: { dec: 8.00, frac: "7/1", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 5.50, frac: "9/2", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 1.36, frac: "4/11", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Plus de 2,5 buts dans le match", it: "Over 2,5 gol nella partita" },
+      dec: 1.45, frac: "9/20", book: "top des bookmakers (oddschecker)", ai: 69,
+      why: {
+        fr: "Le pari le plus solide de toute la page, sorti du marché des buts (pas d'un DNB). Quatre signaux convergent : les 6 derniers matchs de Djurgården en Allsvenskan ont TOUS dépassé 2,5 buts ; l'xG combiné attendu est de ≈4,01 ; Örgryte a marqué dans ses 6 matchs à domicile ET encaissé dans les 6 ; enfin le marché « total de buts exact » donne 3 buts comme total le plus probable, ce qui place le +2,5 buts autour de 68%. Cote 1.45, pile dans ta cible ~1,50, idéale comme base de combiné.",
+        it: "La scommessa più solida di tutta la pagina, presa dal mercato dei gol (non un DNB). Quattro segnali convergono: le ultime 6 gare del Djurgården in Allsvenskan hanno TUTTE superato 2,5 gol; l'xG combinato atteso è ≈4,01; l'Örgryte ha segnato in tutte e 6 le gare casalinghe E subito in tutte e 6; infine il mercato « totale gol esatti » dà 3 gol come totale più probabile, il che porta l'over 2,5 intorno al 68%. Quota 1.45, esattamente nel tuo obiettivo ~1,50, ideale come base di multipla."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Djurgården gagne ET les deux équipes marquent", it: "Vince il Djurgården E entrambe segnano" },
+      dec: 2.50, frac: "6/4", book: "top des bookmakers (oddschecker)", ai: 47,
+      why: {
+        fr: "Le meilleur value de la page. Djurgården est très largement supérieur (coté 1.36, 5ᵉ avec 19 pts, deux victoires 4-2 et 3-0 de suite) mais le scénario « Djurgården gagne sans encaisser » à 2.70 est un piège : Örgryte a marqué dans ses 6 matchs à domicile cette saison. En combinant la victoire de Djurgården ET le but d'Örgryte, on obtient 2.50 pour une probabilité que j'estime à ~47% (40% implicite) → environ +17% de valeur. ⚠ Pas d'AI Probability sur l'Allsvenskan : cette probabilité est MON estimation.",
+        it: "Il miglior value della pagina. Il Djurgården è nettamente superiore (quotato 1.36, 5° con 19 punti, due vittorie 4-2 e 3-0 di fila) ma lo scenario « Djurgården vince senza subire » a 2.70 è una trappola: l'Örgryte ha segnato in tutte e 6 le gare casalinghe. Combinando la vittoria del Djurgården E il gol dell'Örgryte si ottiene 2.50 per una probabilità che stimo ~47% (40% implicita) → circa +17% di valore. ⚠ Nessuna AI Probability sull'Allsvenskan: questa probabilità è una MIA stima."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Résultat, doubles chances & remboursé si nul", it: "Esito, doppie chance & rimborso se pareggio" },
+        rows: [
+          { sel: { fr: "Örgryte (1)", it: "Örgryte (1)" }, dec: 8.00, frac: "7/1" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 5.50, frac: "9/2" },
+          { sel: { fr: "Djurgården (2)", it: "Djurgården (2)" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Double chance — Djurgården ou nul (N2)", it: "Doppia chance — Djurgården o pareggio (X2)" }, dec: 1.10, frac: "1/10" },
+          { sel: { fr: "Double chance — Örgryte ou Djurgården (12)", it: "Doppia chance — Örgryte o Djurgården (12)" }, dec: 1.17, frac: "1/6" },
+          { sel: { fr: "Double chance — Örgryte ou nul (1N)", it: "Doppia chance — Örgryte o pareggio (1X)" }, dec: 3.25, frac: "9/4" },
+          { sel: { fr: "Djurgården remboursé si nul (Draw No Bet)", it: "Djurgården rimborso se pareggio (DNB)" }, dec: 1.13, frac: "1/8" },
+          { sel: { fr: "Örgryte remboursé si nul (Draw No Bet)", it: "Örgryte rimborso se pareggio (DNB)" }, dec: 6.00, frac: "5/1" }
+        ]
+      },
+      {
+        category: { fr: "Nombre de buts (le cœur de l'analyse)", it: "Numero di gol (il cuore dell'analisi)" },
+        note: { fr: "Les 6 derniers matchs de Djurgården ont tous dépassé 2,5 buts ; xG combiné attendu ≈ 4,01. Le total le plus probable est 3 buts.", it: "Le ultime 6 gare del Djurgården hanno tutte superato 2,5 gol; xG combinato atteso ≈ 4,01. Il totale più probabile è 3 gol." },
+        rows: [
+          { sel: { fr: "Plus de 2,5 buts", it: "Over 2,5 gol" }, dec: 1.45, frac: "9/20" },
+          { sel: { fr: "Moins de 2,5 buts", it: "Under 2,5 gol" }, dec: 3.10, frac: "21/10" },
+          { sel: { fr: "Plus de 3,5 buts", it: "Over 3,5 gol" }, dec: 2.10, frac: "11/10" },
+          { sel: { fr: "Plus de 1,5 but", it: "Over 1,5 gol" }, dec: 1.14, frac: "1/7" },
+          { sel: { fr: "Total 3 buts exact (le plus probable)", it: "Totale 3 gol esatti (il più probabile)" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 4.75, frac: "15/4" },
+          { sel: { fr: "Total 2 buts exact", it: "Totale 2 gol esatti" }, dec: 5.00, frac: "4/1" }
+        ]
+      },
+      {
+        category: { fr: "Buts par équipe & BTTS", it: "Gol per squadra & BTTS" },
+        note: { fr: "Örgryte a marqué dans ses 6 matchs à domicile et n'a gardé aucune cage inviolée en 6 réceptions.", it: "L'Örgryte ha segnato in tutte e 6 le gare casalinghe e non ha mai mantenuto la porta inviolata in casa." },
+        rows: [
+          { sel: { fr: "Djurgården marque (plus de 0,5 but)", it: "Segna il Djurgården (oltre 0,5 gol)" }, dec: 1.06, frac: "1/16" },
+          { sel: { fr: "Djurgården plus de 1,5 but (2+ buts)", it: "Djurgården oltre 1,5 gol (2+ gol)" }, dec: 1.34, frac: "10/29" },
+          { sel: { fr: "Djurgården plus de 2,5 buts (3+ buts)", it: "Djurgården oltre 2,5 gol (3+ gol)" }, dec: 2.05, frac: "21/20" },
+          { sel: { fr: "Örgryte marque (plus de 0,5 but)", it: "Segna l'Örgryte (oltre 0,5 gol)" }, dec: 1.55, frac: "11/20" },
+          { sel: { fr: "Örgryte ne marque pas", it: "L'Örgryte non segna" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.67, frac: "4/6" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.30, frac: "13/10" }
+        ]
+      },
+      {
+        category: { fr: "Résultat combiné, marge & clean sheet", it: "Esito combinato, scarto & clean sheet" },
+        note: { fr: "⚠ Le pari « Djurgården gagne sans encaisser » (2.70) est le piège du match : Örgryte marque à chaque réception.", it: "⚠ La scommessa « Djurgården vince senza subire » (2.70) è la trappola della gara: l'Örgryte segna in ogni gara interna." },
+        rows: [
+          { sel: { fr: "Djurgården gagne & les deux marquent", it: "Vince il Djurgården & entrambe segnano" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Djurgården gagne sans encaisser (piège)", it: "Djurgården vince senza subire (trappola)" }, dec: 2.70, frac: "17/10" },
+          { sel: { fr: "Djurgården gagne par 1 but", it: "Djurgården vince di 1 gol" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Djurgården gagne par 2 buts", it: "Djurgården vince di 2 gol" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "Djurgården gagne par 3 buts ou plus", it: "Djurgården vince di 3+ gol" }, dec: 6.00, frac: "5/1" },
+          { sel: { fr: "Match nul (score de parité)", it: "Pareggio (con gol)" }, dec: 6.00, frac: "5/1" },
+          { sel: { fr: "Örgryte gagne par 1 but", it: "Örgryte vince di 1 gol" }, dec: 10.0, frac: "9/1" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps (résultat & score 1ère MT)", it: "Primo tempo (esito & risultato 1° tempo)" },
+        rows: [
+          { sel: { fr: "Résultat mi-temps : Djurgården", it: "Esito primo tempo: Djurgården" }, dec: 1.80, frac: "4/5" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 2.90, frac: "19/10" },
+          { sel: { fr: "Résultat mi-temps : Örgryte", it: "Esito primo tempo: Örgryte" }, dec: 7.00, frac: "6/1" },
+          { sel: { fr: "Score 1ère MT : Djurgården 1-0 (favori)", it: "Risultato 1° tempo: Djurgården 1-0 (favorito)" }, dec: 3.85, frac: "57/20" },
+          { sel: { fr: "Score 1ère MT : 0-0", it: "Risultato 1° tempo: 0-0" }, dec: 4.50, frac: "7/2" },
+          { sel: { fr: "Score 1ère MT : Djurgården 2-0", it: "Risultato 1° tempo: Djurgården 2-0" }, dec: 6.50, frac: "11/2" },
+          { sel: { fr: "Djurgården marque en premier", it: "Segna per primo il Djurgården" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Örgryte marque en premier", it: "Segna per primo l'Örgryte" }, dec: 3.50, frac: "5/2" }
+        ]
+      },
+      {
+        category: { fr: "Buteurs (2 buts ou plus, hat-trick)", it: "Marcatori (doppietta, tripletta)" },
+        note: { fr: "⚠ Piège repéré : Tobias Sana (Örgryte) figure encore dans les listes de buteurs alors qu'il est SUSPENDU (3ᵉ carton jaune). Ne pas parier sur lui.", it: "⚠ Trappola rilevata: Tobias Sana (Örgryte) compare ancora tra i marcatori benché sia SQUALIFICATO (3° cartellino giallo). Non scommetterci." },
+        rows: [
+          { sel: "Kristian Strømland Lien (Djurgården) — 2 buts ou +", dec: 5.50, frac: "9/2" },
+          { sel: "Bo Asulv Hegland (Djurgården) — 2 buts ou +", dec: 8.50, frac: "15/2" },
+          { sel: "Joel Asoro — 2 buts ou +", dec: 10.0, frac: "9/1" },
+          { sel: "Nino Zugelj — 2 buts ou +", dec: 13.0, frac: "12/1" },
+          { sel: "Hannes Hyllenbom — 2 buts ou +", dec: 13.0, frac: "12/1" },
+          { sel: "Kristian Strømland Lien — hat-trick", dec: 21.0, frac: "20/1" }
+        ]
+      },
+      {
+        category: { fr: "Cartons & corners", it: "Cartellini & corner" },
+        note: { fr: "Arbitre : Granit Maqedonci. Aucune statistique de cartons publiée pour lui à l'heure de l'analyse.", it: "Arbitro: Granit Maqedonci. Nessuna statistica cartellini pubblicata su di lui al momento dell'analisi." },
+        rows: [
+          { sel: { fr: "Leon Hien — cartonné", it: "Leon Hien — ammonito" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Aydarus Abukar — cartonné", it: "Aydarus Abukar — ammonito" }, dec: 2.63, frac: "13/8" },
+          { sel: { fr: "Mikael Marques — cartonné", it: "Mikael Marques — ammonito" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Hampus Finndell (Djurgården) — cartonné", it: "Hampus Finndell (Djurgården) — ammonito" }, dec: 3.10, frac: "21/10" },
+          { sel: { fr: "Plus de 8,5 corners", it: "Over 8,5 corner" }, dec: 1.35, frac: "6/17" },
+          { sel: { fr: "Plus de 7,5 corners", it: "Over 7,5 corner" }, dec: 1.18, frac: "2/11" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Djurgården gagne & les deux équipes marquent", it: "Vince il Djurgården & entrambe segnano" }, dec: 2.50, ai: 47,
+        note: { fr: "Le meilleur edge : Djurgården est nettement supérieur mais Örgryte marque à chaque réception (6/6). Probabilité estimée ~47% pour 40% implicite.", it: "Il miglior edge: il Djurgården è nettamente superiore ma l'Örgryte segna in ogni gara interna (6/6). Probabilità stimata ~47% contro 40% implicita." } },
+      { label: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.67, ai: 68,
+        note: { fr: "Djurgården marque à 1.06 (≈94%) et Örgryte a marqué dans ses 6 matchs à domicile : le marché sous-évalue la capacité d'Örgryte à trouver la faille chez lui.", it: "Il Djurgården segna a 1.06 (≈94%) e l'Örgryte ha segnato in tutte e 6 le gare casalinghe: il mercato sottovaluta la capacità dell'Örgryte di segnare in casa." } },
+      { label: { fr: "Plus de 2,5 buts", it: "Over 2,5 gol" }, dec: 1.45, ai: 69,
+        note: { fr: "Quasiment à sa juste valeur, mais c'est la probabilité la plus élevée de toute la page (≈69%) : la base idéale d'un combiné plutôt qu'un pari sec.", it: "Praticamente al suo valore equo, ma è la probabilità più alta di tutta la pagina (≈69%): la base ideale di una multipla più che una singola." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Djurgården", it: "Vittoria Djurgården" },
+      pickShort: "Djurgården IF",
+      score: "1 – 2",
+      goals: { fr: "Plus de 2,5 buts très probable, les deux équipes marquent", it: "Over 2,5 gol molto probabile, entrambe segnano" },
+      confidence: "moyen",
+      value: true,
+      summary: {
+        fr: "Djurgården est largement favori (1.36) et c'est justifié : 5ᵉ avec 19 points en 11 matchs, deux victoires de rang (4-2 à Häcken puis 3-0 contre Halmstad) et une domination historique sur Örgryte (8 victoires contre 4, 7 nuls). En face, Örgryte est 15ᵉ avec 9 points, même s'il vient d'arracher un 4-3 contre Häcken qui a mis fin à 91 jours sans victoire en championnat. Mais l'essentiel de l'analyse n'est pas là : à 1.36, le résultat sec n'offre aucune valeur. Toute la valeur est dans les buts. Örgryte a marqué dans ses 6 matchs à domicile et encaissé dans les 6, les 6 derniers matchs de Djurgården ont tous dépassé 2,5 buts, et l'xG combiné attendu tourne autour de 4,01. C'est pourquoi je recommande le +2,5 buts en base de combiné et « Djurgården gagne & les deux marquent » en simple.",
+        it: "Il Djurgården è nettamente favorito (1.36) ed è giustificato: 5° con 19 punti in 11 gare, due vittorie di fila (4-2 a Häcken poi 3-0 con l'Halmstad) e un dominio storico sull'Örgryte (8 vittorie contro 4, 7 pareggi). Di fronte, l'Örgryte è 15° con 9 punti, pur avendo appena strappato un 4-3 all'Häcken che ha chiuso 91 giorni senza vittorie in campionato. Ma il cuore dell'analisi non è lì: a 1.36 l'esito secco non offre alcun valore. Tutto il valore è nei gol. L'Örgryte ha segnato in tutte e 6 le gare casalinghe e subito in tutte e 6, le ultime 6 del Djurgården hanno superato 2,5 gol e l'xG combinato atteso è circa 4,01. Per questo consiglio l'over 2,5 come base di multipla e « Djurgården vince & entrambe segnano » in singola."
+      },
+      basedOn: {
+        fr: [
+          "Djurgården 5ᵉ (19 pts en 11 matchs) contre Örgryte 15ᵉ (9 pts en 12 matchs)",
+          "Djurgården sur deux victoires nettes : 4-2 à Häcken puis 3-0 contre Halmstad",
+          "Les 6 derniers matchs de Djurgården en Allsvenskan ont TOUS dépassé 2,5 buts",
+          "Örgryte a marqué dans ses 6 matchs à domicile et n'a gardé aucune cage inviolée en 6 réceptions",
+          "xG combiné attendu ≈ 4,01 et total de buts le plus probable = 3",
+          "Historique favorable : Djurgården 8 victoires, Örgryte 4, 7 nuls"
+        ],
+        it: [
+          "Djurgården 5° (19 punti in 11 gare) contro Örgryte 15° (9 punti in 12)",
+          "Djurgården su due vittorie nette: 4-2 a Häcken poi 3-0 con l'Halmstad",
+          "Le ultime 6 gare del Djurgården in Allsvenskan hanno TUTTE superato 2,5 gol",
+          "L'Örgryte ha segnato in tutte e 6 le gare casalinghe e non ha mai mantenuto la porta inviolata",
+          "xG combinato atteso ≈ 4,01 e totale gol più probabile = 3",
+          "Precedenti favorevoli: Djurgården 8 vittorie, Örgryte 4, 7 pareggi"
+        ]
+      },
+      against: {
+        fr: [
+          "À 1.36, la victoire de Djurgården n'offre aucune valeur : inutile de la jouer sèche",
+          "Örgryte vient de gagner 4-3 contre Häcken et retrouve de la confiance à domicile",
+          "Örgryte est privé de Tobias Sana (suspendu, 3ᵉ carton) — mais il reste coté buteur sur oddschecker, c'est un piège",
+          "Un match d'Allsvenskan entre une équipe en confiance et un mal-classé qui se libère reste volatil",
+          "Aucune AI Probability sur l'Allsvenskan : les probabilités sont mes estimations, pas des chiffres officiels",
+          "Aucune statistique de cartons publiée sur l'arbitre Granit Maqedonci"
+        ],
+        it: [
+          "A 1.36 la vittoria del Djurgården non offre valore: inutile giocarla secca",
+          "L'Örgryte ha appena vinto 4-3 con l'Häcken e ritrova fiducia in casa",
+          "L'Örgryte è privo di Tobias Sana (squalificato, 3° cartellino) — ma resta quotato marcatore su oddschecker: è una trappola",
+          "Una gara di Allsvenskan tra una squadra in fiducia e una in difficoltà che si libera resta volatile",
+          "Nessuna AI Probability sull'Allsvenskan: le probabilità sono mie stime, non dati ufficiali",
+          "Nessuna statistica cartellini pubblicata sull'arbitro Granit Maqedonci"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Örgryte IS", it: "Örgryte IS" }, flag: "🔴", coach: "—",
+        lineup: { fr: "Compo non communiquée à l'heure de l'analyse — Tobias Sana (ailier offensif) est suspendu.", it: "Formazione non comunicata al momento dell'analisi — Tobias Sana (ala offensiva) è squalificato." },
+        style: { fr: "Équipe qui marque toujours à domicile mais qui encaisse systématiquement : profil offensif mais défense très perméable à Gamla Ullevi.", it: "Squadra che segna sempre in casa ma subisce sistematicamente: profilo offensivo ma difesa molto permeabile al Gamla Ullevi." },
+        absences: {
+          fr: ["Tobias Sana — suspendu (3ᵉ carton jaune)", "⚠ Sana reste pourtant coté buteur sur oddschecker : ne pas parier sur lui"],
+          it: ["Tobias Sana — squalificato (3° cartellino giallo)", "⚠ Sana resta comunque quotato marcatore su oddschecker: non scommetterci"]
+        },
+        physical: { fr: "Calendrier normal de championnat. Match à domicile, pas de déplacement.", it: "Calendario normale di campionato. Gara in casa, nessuna trasferta." },
+        form: { fr: "15ᵉ avec 9 points en 12 matchs. Vient de battre Häcken 4-3, mettant fin à 91 jours sans victoire en championnat.", it: "15° con 9 punti in 12 gare. Ha appena battuto l'Häcken 4-3, chiudendo 91 giorni senza vittorie in campionato." },
+        xg: { fr: "A marqué dans 6 matchs sur 6 à domicile ; aucun clean sheet en 6 réceptions. Contribue fortement au scénario « beaucoup de buts ».", it: "Ha segnato in 6 gare su 6 in casa; nessun clean sheet in 6 partite interne. Contribuisce molto allo scenario « tanti gol »." },
+        context: { fr: "Zone de relégation en ligne de mire : la victoire contre Häcken peut relancer la confiance, mais l'écart de niveau reste net.", it: "Zona retrocessione all'orizzonte: la vittoria con l'Häcken può rilanciare la fiducia, ma il divario tecnico resta netto." },
+        source: "Betshoot / Dailysports / SportsGambler (20/07/2026)"
+      },
+      away: {
+        name: { fr: "Djurgården IF", it: "Djurgården IF" }, flag: "🔵", coach: "—",
+        lineup: "Rinne — P. Johansson, Une Larsson, Tenho, M. Larsson — Finndell, Stensson — Aslund, Hegland, Fallenius — Strømland Lien (4-2-3-1, compo probable)",
+        style: { fr: "Bloc structuré en 4-2-3-1, volume offensif élevé et efficacité devant : 4-2 puis 3-0 lors des deux dernières sorties.", it: "Blocco strutturato in 4-2-3-1, alto volume offensivo ed efficacia sotto porta: 4-2 poi 3-0 nelle ultime due uscite." },
+        absences: {
+          fr: ["Aucune absence majeure signalée à l'heure de l'analyse"],
+          it: ["Nessuna assenza rilevante segnalata al momento dell'analisi"]
+        },
+        physical: { fr: "Déplacement Stockholm → Göteborg, trajet interne à la Suède sans surcharge de calendrier.", it: "Trasferta Stoccolma → Göteborg, spostamento interno alla Svezia senza sovraccarico di calendario." },
+        form: { fr: "5ᵉ avec 19 points en 11 matchs. Deux victoires consécutives : 4-2 en déplacement à Häcken et 3-0 contre Halmstad.", it: "5° con 19 punti in 11 gare. Due vittorie consecutive: 4-2 in trasferta a Häcken e 3-0 con l'Halmstad." },
+        xg: { fr: "Les 6 derniers matchs en Allsvenskan ont tous dépassé 2,5 buts. Coté à 1.06 pour marquer et 1.34 pour inscrire au moins 2 buts.", it: "Le ultime 6 gare in Allsvenskan hanno tutte superato 2,5 gol. Quotato 1.06 per segnare e 1.34 per almeno 2 gol." },
+        context: { fr: "Série en cours et ambition de recoller au haut de tableau : l'équipe aborde ce déplacement en pleine confiance.", it: "Serie aperta e ambizione di riavvicinarsi alla vetta: la squadra affronta la trasferta in piena fiducia." },
+        source: "SportsGambler / Betshoot / Footballwhispers (20/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🔵", name: "Kristian Strømland Lien", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Le plus court sur « 2 buts ou plus » (5.50) et hat-trick (21.0)", it: "Il più quotato su « doppietta » (5.50) e tripletta (21.0)" }, note: { fr: "Le point de référence offensif de Djurgården.", it: "Il riferimento offensivo del Djurgården." } },
+      { team: "🔵", name: "Bo Asulv Hegland", pos: { fr: "Milieu offensif", it: "Trequartista" }, stat: { fr: "Coté 8.50 sur « 2 buts ou plus »", it: "Quotato 8.50 su « doppietta »" }, note: { fr: "Deuxième menace offensive du 4-2-3-1.", it: "Seconda minaccia offensiva del 4-2-3-1." } },
+      { team: "🔵", name: "Hampus Finndell", pos: { fr: "Milieu défensif", it: "Mediano" }, stat: { fr: "Coté 3.10 sur « joueur cartonné »", it: "Quotato 3.10 su « giocatore ammonito »" }, note: { fr: "Récupérateur, profil à cartons.", it: "Recuperatore, profilo da cartellino." } },
+      { team: "🔴", name: "Tobias Sana", pos: { fr: "Ailier offensif", it: "Ala offensiva" }, stat: { fr: "SUSPENDU (3ᵉ carton jaune)", it: "SQUALIFICATO (3° cartellino giallo)" }, note: { fr: "⚠ Toujours coté buteur sur oddschecker alors qu'il ne jouera pas.", it: "⚠ Ancora quotato marcatore su oddschecker pur non giocando." } },
+      { team: "🔴", name: "Leon Hien", pos: { fr: "Défenseur", it: "Difensore" }, stat: { fr: "Le plus court sur « joueur cartonné » (2.50)", it: "Il più quotato su « giocatore ammonito » (2.50)" }, note: { fr: "Profil à cartons face à une attaque rapide.", it: "Profilo da cartellino contro un attacco rapido." } },
+      { team: "🔴", name: "Joel Asoro", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Coté 10.0 sur « 2 buts ou plus »", it: "Quotato 10.0 su « doppietta »" }, note: { fr: "Principale option offensive d'Örgryte sans Sana.", it: "Principale opzione offensiva dell'Örgryte senza Sana." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "Djurgården domine l'historique : 8 victoires contre 4 à Örgryte, avec 7 matchs nuls. Le rapport de force est constant sur la durée.", it: "Il Djurgården domina i precedenti: 8 vittorie contro 4 dell'Örgryte, con 7 pareggi. Il rapporto di forza è costante nel tempo." },
+      referee: { fr: "Granit Maqedonci. Aucune statistique publiée de cartons ou penaltys pour cet arbitre à l'heure de l'analyse — impossible d'en tirer un angle sur les marchés cartons.", it: "Granit Maqedonci. Nessuna statistica pubblicata su cartellini o rigori per questo arbitro al momento dell'analisi — impossibile ricavarne un angolo sui mercati cartellini." },
+      stake: { fr: "13ᵉ journée d'Allsvenskan. Djurgården (5ᵉ, 19 pts) veut enchaîner une 3ᵉ victoire et se rapprocher du podium ; Örgryte (15ᵉ, 9 pts) joue son maintien et vient de relancer sa saison contre Häcken.", it: "13ª giornata di Allsvenskan. Il Djurgården (5°, 19 pt) vuole la 3ª vittoria di fila e avvicinare il podio; l'Örgryte (15°, 9 pt) gioca la salvezza e ha appena rilanciato la stagione con l'Häcken." },
+      external: { fr: "Match en soirée au Gamla Ullevi de Göteborg, en plein été suédois : conditions douces et pelouse en bon état, aucun facteur météo pénalisant attendu. Déplacement interne à la Suède pour Djurgården.", it: "Gara serale al Gamla Ullevi di Göteborg, in piena estate svedese: condizioni miti e campo in buono stato, nessun fattore meteo penalizzante atteso. Trasferta interna alla Svezia per il Djurgården." },
+      supercomputer: { fr: "Le marché est très tranché : Djurgården ≈70%, nul ≈18%, Örgryte ≈12%. C'est justement pour cela que la valeur est dans les marchés de buts, pas sur le résultat.", it: "Il mercato è molto netto: Djurgården ≈70%, pareggio ≈18%, Örgryte ≈12%. Proprio per questo il valore è nei mercati dei gol, non sull'esito." }
+    },
+
+    sources: [
+      { label: "Betshoot — preview & stats", url: "https://www.betshoot.com/football/19635948-%C3%96rgryte-vs-Djurg%C3%A5rden-prediction/" },
+      { label: "SportsGambler — lineups & odds", url: "https://www.sportsgambler.com/betting-tips/football/orgryte-ff-vs-djurgarden-prediction-lineups-odds-2026-07-20/" },
+      { label: "Dailysports — forme & absences", url: "https://dailysports.net/predictions/the-visitors-are-picking-up-steam-prediction-for-rgryte-vs-djurgrden/" },
+      { label: "Footballwhispers — preview", url: "https://footballwhispers.com/blog/orgryte-is-vs-djurgardens-if-prediction-20-07-2026/" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/sweden/allsvenskan/orgryte-v-djurgarden/winner" }
+    ]
+  },
+  {
     id: "kalmar-malmo-2026-07-20",
     competition: { fr: "Allsvenskan (Suède) — 13ᵉ journée", it: "Allsvenskan (Svezia) — 13ª giornata" },
     date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },

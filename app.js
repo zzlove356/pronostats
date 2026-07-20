@@ -206,8 +206,8 @@ function teamPanel(tm){
   <div class="team-panel">
     <div class="th"><span class="flag">${tm.flag}</span>${esc(tr(tm.name))}</div>
     <ul>
-      <li><b>${esc(t("tp_coach"))} :</b> ${esc(tm.coach)}</li>
-      <li><b>${esc(t("tp_lineup"))} :</b> ${esc(tm.lineup)}</li>
+      <li><b>${esc(t("tp_coach"))} :</b> ${esc(tr(tm.coach))}</li>
+      <li><b>${esc(t("tp_lineup"))} :</b> ${esc(tr(tm.lineup))}</li>
       <li><b>${esc(t("tp_absences"))} :</b><br>${tr(tm.absences).map(a=>"• "+esc(a)).join("<br>")}</li>
       <li><b>${esc(t("tp_physical"))} :</b> ${esc(tr(tm.physical))}</li>
       <li><b>${esc(t("tp_form"))} :</b> ${esc(tr(tm.form))}</li>
