@@ -11,6 +11,191 @@
 
 const MATCHES = [
   {
+    id: "rapid-sepsi-2026-07-20",
+    competition: { fr: "SuperLiga (Roumanie) — 1ʳᵉ journée", it: "SuperLiga (Romania) — 1ª giornata" },
+    date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
+    kickoff: { fr: "20:30 (heure de Paris)", it: "20:30 (ora italiana)" },
+    venue: "Stadionul Rapid-Giulești, Bucarest (Roumanie)",
+    home: { name: { fr: "Rapid Bucarest", it: "Rapid Bucarest" }, flag: "🟤" },
+    away: { name: { fr: "Sepsi Sf. Gheorghe", it: "Sepsi Sf. Gheorghe" }, flag: "🔴" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 54, draw: 27, away: 19 },
+      best: {
+        home: { dec: 1.75, frac: "3/4", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 3.75, frac: "11/4", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 5.00, frac: "4/1", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    simpleBet: {
+      sel: { fr: "Match nul", it: "Pareggio" },
+      dec: 3.75, frac: "11/4", book: "top des bookmakers (oddschecker)", ai: 32,
+      why: {
+        fr: "Le meilleur value de la page, et il vient de l'historique. Sur 13 confrontations, 6 se sont terminées par un nul (46%) et surtout Sepsi est INVAINCU lors de ses 8 derniers matchs de championnat contre Rapid. En face, Rapid n'a gagné aucun de ses 4 derniers matchs de championnat à domicile la saison passée et n'a pas gagné ses 3 derniers amicaux de préparation. Même en régressant fortement le taux de nuls historique, j'estime la probabilité autour de 32% contre 27% implicite → environ +20% de valeur. ⚠ Pas d'AI Probability sur la SuperLiga : c'est MON estimation.",
+        it: "Il miglior value della pagina, e viene dai precedenti. Su 13 confronti, 6 sono finiti in pareggio (46%) e soprattutto il Sepsi è IMBATTUTO nelle ultime 8 gare di campionato contro il Rapid. Di contro, il Rapid non ha vinto nessuna delle ultime 4 gare interne di campionato della scorsa stagione né le ultime 3 amichevoli. Anche regredendo fortemente il tasso storico di pareggi, stimo la probabilità intorno al 32% contro il 27% implicito → circa +20% di valore. ⚠ Nessuna AI Probability sulla SuperLiga: è una MIA stima."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "⚠ Marchés disponibles très limités sur ce match", it: "⚠ Mercati disponibili molto limitati su questa partita" },
+        note: { fr: "La page détaillée du match est CASSÉE sur oddschecker : le lien officiel du comparateur renvoie lui-même une erreur 404. Seuls 7 marchés restent accessibles via le sélecteur de la page Liga I. Impossible donc d'analyser les buts total/exact, les buts par mi-temps, le score exact, la marge de victoire, les buteurs, les tirs, les corners ou les cartons. C'est signalé plutôt que masqué — et c'est la raison pour laquelle aucun pari safe n'est proposé sur ce match.", it: "La pagina dettagliata è ROTTA su oddschecker: il link ufficiale del comparatore restituisce esso stesso un errore 404. Restano accessibili solo 7 mercati tramite il selettore della pagina Liga I. Impossibile quindi analizzare gol totali/esatti, gol per tempo, risultato esatto, scarto, marcatori, tiri, corner o cartellini. Lo segnaliamo invece di nasconderlo — ed è il motivo per cui non viene proposta alcuna scommessa sicura su questa gara." },
+        rows: [
+          { sel: { fr: "Marchés absents : buts total/exact, buts par mi-temps, score exact, marge, buteurs, tirs, corners, cartons", it: "Mercati assenti: gol totali/esatti, gol per tempo, risultato esatto, scarto, marcatori, tiri, corner, cartellini" }, dec: null, frac: "page 404" }
+        ]
+      },
+      {
+        category: { fr: "Résultat & remboursé si nul", it: "Esito & rimborso se pareggio" },
+        rows: [
+          { sel: { fr: "Rapid Bucarest (1)", it: "Rapid Bucarest (1)" }, dec: 1.75, frac: "3/4" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.75, frac: "11/4" },
+          { sel: { fr: "Sepsi Sf. Gheorghe (2)", it: "Sepsi Sf. Gheorghe (2)" }, dec: 5.00, frac: "4/1" },
+          { sel: { fr: "Rapid remboursé si nul (Draw No Bet)", it: "Rapid rimborso se pareggio (DNB)" }, dec: 1.30, frac: "3/10" },
+          { sel: { fr: "Sepsi remboursé si nul (Draw No Bet)", it: "Sepsi rimborso se pareggio (DNB)" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Sepsi ou nul (double chance, calculé depuis le 1N2)", it: "Sepsi o pareggio (doppia chance, calcolata dall'1X2)" }, dec: 2.10, frac: "≈ 11/10" }
+        ]
+      },
+      {
+        category: { fr: "Les deux équipes marquent & combinés", it: "Entrambe segnano & combo" },
+        rows: [
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.89, frac: "8/9" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.00, frac: "1/1" },
+          { sel: { fr: "Rapid gagne & les deux marquent", it: "Vince il Rapid & entrambe segnano" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "Nul & les deux marquent", it: "Pareggio & entrambe segnano" }, dec: 5.25, frac: "17/4" },
+          { sel: { fr: "Sepsi gagne & les deux marquent", it: "Vince il Sepsi & entrambe segnano" }, dec: 9.50, frac: "17/2" }
+        ]
+      },
+      {
+        category: { fr: "Clean sheet, mi-temps & handicap", it: "Clean sheet, primo tempo & handicap" },
+        rows: [
+          { sel: { fr: "Rapid gagne sans encaisser", it: "Il Rapid vince senza subire" }, dec: 3.00, frac: "2/1" },
+          { sel: { fr: "Sepsi gagne sans encaisser", it: "Il Sepsi vince senza subire" }, dec: 9.00, frac: "8/1" },
+          { sel: { fr: "Rapid gagne les deux mi-temps", it: "Il Rapid vince entrambi i tempi" }, dec: 5.00, frac: "4/1" },
+          { sel: { fr: "Sepsi gagne les deux mi-temps", it: "Il Sepsi vince entrambi i tempi" }, dec: 26.0, frac: "25/1" },
+          { sel: { fr: "Handicap 1ʳᵉ MT : Rapid -1", it: "Handicap 1° tempo: Rapid -1" }, dec: 6.50, frac: "11/2" },
+          { sel: { fr: "Handicap 1ʳᵉ MT : nul (-1)", it: "Handicap 1° tempo: pareggio (-1)" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Handicap 1ʳᵉ MT : Sepsi +1", it: "Handicap 1° tempo: Sepsi +1" }, dec: 16.0, frac: "15/1" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Match nul", it: "Pareggio" }, dec: 3.75, ai: 32,
+        note: { fr: "Le meilleur rapport valeur/risque : 6 nuls sur 13 confrontations, Sepsi invaincu lors des 8 derniers duels de championnat contre Rapid, et Rapid sans victoire sur ses 4 derniers matchs à domicile.", it: "Il miglior rapporto valore/rischio: 6 pareggi su 13 confronti, Sepsi imbattuto negli ultimi 8 scontri di campionato col Rapid e Rapid senza vittorie nelle ultime 4 gare interne." } },
+      { label: { fr: "Sepsi ou nul (double chance)", it: "Sepsi o pareggio (doppia chance)" }, dec: 2.10, ai: 55,
+        note: { fr: "La version à variance réduite du même raisonnement : il suffit que Rapid ne gagne pas. ⚠ Cote calculée depuis le 1N2 — le marché double chance n'est pas listé par oddschecker sur ce match, vérifie le prix chez ton bookmaker.", it: "La versione a varianza ridotta dello stesso ragionamento: basta che il Rapid non vinca. ⚠ Quota calcolata dall'1X2 — il mercato doppia chance non è elencato da oddschecker su questa gara, verifica il prezzo dal tuo bookmaker." } },
+      { label: { fr: "Victoire Sepsi", it: "Vittoria Sepsi" }, dec: 5.00, ai: 26,
+        note: { fr: "La plus grosse valeur théorique (+30%) mais aussi la plus risquée : Sepsi n'a perdu que 2 de ses 18 derniers matchs depuis février et reste invaincu contre Rapid, mais gagner à Giulești reste difficile. À réserver à une petite mise.", it: "Il valore teorico più alto (+30%) ma anche il più rischioso: il Sepsi ha perso solo 2 delle ultime 18 gare da febbraio ed è imbattuto col Rapid, ma vincere a Giulești resta difficile. Da riservare a una piccola puntata." } },
+      { label: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.00, ai: 52,
+        note: { fr: "Value légère : 67% des 6 dernières confrontations sont passées sous 2,5 buts, ce duel est traditionnellement fermé.", it: "Value leggero: il 67% degli ultimi 6 confronti è finito sotto i 2,5 gol, questa sfida è tradizionalmente chiusa." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Match nul", it: "Pareggio" },
+      pickShort: "Nul",
+      score: "1 – 1",
+      goals: { fr: "Duel traditionnellement fermé : 67% des 6 derniers sous 2,5 buts", it: "Sfida tradizionalmente chiusa: 67% degli ultimi 6 sotto i 2,5 gol" },
+      confidence: "moyen",
+      value: true,
+      summary: {
+        fr: "Le marché fait de Rapid le favori à 1.75, mais l'historique et la forme racontent une autre histoire. Sepsi est INVAINCU lors de ses 8 derniers matchs de championnat contre Rapid, et sur les 13 confrontations récentes on compte 6 nuls (46%) pour 4 victoires de Sepsi et 3 de Rapid. Ajoutons que Rapid n'a gagné aucun de ses 4 derniers matchs de championnat à domicile la saison passée et qu'il n'a pas gagné ses 3 derniers amicaux de préparation, tandis que Sepsi n'a perdu que 2 de ses 18 derniers matchs depuis février et reste invaincu sur ses 3 amicaux. Ce duel est en plus historiquement fermé : 67% des 6 dernières confrontations sont passées sous 2,5 buts. Conclusion : Rapid à 1.75 est trop court, la valeur est sur le nul et plus largement sur « Rapid ne gagne pas ».",
+        it: "Il mercato rende il Rapid favorito a 1.75, ma precedenti e forma raccontano un'altra storia. Il Sepsi è IMBATTUTO nelle ultime 8 gare di campionato contro il Rapid e, sui 13 confronti recenti, si contano 6 pareggi (46%) contro 4 vittorie del Sepsi e 3 del Rapid. Aggiungiamo che il Rapid non ha vinto nessuna delle ultime 4 gare interne di campionato della scorsa stagione né le ultime 3 amichevoli, mentre il Sepsi ha perso solo 2 delle ultime 18 gare da febbraio ed è imbattuto nelle 3 amichevoli. Questa sfida è inoltre storicamente chiusa: il 67% degli ultimi 6 confronti è finito sotto i 2,5 gol. Conclusione: il Rapid a 1.75 è troppo corto, il valore è sul pareggio e più in generale su « il Rapid non vince »."
+      },
+      basedOn: {
+        fr: [
+          "Sepsi est invaincu lors de ses 8 derniers matchs de championnat contre Rapid",
+          "6 nuls sur les 13 confrontations récentes (46%), contre 4 victoires Sepsi et 3 Rapid",
+          "Rapid n'a gagné aucun de ses 4 derniers matchs de championnat à domicile la saison passée",
+          "Rapid n'a pas gagné ses 3 derniers matchs amicaux de préparation",
+          "Sepsi n'a perdu que 2 de ses 18 derniers matchs depuis février et est invaincu en amical (2 victoires sur 3)",
+          "67% des 6 dernières confrontations se sont terminées sous 2,5 buts"
+        ],
+        it: [
+          "Il Sepsi è imbattuto nelle ultime 8 gare di campionato contro il Rapid",
+          "6 pareggi sui 13 confronti recenti (46%), contro 4 vittorie del Sepsi e 3 del Rapid",
+          "Il Rapid non ha vinto nessuna delle ultime 4 gare interne di campionato della scorsa stagione",
+          "Il Rapid non ha vinto le ultime 3 amichevoli di preparazione",
+          "Il Sepsi ha perso solo 2 delle ultime 18 gare da febbraio ed è imbattuto in amichevole (2 vittorie su 3)",
+          "Il 67% degli ultimi 6 confronti è finito sotto i 2,5 gol"
+        ]
+      },
+      against: {
+        fr: [
+          "Aucun pari SAFE proposé sur ce match : la page détaillée d'oddschecker est en erreur 404 et seuls 7 marchés sont accessibles, dont aucun dans la fourchette 1,25–1,60 qui soit défendable",
+          "Rapid joue à domicile devant son public à Giulești, avec un effectif théoriquement supérieur",
+          "C'est la 1ʳᵉ journée : la forme de la saison passée et les amicaux ne prédisent pas toujours bien le niveau réel",
+          "Aucune composition probable publiée, aucun arbitre annoncé, aucune info blessures fiable trouvée",
+          "Aucune AI Probability sur la SuperLiga roumaine : toutes les probabilités sont mes estimations",
+          "Parier sur le nul reste un pari à variance élevée : même avec 46% d'historique, il ne se réalise qu'environ une fois sur trois"
+        ],
+        it: [
+          "Nessuna scommessa SICURA proposta: la pagina dettagliata di oddschecker è in errore 404 e restano solo 7 mercati, nessuno dei quali difendibile nella fascia 1,25–1,60",
+          "Il Rapid gioca in casa davanti al proprio pubblico a Giulești, con una rosa teoricamente superiore",
+          "È la 1ª giornata: la forma della scorsa stagione e le amichevoli non predicono sempre bene il livello reale",
+          "Nessuna formazione probabile pubblicata, nessun arbitro annunciato, nessuna info affidabile sugli infortuni",
+          "Nessuna AI Probability sulla SuperLiga rumena: tutte le probabilità sono mie stime",
+          "Puntare sul pareggio resta ad alta varianza: anche con il 46% storico, si verifica solo circa una volta su tre"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Rapid Bucarest", it: "Rapid Bucarest" }, flag: "🟤", coach: "—",
+        lineup: { fr: "Composition non publiée à l'heure de l'analyse (1ʳᵉ journée).", it: "Formazione non pubblicata al momento dell'analisi (1ª giornata)." },
+        style: { fr: "Grand club de Bucarest, favori sur le papier et à domicile, mais en difficulté chronique contre Sepsi et sur ses dernières réceptions.", it: "Grande club di Bucarest, favorito sulla carta e in casa, ma in difficoltà cronica contro il Sepsi e nelle ultime gare interne." },
+        absences: {
+          fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"],
+          it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"]
+        },
+        physical: { fr: "Premier match officiel de la saison : effectif frais mais rythme de compétition encore à trouver. Match à domicile, pas de déplacement.", it: "Prima gara ufficiale della stagione: rosa fresca ma ritmo partita ancora da trovare. Gara in casa, nessuna trasferta." },
+        form: { fr: "Préparation décevante : après un 3-1 contre le Dynamo Kyiv, Rapid n'a plus gagné (2 nuls et 1 défaite sur les 3 amicaux suivants). La saison passée, aucune victoire sur ses 4 derniers matchs de championnat à domicile.", it: "Preparazione deludente: dopo un 3-1 con la Dinamo Kiev, il Rapid non ha più vinto (2 pareggi e 1 sconfitta nelle 3 amichevoli seguenti). La scorsa stagione, nessuna vittoria nelle ultime 4 gare interne." },
+        xg: { fr: "Aucune donnée xG publiée pour ce match ; les marchés de buts ne sont pas ouverts (page oddschecker en 404).", it: "Nessun dato xG pubblicato; i mercati dei gol non sono aperti (pagina oddschecker in 404)." },
+        context: { fr: "Ouverture de saison à domicile devant un public exigeant : pression forte sur une équipe qui reste sur une série sans victoire à Giulești.", it: "Apertura di stagione in casa davanti a un pubblico esigente: forte pressione su una squadra reduce da una serie senza vittorie a Giulești." },
+        source: "Sportytrader / MightyTips / aFootballReport (20/07/2026)"
+      },
+      away: {
+        name: { fr: "Sepsi Sf. Gheorghe", it: "Sepsi Sf. Gheorghe" }, flag: "🔴", coach: "—",
+        lineup: { fr: "Composition non publiée à l'heure de l'analyse.", it: "Formazione non pubblicata al momento dell'analisi." },
+        style: { fr: "Équipe difficile à battre, très solide dans la durée : seulement 2 défaites sur ses 18 derniers matchs depuis février. Profil de bloc compact qui neutralise Rapid depuis 8 confrontations.", it: "Squadra difficile da battere, molto solida nel tempo: solo 2 sconfitte nelle ultime 18 gare da febbraio. Profilo di blocco compatto che neutralizza il Rapid da 8 confronti." },
+        absences: {
+          fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"],
+          it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"]
+        },
+        physical: { fr: "Déplacement Sfântu Gheorghe → Bucarest (environ 200 km), trajet notable mais sans surcharge : c'est le premier match officiel de la saison.", it: "Trasferta Sfântu Gheorghe → Bucarest (circa 200 km), viaggio notevole ma senza sovraccarico: è la prima gara ufficiale della stagione." },
+        form: { fr: "De retour en SuperLiga après un an d'absence. Invaincu sur ses 3 amicaux (2 victoires), 3 victoires sur ses 6 derniers matchs la saison passée dont des succès contre CSA Steaua et Corvinul Hunedoara, et seulement 2 défaites en 18 matchs depuis février.", it: "Di ritorno in SuperLiga dopo un anno. Imbattuto nelle 3 amichevoli (2 vittorie), 3 vittorie nelle ultime 6 gare della scorsa stagione inclusi successi con CSA Steaua e Corvinul Hunedoara, e solo 2 sconfitte in 18 gare da febbraio." },
+        xg: { fr: "Aucune donnée xG publiée ; les marchés de buts ne sont pas ouverts sur ce match.", it: "Nessun dato xG pubblicato; i mercati dei gol non sono aperti su questa gara." },
+        context: { fr: "Retour dans l'élite avec une dynamique très positive et un ascendant psychologique net sur Rapid (invaincu sur les 8 derniers duels).", it: "Ritorno nell'élite con una dinamica molto positiva e un netto ascendente psicologico sul Rapid (imbattuto negli ultimi 8 confronti)." },
+        source: "Sportytrader / MightyTips / SoccerPunter (20/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🟤", name: { fr: "Effectif Rapid", it: "Rosa Rapid" }, pos: { fr: "—", it: "—" }, stat: { fr: "Aucun marché buteur ouvert (page match en 404)", it: "Nessun mercato marcatori aperto (pagina in 404)" }, note: { fr: "Impossible d'isoler un joueur clé coté sur ce match.", it: "Impossibile isolare un giocatore chiave quotato su questa gara." } },
+      { team: "🔴", name: { fr: "Effectif Sepsi", it: "Rosa Sepsi" }, pos: { fr: "—", it: "—" }, stat: { fr: "2 défaites seulement en 18 matchs depuis février", it: "Solo 2 sconfitte in 18 gare da febbraio" }, note: { fr: "C'est la solidité collective, pas un individu, qui porte le signal.", it: "È la solidità collettiva, non un individuo, a dare il segnale." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "13 confrontations récentes : Sepsi 4 victoires, Rapid 3, et 6 matchs nuls (46%). Surtout, Sepsi est invaincu lors de ses 8 derniers matchs de championnat contre Rapid — c'est la donnée la plus forte de cette analyse. 67% des 6 derniers duels sont passés sous 2,5 buts.", it: "13 confronti recenti: Sepsi 4 vittorie, Rapid 3 e 6 pareggi (46%). Soprattutto, il Sepsi è imbattuto nelle ultime 8 gare di campionato contro il Rapid — è il dato più forte di questa analisi. Il 67% degli ultimi 6 confronti è finito sotto i 2,5 gol." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse. Aucun marché cartons n'est de toute façon proposé sur ce match.", it: "Arbitro non comunicato al momento dell'analisi. Su questa gara non è comunque proposto alcun mercato cartellini." },
+      stake: { fr: "1ʳᵉ journée de SuperLiga 2026/2027. Rapid veut lancer sa saison à domicile après une préparation ratée ; Sepsi fait son retour dans l'élite après un an d'absence, avec une dynamique très positive.", it: "1ª giornata di SuperLiga 2026/2027. Il Rapid vuole lanciare la stagione in casa dopo una preparazione fallita; il Sepsi torna nell'élite dopo un anno, con una dinamica molto positiva." },
+      external: { fr: "Match en soirée (20:30) au Stadionul Rapid-Giulești de Bucarest, en juillet : chaleur résiduelle mais conditions correctes en nocturne. Déplacement d'environ 200 km pour Sepsi, sans impact majeur.", it: "Gara serale (20:30) allo Stadionul Rapid-Giulești di Bucarest, a luglio: caldo residuo ma condizioni accettabili in notturna. Trasferta di circa 200 km per il Sepsi, senza impatto rilevante." },
+      supercomputer: { fr: "Le marché donne Rapid ≈54%, nul ≈27%, Sepsi ≈19%. Mon analyse considère que Rapid est surévalué compte tenu de sa série sans victoire à domicile et de l'invincibilité de Sepsi dans ce duel.", it: "Il mercato dà Rapid ≈54%, pareggio ≈27%, Sepsi ≈19%. La mia analisi ritiene che il Rapid sia sopravvalutato vista la serie senza vittorie in casa e l'imbattibilità del Sepsi in questa sfida." }
+    },
+
+    sources: [
+      { label: "Sportytrader — preview & pronostic", url: "https://www.sportytrader.com/en/betting-tips/rapid-bucuresti-sepsi-osk-sfantu-gheorghe-359784/" },
+      { label: "MightyTips — stats & tips", url: "https://www.mightytips.com/football-predictions/fc-rapid-bucuresti-vs-sepsi-osk-prediction-20-07-2026/" },
+      { label: "aFootballReport — H2H & team stats", url: "https://afootballreport.com/predictions/head-to-head/romania/superliga/rapid-bucure%C8%99ti/sepsi-osk/MTAzMjgtOTY2NQ==" },
+      { label: "SoccerPunter — H2H", url: "https://www.soccerpunter.com/h2h/Rapid-Bucuresti-vs-Sepsi/7773/10238/" },
+      { label: "oddschecker — Liga I (page match en 404)", url: "https://www.oddschecker.com/football/romania/liga-i" }
+    ]
+  },
+  {
     id: "corvinul-csikszereda-2026-07-20",
     competition: { fr: "SuperLiga (Roumanie) — 1ʳᵉ journée", it: "SuperLiga (Romania) — 1ª giornata" },
     date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
