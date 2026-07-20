@@ -11,6 +11,244 @@
 
 const MATCHES = [
   {
+    id: "kalmar-malmo-2026-07-20",
+    competition: { fr: "Allsvenskan (Suède) — 13ᵉ journée", it: "Allsvenskan (Svezia) — 13ª giornata" },
+    date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
+    kickoff: { fr: "19:00 (heure de Paris)", it: "19:00 (ora italiana)" },
+    venue: "Guldfågeln Arena, Kalmar (Suède)",
+    home: { name: { fr: "Kalmar FF", it: "Kalmar FF" }, flag: "🇸🇪" },
+    away: { name: { fr: "Malmö FF", it: "Malmö FF" }, flag: "🔵" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 36, draw: 27, away: 41 },
+      best: {
+        home: { dec: 2.75, frac: "7/4", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 3.70, frac: "27/10", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 2.45, frac: "16/11", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Les deux équipes marquent — Oui (BTTS)", it: "Entrambe le squadre segnano — Sì (BTTS)" },
+      dec: 1.57, frac: "4/7", book: "top des bookmakers (oddschecker)", ai: 66,
+      why: {
+        fr: "Retenu après avoir passé les 21 marchés de la page. Le marché des buts par équipe le confirme directement : Kalmar marque à 1.25 (≈80%) et Malmö marque à 1.22 (≈82%) — soit ≈66% que les deux marquent, pour une cote de 1.57. Malmö plante 2,08 buts/match et Kalmar en encaisse 1,42 à domicile tout en marquant dans la plupart de ses matchs. Pile dans ta cible ~1,50 et bien plus justifié qu'un double chance basique.",
+        it: "Scelto dopo aver passato i 21 mercati della pagina. Il mercato dei gol per squadra lo conferma: il Kalmar segna a 1.25 (≈80%) e il Malmö a 1.22 (≈82%) — cioè ≈66% che segnino entrambe, per una quota di 1.57. Il Malmö segna 2,08 gol/partita e il Kalmar ne subisce 1,42 in casa pur segnando quasi sempre. Perfettamente nel tuo obiettivo ~1,50 e molto più giustificato di una doppia chance banale."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Erik Botheim buteur à tout moment", it: "Erik Botheim marcatore in qualsiasi momento" },
+      dec: 2.38, frac: "11/8", book: "top des bookmakers (oddschecker)", ai: 50,
+      why: {
+        fr: "Le meilleur value de la page : Botheim est le meilleur buteur de Malmö avec 10 buts en 12 matchs (≈0,8/match), son équipe reste sur 3 victoires et affronte la défense de Kalmar qui encaisse 1,42 but/match. Ma probabilité estimée est d'environ 50% pour une cote de 2.38 (proba implicite 42%) → environ +19% de valeur. ⚠ Attention : oddschecker n'affiche pas d'AI Probability sur l'Allsvenskan, cette probabilité est MON estimation à partir des stats, pas un chiffre officiel.",
+        it: "Il miglior value della pagina: Botheim è il capocannoniere del Malmö con 10 gol in 12 gare (≈0,8/partita), la squadra viene da 3 vittorie e affronta la difesa del Kalmar che subisce 1,42 gol/partita. La mia probabilità stimata è circa 50% per una quota di 2.38 (prob. implicita 42%) → circa +19% di valore. ⚠ Attenzione: oddschecker non mostra l'AI Probability sull'Allsvenskan, questa probabilità è una MIA stima dai dati, non un dato ufficiale."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Résultat, doubles chances & remboursé si nul", it: "Esito, doppie chance & rimborso se pareggio" },
+        rows: [
+          { sel: { fr: "Kalmar FF (1)", it: "Kalmar FF (1)" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.70, frac: "27/10" },
+          { sel: { fr: "Malmö FF (2)", it: "Malmö FF (2)" }, dec: 2.45, frac: "16/11" },
+          { sel: { fr: "Double chance — Malmö ou nul (N2)", it: "Doppia chance — Malmö o pareggio (X2)" }, dec: 1.45, frac: "9/20" },
+          { sel: { fr: "Double chance — Kalmar ou nul (1N)", it: "Doppia chance — Kalmar o pareggio (1X)" }, dec: 1.57, frac: "4/7" },
+          { sel: { fr: "Double chance — Kalmar ou Malmö (12)", it: "Doppia chance — Kalmar o Malmö (12)" }, dec: 1.29, frac: "2/7" },
+          { sel: { fr: "Malmö remboursé si nul (Draw No Bet)", it: "Malmö rimborso se pareggio (DNB)" }, dec: 1.80, frac: "4/5" },
+          { sel: { fr: "Kalmar remboursé si nul (Draw No Bet)", it: "Kalmar rimborso se pareggio (DNB)" }, dec: 2.05, frac: "21/20" }
+        ]
+      },
+      {
+        category: { fr: "Buts par équipe & BTTS (le cœur de l'analyse)", it: "Gol per squadra & BTTS (il cuore dell'analisi)" },
+        note: { fr: "Les deux équipes ont une très forte probabilité de marquer : c'est de là que sort le pari safe.", it: "Entrambe hanno un'altissima probabilità di segnare: da qui nasce la scommessa sicura." },
+        rows: [
+          { sel: { fr: "Kalmar marque (plus de 0,5 but)", it: "Segna il Kalmar (oltre 0,5 gol)" }, dec: 1.25, frac: "1/4" },
+          { sel: { fr: "Malmö marque (plus de 0,5 but)", it: "Segna il Malmö (oltre 0,5 gol)" }, dec: 1.22, frac: "2/9" },
+          { sel: { fr: "Malmö plus de 1,5 but (2+ buts)", it: "Malmö oltre 1,5 gol (2+ gol)" }, dec: 2.00, frac: "1/1" },
+          { sel: { fr: "Kalmar plus de 1,5 but (2+ buts)", it: "Kalmar oltre 1,5 gol (2+ gol)" }, dec: 2.25, frac: "5/4" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.57, frac: "4/7" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Malmö gagne & les deux marquent", it: "Vince il Malmö & entrambe segnano" }, dec: 4.33, frac: "10/3" }
+        ]
+      },
+      {
+        category: { fr: "Nombre de buts total & marge de victoire", it: "Numero di gol totali & scarto" },
+        note: { fr: "Match très serré selon le marché : le nul est la marge la plus probable, 2 ou 3 buts le total le plus probable.", it: "Gara molto equilibrata secondo il mercato: il pareggio è lo scarto più probabile, 2 o 3 gol il totale più probabile." },
+        rows: [
+          { sel: { fr: "Total 2 buts exact (le plus probable)", it: "Totale 2 gol esatti (il più probabile)" }, dec: 4.20, frac: "16/5" },
+          { sel: { fr: "Total 3 buts exact", it: "Totale 3 gol esatti" }, dec: 4.35, frac: "57/17" },
+          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 5.50, frac: "9/2" },
+          { sel: { fr: "Total 1 but exact", it: "Totale 1 gol esatto" }, dec: 6.50, frac: "11/2" },
+          { sel: { fr: "Match nul (marge la plus probable)", it: "Pareggio (scarto più probabile)" }, dec: 4.20, frac: "16/5" },
+          { sel: { fr: "Malmö gagne par 1 but", it: "Malmö vince di 1 gol" }, dec: 4.50, frac: "7/2" },
+          { sel: { fr: "Kalmar gagne par 1 but", it: "Kalmar vince di 1 gol" }, dec: 4.75, frac: "15/4" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps (résultat, score 1ère MT, MT/fin)", it: "Primo tempo (esito, risultato 1° tempo, PT/finale)" },
+        rows: [
+          { sel: { fr: "Résultat mi-temps : Nul (favori)", it: "Esito primo tempo: Pareggio (favorito)" }, dec: 2.40, frac: "7/5" },
+          { sel: { fr: "Résultat mi-temps : Malmö", it: "Esito primo tempo: Malmö" }, dec: 3.00, frac: "2/1" },
+          { sel: { fr: "Résultat mi-temps : Kalmar", it: "Esito primo tempo: Kalmar" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Score 1ère MT : 0-0 (favori)", it: "Risultato 1° tempo: 0-0 (favorito)" }, dec: 3.50, frac: "5/2" },
+          { sel: { fr: "Mi-temps/fin : Malmö / Malmö", it: "PT/Finale: Malmö / Malmö" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Mi-temps/fin : Nul / Malmö", it: "PT/Finale: Pareggio / Malmö" }, dec: 6.50, frac: "11/2" }
+        ]
+      },
+      {
+        category: { fr: "Score exact & premier but", it: "Risultato esatto & primo gol" },
+        rows: [
+          { sel: { fr: "Nul 1-1 (score le plus probable)", it: "Pareggio 1-1 (risultato più probabile)" }, dec: 7.50, frac: "13/2" },
+          { sel: { fr: "Malmö 2-1", it: "Malmö 2-1" }, dec: 10.0, frac: "9/1" },
+          { sel: { fr: "Kalmar 2-1", it: "Kalmar 2-1" }, dec: 10.0, frac: "9/1" },
+          { sel: { fr: "Malmö 1-0", it: "Malmö 1-0" }, dec: 11.0, frac: "10/1" },
+          { sel: { fr: "Malmö marque en premier", it: "Segna per primo il Malmö" }, dec: 1.91, frac: "10/11" },
+          { sel: { fr: "Kalmar marque en premier", it: "Segna per primo il Kalmar" }, dec: 2.05, frac: "21/20" },
+          { sel: { fr: "Premier but entre 0 et 10 min", it: "Primo gol tra 0 e 10 min" }, dec: 4.50, frac: "7/2" }
+        ]
+      },
+      {
+        category: { fr: "Buteurs (à tout moment, premier, 2+)", it: "Marcatori (in qualsiasi momento, primo, 2+)" },
+        rows: [
+          { sel: "Erik Botheim (Malmö) — à tout moment", dec: 2.38, frac: "11/8" },
+          { sel: "Charlie Rosenqvist (Kalmar) — à tout moment", dec: 3.25, frac: "9/4" },
+          { sel: "Anthony Olusanya (Kalmar) — à tout moment", dec: 3.30, frac: "23/10" },
+          { sel: "Diego Garcia — à tout moment", dec: 3.40, frac: "12/5" },
+          { sel: "Sead Haksabanovic (Malmö) — à tout moment", dec: 4.00, frac: "3/1" },
+          { sel: "Emmanuel Ekong (Malmö) — à tout moment", dec: 4.00, frac: "3/1" },
+          { sel: "Erik Botheim — premier buteur", dec: 5.50, frac: "9/2" },
+          { sel: "Erik Botheim — 2 buts ou plus", dec: 8.00, frac: "7/1" }
+        ]
+      },
+      {
+        category: { fr: "Cartons, clean sheet & corners", it: "Cartellini, clean sheet & corner" },
+        note: { fr: "⚠ Piège repéré : oddschecker liste encore Malcolm Stolt (Kalmar), Anders Christiansen, Gabriel Busanello et Yanis Karabelyov (Malmö) dans les buteurs/cartons alors qu'ils sont annoncés absents. Ne pas parier sur eux.", it: "⚠ Trappola rilevata: oddschecker elenca ancora Malcolm Stolt (Kalmar), Anders Christiansen, Gabriel Busanello e Yanis Karabelyov (Malmö) tra marcatori/cartellini benché siano dati assenti. Non scommetterci." },
+        rows: [
+          { sel: { fr: "Otto Rosengren (Malmö) — cartonné", it: "Otto Rosengren (Malmö) — ammonito" }, dec: 2.88, frac: "15/8" },
+          { sel: { fr: "Sead Haksabanovic — cartonné", it: "Sead Haksabanovic — ammonito" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Melker Hallberg (Kalmar) — cartonné", it: "Melker Hallberg (Kalmar) — ammonito" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "Malmö gagne sans encaisser", it: "Malmö vince senza subire" }, dec: 5.00, frac: "4/1" },
+          { sel: { fr: "Kalmar gagne sans encaisser", it: "Kalmar vince senza subire" }, dec: 5.75, frac: "19/4" },
+          { sel: { fr: "Corners & autres lignes — voir oddschecker", it: "Corner e altre linee — vedi oddschecker" }, dec: null, frac: "voir oddschecker" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Erik Botheim buteur à tout moment", it: "Erik Botheim marcatore in qualsiasi momento" }, dec: 2.38, ai: 50,
+        note: { fr: "Meilleur buteur de Malmö (10 buts en 12 matchs) contre une défense qui encaisse 1,42 but/match. Proba estimée par mes soins ~50% vs 42% implicite → le meilleur edge de la page.", it: "Capocannoniere del Malmö (10 gol in 12 gare) contro una difesa che subisce 1,42 gol/partita. Probabilità da me stimata ~50% vs 42% implicita → il miglior edge della pagina." } },
+      { label: { fr: "Malmö plus de 1,5 but", it: "Malmö oltre 1,5 gol" }, dec: 2.00, ai: 52,
+        note: { fr: "Malmö marque 2,08 buts/match cette saison et reste sur 3 victoires ; Kalmar encaisse 1,42 par match. Léger value à 2.00.", it: "Il Malmö segna 2,08 gol/partita e viene da 3 vittorie; il Kalmar ne subisce 1,42. Leggero value a 2.00." } },
+      { label: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.57, ai: 66,
+        note: { fr: "Directement déduit des marchés « buts par équipe » : Kalmar marque à 1.25 et Malmö à 1.22, soit ≈66% conjoint pour une cote de 1.57. La base safe du combiné.", it: "Dedotto direttamente dai mercati « gol per squadra »: Kalmar segna a 1.25 e Malmö a 1.22, cioè ≈66% congiunto per una quota di 1.57. La base sicura della multipla." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Malmö (serrée)", it: "Vittoria Malmö (di misura)" },
+      pickShort: "Malmö FF",
+      score: "2 – 1",
+      goals: { fr: "Les deux équipes marquent, plus de 2,5 buts légèrement favori", it: "Entrambe segnano, over 2,5 gol leggermente favorito" },
+      confidence: "faible",
+      value: true,
+      summary: {
+        fr: "Malmö est favori logique (2.45) : 6ᵉ avec 19 points, 3 victoires de suite, 2,08 buts marqués par match, et une domination historique nette sur Kalmar (11 victoires sur les 20 derniers duels contre 4). En face, Kalmar est 12ᵉ avec 13 points et a perdu 2 de ses 3 derniers matchs. MAIS la confiance reste « faible » et c'est important : Malmö se déplace avec cinq absents (Djuric suspendu, Busanello, Anders Christiansen, Pontus Jansson et Karabelyov blessés) alors que Kalmar est quasiment au complet et joue à domicile. Le marché confirme cette incertitude : le nul est la marge de victoire la plus probable et le 1-1 le score le plus probable. C'est pourquoi les meilleurs paris de ce match ne sont pas sur le résultat mais sur les buts (BTTS) et sur Botheim.",
+        it: "Il Malmö è favorito logico (2.45): 6° con 19 punti, 3 vittorie di fila, 2,08 gol segnati a partita e un netto dominio storico sul Kalmar (11 vittorie negli ultimi 20 confronti contro 4). Di fronte, il Kalmar è 12° con 13 punti e ha perso 2 delle ultime 3. MA la fiducia resta « bassa » ed è importante: il Malmö viaggia con cinque assenti (Djuric squalificato, Busanello, Anders Christiansen, Pontus Jansson e Karabelyov infortunati) mentre il Kalmar è quasi al completo e gioca in casa. Il mercato conferma l'incertezza: il pareggio è lo scarto più probabile e l'1-1 il risultato più probabile. Per questo le migliori scommesse non sono sull'esito ma sui gol (BTTS) e su Botheim."
+      },
+      basedOn: {
+        fr: [
+          "Malmö sur 3 victoires consécutives, 2,08 buts marqués par match (25 buts en 12 journées)",
+          "Kalmar 12ᵉ, 13 points, 2 défaites sur les 3 derniers matchs, 1,17 but marqué et 1,42 encaissé par match",
+          "Domination historique de Malmö : 11 victoires sur les 20 derniers duels (Kalmar 4, 5 nuls)",
+          "Marchés « buts par équipe » : Kalmar marque à 1.25 et Malmö à 1.22 → BTTS très probable",
+          "Botheim (10 buts) et Haksabanovic (5 passes) contre une défense qui encaisse à chaque match"
+        ],
+        it: [
+          "Malmö su 3 vittorie consecutive, 2,08 gol segnati a partita (25 gol in 12 giornate)",
+          "Kalmar 12°, 13 punti, 2 sconfitte nelle ultime 3, 1,17 gol segnati e 1,42 subiti a partita",
+          "Dominio storico del Malmö: 11 vittorie negli ultimi 20 confronti (Kalmar 4, 5 pareggi)",
+          "Mercati « gol per squadra »: Kalmar segna a 1.25 e Malmö a 1.22 → BTTS molto probabile",
+          "Botheim (10 gol) e Haksabanovic (5 assist) contro una difesa che subisce ogni partita"
+        ]
+      },
+      against: {
+        fr: [
+          "Malmö privé de 5 joueurs : Djuric (suspendu), Busanello, Anders Christiansen, Pontus Jansson et Karabelyov (blessés)",
+          "Kalmar quasiment au complet (seul Stolt absent) et solide à domicile au Guldfågeln Arena",
+          "Le marché voit un match très serré : le nul est la marge la plus probable et le 1-1 le score favori",
+          "Aucune AI Probability disponible sur l'Allsvenskan : les probabilités sont mes estimations, pas des chiffres officiels",
+          "Arbitre non communiqué à l'heure de l'analyse : impossible d'exploiter une tendance cartons"
+        ],
+        it: [
+          "Malmö privo di 5 giocatori: Djuric (squalificato), Busanello, Anders Christiansen, Pontus Jansson e Karabelyov (infortunati)",
+          "Kalmar quasi al completo (solo Stolt assente) e solido in casa alla Guldfågeln Arena",
+          "Il mercato vede una gara molto equilibrata: il pareggio è lo scarto più probabile e l'1-1 il risultato favorito",
+          "Nessuna AI Probability disponibile sull'Allsvenskan: le probabilità sono mie stime, non dati ufficiali",
+          "Arbitro non comunicato al momento dell'analisi: impossibile sfruttare una tendenza cartellini"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Kalmar FF", it: "Kalmar FF" }, flag: "🇸🇪", coach: "—",
+        lineup: "Brolin — Hallberg, Keita, Larsson, Jansson — Gustafsson, Gojani, Magashy — Rosenqvist, Sagoe, Olusanya (4-4-2, compo probable)",
+        style: { fr: "Bloc compact à domicile, jeu direct vers Olusanya et Rosenqvist ; efficacité offensive limitée (1,17 but/match).", it: "Blocco compatto in casa, gioco diretto su Olusanya e Rosenqvist; efficacia offensiva limitata (1,17 gol/partita)." },
+        absences: {
+          fr: ["Malcolm Stolt — seul absent annoncé", "Groupe quasiment au complet"],
+          it: ["Malcolm Stolt — unico assente annunciato", "Rosa quasi al completo"]
+        },
+        physical: { fr: "Calendrier normal de championnat, pas de surcharge signalée. Avantage du terrain au Guldfågeln Arena.", it: "Calendario normale di campionato, nessun sovraccarico segnalato. Vantaggio del campo alla Guldfågeln Arena." },
+        form: { fr: "4 victoires, 1 nul, 7 défaites en 2026. 2 défaites sur les 3 derniers matchs. 12ᵉ avec 13 points en 12 journées.", it: "4 vittorie, 1 pareggio, 7 sconfitte nel 2026. 2 sconfitte nelle ultime 3. 12° con 13 punti in 12 giornate." },
+        xg: { fr: "14 buts marqués (1,17/match) et 17 encaissés (1,42/match) : attaque faible, défense perméable.", it: "14 gol segnati (1,17/partita) e 17 subiti (1,42/partita): attacco debole, difesa permeabile." },
+        context: { fr: "Besoin de points pour s'éloigner de la zone rouge ; le match à domicile contre un gros est une occasion de relancer la saison.", it: "Serve punti per allontanarsi dalla zona calda; la gara casalinga contro una big è l'occasione per rilanciare la stagione." },
+        source: "Soccer365 / Dailysports / EaglePredict (20/07/2026)"
+      },
+      away: {
+        name: { fr: "Malmö FF", it: "Malmö FF" }, flag: "🔵", coach: "—",
+        lineup: "Olsen — Larsen, Olsson, Palsson, Åstrand — Rosengren — Haksabanovic, Skogmar, Busuladzic, Ekong — Botheim (4-1-4-1, compo probable)",
+        style: { fr: "Possession et volume offensif, transitions par Haksabanovic ; meilleure attaque des deux équipes (2,08 buts/match).", it: "Possesso e volume offensivo, transizioni via Haksabanovic; miglior attacco delle due squadre (2,08 gol/partita)." },
+        absences: {
+          fr: ["Andrej Djuric — suspendu (cartons)", "Gabriel Busanello — blessé", "Anders Christiansen — blessé", "Pontus Jansson — blessé", "Yanis Karabelyov — blessé"],
+          it: ["Andrej Djuric — squalificato (cartellini)", "Gabriel Busanello — infortunato", "Anders Christiansen — infortunato", "Pontus Jansson — infortunato", "Yanis Karabelyov — infortunato"]
+        },
+        physical: { fr: "Déplacement à Kalmar (traversée du sud de la Suède) mais calendrier de championnat classique. Effectif amputé de 5 éléments.", it: "Trasferta a Kalmar (attraversando il sud della Svezia) ma calendario di campionato classico. Rosa privata di 5 elementi." },
+        form: { fr: "6 victoires, 1 nul, 5 défaites en 12 journées, mais 3 victoires consécutives en cours et une 4ᵉ visée. 6ᵉ avec 19 points.", it: "6 vittorie, 1 pareggio, 5 sconfitte in 12 giornate, ma 3 vittorie consecutive in corso e la 4ª nel mirino. 6° con 19 punti." },
+        xg: { fr: "25 buts marqués en 12 journées (2,08/match) : de loin la meilleure production offensive du duel.", it: "25 gol in 12 giornate (2,08/partita): di gran lunga la miglior produzione offensiva del confronto." },
+        context: { fr: "Série en cours et ambition de remonter au classement ; mais un onze remanié par les absences.", it: "Serie aperta e ambizione di risalire in classifica; ma undici rimaneggiato dalle assenze." },
+        source: "Soccer365 / Dailysports / EaglePredict (20/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🔵", name: "Erik Botheim", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "10 buts — meilleur buteur de Malmö", it: "10 gol — capocannoniere del Malmö" }, note: { fr: "La principale menace, base du pari simple.", it: "La minaccia principale, base della scommessa singola." } },
+      { team: "🔵", name: "Sead Haksabanovic", pos: { fr: "Milieu offensif", it: "Trequartista" }, stat: { fr: "5 passes décisives", it: "5 assist" }, note: { fr: "Créateur en chef ; aussi coté sur le marché cartons.", it: "Creatore principale; quotato anche sul mercato cartellini." } },
+      { team: "🔵", name: "Otto Rosengren", pos: { fr: "Milieu défensif", it: "Mediano" }, stat: { fr: "Le plus coté sur « joueur cartonné » (2.88)", it: "Il più quotato su « giocatore ammonito » (2.88)" }, note: { fr: "Profil à cartons dans un match à enjeu.", it: "Profilo da cartellino in una gara con posta." } },
+      { team: "🇸🇪", name: "Charlie Rosenqvist", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "5 buts — meilleur buteur de Kalmar", it: "5 gol — capocannoniere del Kalmar" }, note: { fr: "Coté 3.25 buteur, l'option offensive n°1 de Kalmar.", it: "Quotato 3.25 marcatore, opzione offensiva n°1 del Kalmar." } },
+      { team: "🇸🇪", name: "Charles Sagoe Jr", pos: { fr: "Ailier", it: "Ala" }, stat: { fr: "7 passes décisives — meilleur passeur de Kalmar", it: "7 assist — miglior assistman del Kalmar" }, note: { fr: "Le fournisseur principal des occasions de Kalmar.", it: "Il principale rifornitore delle occasioni del Kalmar." } },
+      { team: "🇸🇪", name: "Anthony Olusanya", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Coté 3.30 buteur à tout moment", it: "Quotato 3.30 marcatore" }, note: { fr: "Deuxième option offensive, participe au BTTS.", it: "Seconda opzione offensiva, contribuisce al BTTS." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "49 confrontations depuis 2004 : Malmö 25 victoires, Kalmar 12, 12 nuls. Sur les 20 derniers duels : Malmö 11, Kalmar 4, 5 nuls. Domination nette de Malmö sur la durée.", it: "49 confronti dal 2004: Malmö 25 vittorie, Kalmar 12, 12 pareggi. Negli ultimi 20: Malmö 11, Kalmar 4, 5 pareggi. Netto dominio del Malmö nel tempo." },
+      referee: { fr: "Arbitre non communiqué au moment de l'analyse — impossible d'exploiter une tendance cartons/penaltys. Le marché « joueur cartonné » reste disponible (Rosengren 2.88 le plus coté).", it: "Arbitro non comunicato al momento dell'analisi — impossibile sfruttare una tendenza cartellini/rigori. Il mercato « giocatore ammonito » resta disponibile (Rosengren 2.88 il più quotato)." },
+      stake: { fr: "13ᵉ journée d'Allsvenskan. Malmö (6ᵉ, 19 pts) vise une 4ᵉ victoire de suite et la remontée vers le haut de tableau ; Kalmar (12ᵉ, 13 pts) doit prendre des points pour s'éloigner de la zone dangereuse.", it: "13ª giornata di Allsvenskan. Il Malmö (6°, 19 pt) punta alla 4ª vittoria di fila e alla risalita; il Kalmar (12°, 13 pt) deve fare punti per allontanarsi dalla zona calda." },
+      external: { fr: "Match en soirée au Guldfågeln Arena, en plein été suédois : conditions douces, pelouse en bon état, pas de facteur météo majeur attendu. Déplacement interne à la Suède pour Malmö, sans fatigue particulière.", it: "Gara serale alla Guldfågeln Arena, in piena estate svedese: condizioni miti, campo in buono stato, nessun fattore meteo rilevante atteso. Trasferta interna alla Svezia per il Malmö, senza particolare stanchezza." },
+      supercomputer: { fr: "Le marché donne Malmö favori (≈41%) devant Kalmar (≈36%) et le nul (≈27%) — un des matchs les plus ouverts analysés jusqu'ici.", it: "Il mercato dà il Malmö favorito (≈41%) davanti al Kalmar (≈36%) e al pareggio (≈27%) — una delle gare più aperte analizzate finora." }
+    },
+
+    sources: [
+      { label: "Soccer365 — team news & lineups", url: "https://soccer365.net/live/match-kalmar-malme-smotret-onlayn/" },
+      { label: "Dailysports — preview & absences", url: "https://dailysports.net/predictions/home-fortress-versus-in-form-favorite-prediction-for-kalmar-vs-malmo/" },
+      { label: "EaglePredict — stats & forme", url: "https://eaglepredict.com/predictions/match/kalmar-vs-malmo-ff-prediction-allsvenskan-20-07-2026/" },
+      { label: "SoccerPunter — H2H", url: "https://www.soccerpunter.com/h2h/Kalmar-vs-Malmoe-FF/432/354/" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/sweden/allsvenskan/kalmar-ff-v-malmo-ff/winner" }
+    ]
+  },
+  {
     id: "espagne-argentine-2026-07-19",
     competition: { fr: "Coupe du Monde 2026 — FINALE", it: "Mondiali 2026 — FINALE" },
     date: { fr: "Dimanche 19 juillet 2026", it: "Domenica 19 luglio 2026" },
