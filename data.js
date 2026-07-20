@@ -11,6 +11,245 @@
 
 const MATCHES = [
   {
+    id: "corvinul-csikszereda-2026-07-20",
+    competition: { fr: "SuperLiga (Roumanie) — 1ʳᵉ journée", it: "SuperLiga (Romania) — 1ª giornata" },
+    date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
+    kickoff: { fr: "17:30 (heure de Paris)", it: "17:30 (ora italiana)" },
+    venue: "Stadionul Corvinul 1921, Hunedoara (Roumanie)",
+    home: { name: { fr: "Corvinul Hunedoara", it: "Corvinul Hunedoara" }, flag: "🟣" },
+    away: { name: { fr: "Csikszereda M. Ciuc", it: "Csikszereda M. Ciuc" }, flag: "🔴" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 43, draw: 29, away: 28 },
+      best: {
+        home: { dec: 2.20, frac: "6/5", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 3.30, frac: "23/10", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 3.40, frac: "12/5", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Csikszereda marque moins de 1,5 but", it: "Csikszereda segna meno di 1,5 gol" },
+      dec: 1.40, frac: "2/5", book: "top des bookmakers (oddschecker)", ai: 75,
+      why: {
+        fr: "Choisi parmi les 19 marchés de la page, pas un DNB. Csikszereda a un profil offensif très pauvre : 7 de ses 8 derniers matchs de SuperLiga se sont terminés sous 2,5 buts. Le marché lui-même le confirme — elle est cotée 2.50 pour simplement marquer en 1ʳᵉ mi-temps et 1.45 pour marquer sur l'ensemble du match. Qu'elle reste à 0 ou 1 but est donc très probable (~75% selon mon estimation) pour une cote de 1.40, proche de ta cible ~1,50. Alternative encore plus sûre si tu veux blinder un combiné : moins de 3,5 buts dans le match à 1.27.",
+        it: "Scelta tra i 19 mercati della pagina, non un DNB. Il Csikszereda ha un profilo offensivo molto povero: 7 delle ultime 8 gare di SuperLiga sono finite sotto i 2,5 gol. Lo conferma il mercato stesso — è quotato 2.50 solo per segnare nel primo tempo e 1.45 per segnare in tutta la gara. Che resti a 0 o 1 gol è quindi molto probabile (~75% secondo la mia stima) per una quota di 1.40, vicina al tuo obiettivo ~1,50. Alternativa ancora più sicura per blindare una multipla: under 3,5 gol a 1.27."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Moins de 2,5 buts dans le match", it: "Under 2,5 gol nella partita" },
+      dec: 1.73, frac: "8/11", book: "top des bookmakers (oddschecker)", ai: 67,
+      why: {
+        fr: "Le meilleur value de toute la page. La statistique la plus forte du match : 7 des 8 derniers matchs de Csikszereda en SuperLiga sont passés sous 2,5 buts. Tout le reste du marché va dans le même sens — le 0-0 est archi-favori à la mi-temps (2.75), les scores les plus probables sont 1-1 (6.50) et 1-0 (7.50), et « les deux équipes marquent en 1ʳᵉ mi-temps : NON » est à 1.18. C'est en plus un match d'ouverture de saison, généralement fermé. J'estime la probabilité à ~67% contre 58% implicite → environ +15% de valeur. ⚠ Pas d'AI Probability sur la SuperLiga roumaine : c'est MON estimation.",
+        it: "Il miglior value di tutta la pagina. La statistica più forte: 7 delle ultime 8 gare del Csikszereda in SuperLiga sono finite sotto i 2,5 gol. Tutto il resto del mercato va nella stessa direzione — lo 0-0 è super favorito all'intervallo (2.75), i risultati più probabili sono 1-1 (6.50) e 1-0 (7.50), e « entrambe segnano nel primo tempo: NO » è a 1.18. È inoltre una gara d'apertura di stagione, di solito chiusa. Stimo la probabilità al ~67% contro il 58% implicito → circa +15% di valore. ⚠ Nessuna AI Probability sulla SuperLiga rumena: è una MIA stima."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Nombre de buts (le cœur de l'analyse)", it: "Numero di gol (il cuore dell'analisi)" },
+        note: { fr: "7 des 8 derniers matchs de Csikszereda en SuperLiga sont passés sous 2,5 buts. Tous les marchés de buts vont dans le même sens.", it: "7 delle ultime 8 gare del Csikszereda in SuperLiga sono finite sotto i 2,5 gol. Tutti i mercati dei gol vanno nella stessa direzione." },
+        rows: [
+          { sel: { fr: "Moins de 2,5 buts", it: "Under 2,5 gol" }, dec: 1.73, frac: "8/11" },
+          { sel: { fr: "Plus de 2,5 buts", it: "Over 2,5 gol" }, dec: 2.15, frac: "23/20" },
+          { sel: { fr: "Moins de 3,5 buts", it: "Under 3,5 gol" }, dec: 1.27, frac: "3/11" },
+          { sel: { fr: "Moins de 2 buts (0 ou 1)", it: "Under 2 gol (0 o 1)" }, dec: 2.30, frac: "13/10" },
+          { sel: { fr: "Plus de 1,5 but", it: "Over 1,5 gol" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Corvinul gagne & moins de 3,5 buts", it: "Vince Corvinul & under 3,5 gol" }, dec: 2.88, frac: "15/8" },
+          { sel: { fr: "Corvinul gagne & moins de 2,5 buts", it: "Vince Corvinul & under 2,5 gol" }, dec: 4.50, frac: "7/2" }
+        ]
+      },
+      {
+        category: { fr: "Buts par équipe & BTTS", it: "Gol per squadra & BTTS" },
+        note: { fr: "Csikszereda est cotée 2.50 pour simplement marquer en 1ʳᵉ mi-temps : son impuissance offensive est le socle de l'analyse.", it: "Il Csikszereda è quotato 2.50 solo per segnare nel primo tempo: la sua impotenza offensiva è la base dell'analisi." },
+        rows: [
+          { sel: { fr: "Csikszereda moins de 1,5 but", it: "Csikszereda meno di 1,5 gol" }, dec: 1.40, frac: "2/5" },
+          { sel: { fr: "Csikszereda marque (plus de 0,5 but)", it: "Segna il Csikszereda (oltre 0,5 gol)" }, dec: 1.45, frac: "5/11" },
+          { sel: { fr: "Csikszereda ne marque pas", it: "Il Csikszereda non segna" }, dec: 2.80, frac: "9/5" },
+          { sel: { fr: "Csikszereda ne marque pas en 1ʳᵉ mi-temps", it: "Il Csikszereda non segna nel 1° tempo" }, dec: 1.55, frac: "11/20" },
+          { sel: { fr: "Corvinul marque (plus de 0,5 but)", it: "Segna il Corvinul (oltre 0,5 gol)" }, dec: 1.29, frac: "2/7" },
+          { sel: { fr: "Corvinul moins de 1,5 but", it: "Corvinul meno di 1,5 gol" }, dec: 1.62, frac: "8/13" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.91, frac: "10/11" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 1.92, frac: "23/25" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps (résultat, score 1ʳᵉ MT, MT/fin)", it: "Primo tempo (esito, risultato 1° tempo, PT/finale)" },
+        note: { fr: "Le 0-0 à la pause est de loin l'issue favorite (2.75) et « les deux marquent en 1ʳᵉ MT : NON » est à 1.18.", it: "Lo 0-0 all'intervallo è di gran lunga l'esito favorito (2.75) e « entrambe segnano nel 1° tempo: NO » è a 1.18." },
+        rows: [
+          { sel: { fr: "Score 1ʳᵉ MT : 0-0 (grand favori)", it: "Risultato 1° tempo: 0-0 (grande favorito)" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 2.15, frac: "15/13" },
+          { sel: { fr: "Résultat mi-temps : Corvinul", it: "Esito primo tempo: Corvinul" }, dec: 2.90, frac: "19/10" },
+          { sel: { fr: "Résultat mi-temps : Csikszereda", it: "Esito primo tempo: Csikszereda" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Les deux marquent en 1ʳᵉ MT — Non", it: "Entrambe segnano nel 1° tempo — No" }, dec: 1.18, frac: "2/11" },
+          { sel: { fr: "Les deux marquent dans les 2 MT — Non", it: "Entrambe segnano in entrambi i tempi — No" }, dec: 1.03, frac: "1/33" },
+          { sel: { fr: "Mi-temps/fin : Corvinul / Corvinul", it: "PT/Finale: Corvinul / Corvinul" }, dec: 3.50, frac: "5/2" },
+          { sel: { fr: "Mi-temps/fin : Nul / Nul", it: "PT/Finale: Pareggio / Pareggio" }, dec: 5.00, frac: "4/1" }
+        ]
+      },
+      {
+        category: { fr: "Résultat, doubles chances & remboursé si nul", it: "Esito, doppie chance & rimborso se pareggio" },
+        rows: [
+          { sel: { fr: "Corvinul (1)", it: "Corvinul (1)" }, dec: 2.20, frac: "6/5" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Csikszereda (2)", it: "Csikszereda (2)" }, dec: 3.40, frac: "12/5" },
+          { sel: { fr: "Double chance — Corvinul ou nul (1N)", it: "Doppia chance — Corvinul o pareggio (1X)" }, dec: 1.33, frac: "1/3" },
+          { sel: { fr: "Double chance — Corvinul ou Csikszereda (12)", it: "Doppia chance — Corvinul o Csikszereda (12)" }, dec: 1.30, frac: "3/10" },
+          { sel: { fr: "Double chance — Csikszereda ou nul (N2)", it: "Doppia chance — Csikszereda o pareggio (X2)" }, dec: 1.67, frac: "4/6" },
+          { sel: { fr: "Corvinul remboursé si nul (Draw No Bet)", it: "Corvinul rimborso se pareggio (DNB)" }, dec: 1.57, frac: "4/7" },
+          { sel: { fr: "Csikszereda remboursé si nul (Draw No Bet)", it: "Csikszereda rimborso se pareggio (DNB)" }, dec: 2.40, frac: "7/5" }
+        ]
+      },
+      {
+        category: { fr: "Score exact & premier but", it: "Risultato esatto & primo gol" },
+        note: { fr: "Les trois scores les plus probables du match sont tous à 0 ou 1 but par équipe.", it: "I tre risultati più probabili hanno tutti 0 o 1 gol per squadra." },
+        rows: [
+          { sel: { fr: "Match nul 1-1 (score le plus probable)", it: "Pareggio 1-1 (risultato più probabile)" }, dec: 6.50, frac: "11/2" },
+          { sel: { fr: "Corvinul 1-0", it: "Corvinul 1-0" }, dec: 7.50, frac: "13/2" },
+          { sel: { fr: "Match nul 0-0", it: "Pareggio 0-0" }, dec: 9.50, frac: "17/2" },
+          { sel: { fr: "Corvinul 2-1", it: "Corvinul 2-1" }, dec: 9.50, frac: "17/2" },
+          { sel: { fr: "Csikszereda 1-0", it: "Csikszereda 1-0" }, dec: 9.50, frac: "17/2" },
+          { sel: { fr: "Corvinul marque en premier", it: "Segna per primo il Corvinul" }, dec: 1.83, frac: "5/6" },
+          { sel: { fr: "Csikszereda marque en premier", it: "Segna per primo il Csikszereda" }, dec: 2.38, frac: "11/8" },
+          { sel: { fr: "Aucun but dans le match", it: "Nessun gol nella partita" }, dec: 9.50, frac: "17/2" }
+        ]
+      },
+      {
+        category: { fr: "Combinés résultat + buts & clean sheet", it: "Combo esito + gol & clean sheet" },
+        rows: [
+          { sel: { fr: "Moins de 2,5 buts & les deux ne marquent pas", it: "Under 2,5 gol & non segnano entrambe" }, dec: 2.25, frac: "5/4" },
+          { sel: { fr: "Plus de 2,5 buts & les deux marquent", it: "Over 2,5 gol & segnano entrambe" }, dec: 2.50, frac: "6/4" },
+          { sel: { fr: "Nul & moins de 2,5 buts", it: "Pareggio & under 2,5 gol" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Corvinul gagne & les deux marquent", it: "Vince Corvinul & segnano entrambe" }, dec: 5.00, frac: "4/1" },
+          { sel: { fr: "Corvinul gagne sans encaisser", it: "Corvinul vince senza subire" }, dec: 3.60, frac: "13/5" },
+          { sel: { fr: "Csikszereda gagne sans encaisser", it: "Csikszereda vince senza subire" }, dec: 5.50, frac: "9/2" }
+        ]
+      },
+      {
+        category: { fr: "Marchés absents sur ce match", it: "Mercati assenti su questa partita" },
+        note: { fr: "La SuperLiga roumaine n'ouvre pas les marchés joueurs (buteurs, tirs cadrés, passeurs), ni corners ni cartons chez les bookmakers listés par oddschecker. Il n'y a pas non plus d'AI Probability. Ces marchés n'ont donc pas pu être analysés — c'est signalé plutôt que passé sous silence.", it: "La SuperLiga rumena non apre i mercati giocatori (marcatori, tiri in porta, assist), né corner né cartellini presso i bookmaker elencati da oddschecker. Non c'è nemmeno l'AI Probability. Questi mercati non hanno quindi potuto essere analizzati — lo segnaliamo invece di nasconderlo." },
+        rows: [
+          { sel: { fr: "Buteurs, tirs, tirs cadrés, passeurs, corners, cartons", it: "Marcatori, tiri, tiri in porta, assist, corner, cartellini" }, dec: null, frac: "non proposés" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Moins de 2,5 buts", it: "Under 2,5 gol" }, dec: 1.73, ai: 67,
+        note: { fr: "Le meilleur edge de la page : 7 des 8 derniers matchs de Csikszereda sont passés sous 2,5 buts, et tout le marché (0-0 favori à la pause, scores 1-1 et 1-0 en tête) confirme un match fermé.", it: "Il miglior edge della pagina: 7 delle ultime 8 gare del Csikszereda sono finite sotto i 2,5 gol e tutto il mercato (0-0 favorito all'intervallo, risultati 1-1 e 1-0 in testa) conferma una gara chiusa." } },
+      { label: { fr: "Moins de 3,5 buts", it: "Under 3,5 gol" }, dec: 1.27, ai: 88,
+        note: { fr: "La version blindée du même raisonnement : il faudrait 4 buts ou plus pour perdre. Probabilité estimée ~88% pour une cote de 1.27.", it: "La versione blindata dello stesso ragionamento: servirebbero 4+ gol per perdere. Probabilità stimata ~88% per una quota di 1.27." } },
+      { label: { fr: "Score 0-0 à la mi-temps", it: "Risultato 0-0 all'intervallo" }, dec: 2.75, ai: 40,
+        note: { fr: "Marché de niche intéressant : le 0-0 à la pause est déjà l'issue favorite du marché, et un match d'ouverture entre un promu prudent et une équipe qui ne marque pas s'y prête parfaitement.", it: "Mercato di nicchia interessante: lo 0-0 all'intervallo è già l'esito favorito e una gara d'apertura tra una neopromossa prudente e una squadra che non segna ci si presta perfettamente." } },
+      { label: { fr: "Csikszereda moins de 1,5 but", it: "Csikszereda meno di 1,5 gol" }, dec: 1.40, ai: 75,
+        note: { fr: "La base safe : Csikszereda est cotée 2.50 pour seulement marquer en 1ʳᵉ mi-temps. Qu'elle reste à 0 ou 1 but est le scénario le plus probable.", it: "La base sicura: il Csikszereda è quotato 2.50 solo per segnare nel primo tempo. Che resti a 0 o 1 gol è lo scenario più probabile." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Corvinul (courte)", it: "Vittoria Corvinul (di misura)" },
+      pickShort: "Corvinul Hunedoara",
+      score: "1 – 0",
+      goals: { fr: "Match fermé, moins de 2,5 buts très probable", it: "Gara chiusa, under 2,5 gol molto probabile" },
+      confidence: "faible",
+      value: true,
+      summary: {
+        fr: "C'est le match d'ouverture de la SuperLiga 2026/2027, et un match particulier : Corvinul Hunedoara retrouve l'élite roumaine après 34 ans d'absence, à domicile. Le marché en fait le favori (2.20 contre 3.40), sans doute grâce à l'avantage du terrain et à la faiblesse offensive de son adversaire. Mais soyons clairs : sur le résultat, la confiance est FAIBLE — un promu qui découvre le niveau après 34 ans est une inconnue totale, aucune composition n'est publiée, aucun arbitre annoncé, et les deux dernières confrontations directes se sont soldées par des nuls. La vraie lecture du match est ailleurs : dans les buts. Csikszereda a terminé 7 de ses 8 derniers matchs de SuperLiga sous 2,5 buts, le 0-0 est le grand favori à la mi-temps (2.75), les scores les plus probables sont 1-1 et 1-0, et « les deux équipes marquent en 1ʳᵉ mi-temps : NON » est à 1.18. C'est là que se trouve toute la valeur.",
+        it: "È la gara d'apertura della SuperLiga 2026/2027, e una gara speciale: il Corvinul Hunedoara torna nell'élite rumena dopo 34 anni, in casa. Il mercato lo rende favorito (2.20 contro 3.40), probabilmente per il fattore campo e la debolezza offensiva dell'avversario. Ma siamo chiari: sull'esito la fiducia è BASSA — una neopromossa che scopre il livello dopo 34 anni è un'incognita totale, nessuna formazione pubblicata, nessun arbitro annunciato, e gli ultimi due confronti diretti sono finiti in pareggio. La vera lettura della gara è altrove: nei gol. Il Csikszereda ha chiuso 7 delle ultime 8 gare di SuperLiga sotto i 2,5 gol, lo 0-0 è il grande favorito all'intervallo (2.75), i risultati più probabili sono 1-1 e 1-0, e « entrambe segnano nel 1° tempo: NO » è a 1.18. Lì si trova tutto il valore."
+      },
+      basedOn: {
+        fr: [
+          "7 des 8 derniers matchs de Csikszereda en SuperLiga se sont terminés sous 2,5 buts",
+          "Le 0-0 est le score le plus probable à la mi-temps (2.75) et « les deux marquent en 1ʳᵉ MT : NON » est à 1.18",
+          "Les trois scores exacts favoris sont 1-1 (6.50), Corvinul 1-0 (7.50) et 0-0 (9.50)",
+          "Csikszereda n'est cotée que 2.50 pour simplement marquer en 1ʳᵉ mi-temps",
+          "Match d'ouverture de saison : rythme généralement prudent et peu de buts",
+          "Corvinul joue à domicile et l'historique lui est favorable (3 victoires sur 5 confrontations)"
+        ],
+        it: [
+          "7 delle ultime 8 gare del Csikszereda in SuperLiga sono finite sotto i 2,5 gol",
+          "Lo 0-0 è il risultato più probabile all'intervallo (2.75) e « entrambe segnano nel 1° tempo: NO » è a 1.18",
+          "I tre risultati esatti favoriti sono 1-1 (6.50), Corvinul 1-0 (7.50) e 0-0 (9.50)",
+          "Il Csikszereda è quotato solo 2.50 per segnare nel primo tempo",
+          "Gara d'apertura di stagione: ritmo generalmente prudente e pochi gol",
+          "Il Corvinul gioca in casa e i precedenti gli sono favorevoli (3 vittorie su 5 confronti)"
+        ]
+      },
+      against: {
+        fr: [
+          "Corvinul est un promu qui retrouve l'élite après 34 ans : niveau réel totalement inconnu à cet étage",
+          "Aucune composition probable publiée, aucun arbitre annoncé, aucune info blessures fiable trouvée",
+          "Les deux dernières confrontations directes se sont terminées par un nul",
+          "Un match d'ouverture peut aussi se débrider si un but tombe tôt : le +2,5 buts reste à 2.15, ce n'est pas une formalité",
+          "Aucune AI Probability sur la SuperLiga roumaine : toutes les probabilités sont mes estimations",
+          "Aucun marché joueurs, corners ou cartons proposé : l'analyse est forcément moins large que sur un grand championnat"
+        ],
+        it: [
+          "Il Corvinul è una neopromossa che torna nell'élite dopo 34 anni: livello reale del tutto sconosciuto",
+          "Nessuna formazione probabile pubblicata, nessun arbitro annunciato, nessuna info affidabile sugli infortuni",
+          "Gli ultimi due confronti diretti sono finiti in pareggio",
+          "Una gara d'apertura può anche aprirsi se arriva un gol presto: l'over 2,5 resta a 2.15, non è una formalità",
+          "Nessuna AI Probability sulla SuperLiga rumena: tutte le probabilità sono mie stime",
+          "Nessun mercato giocatori, corner o cartellini disponibile: l'analisi è forzatamente meno ampia"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Corvinul Hunedoara", it: "Corvinul Hunedoara" }, flag: "🟣", coach: "—",
+        lineup: { fr: "Composition non publiée à l'heure de l'analyse (match d'ouverture de saison).", it: "Formazione non pubblicata al momento dell'analisi (gara d'apertura di stagione)." },
+        style: { fr: "Profil inconnu à ce niveau : le club retrouve l'élite après 34 ans. Le marché lui accorde l'avantage du terrain (favori à 2.20) mais aucune donnée de style fiable n'est disponible en SuperLiga.", it: "Profilo sconosciuto a questo livello: il club torna nell'élite dopo 34 anni. Il mercato gli concede il fattore campo (favorito a 2.20) ma non ci sono dati di stile affidabili in SuperLiga." },
+        absences: {
+          fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"],
+          it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"]
+        },
+        physical: { fr: "Début de saison : effectif frais, aucune charge de calendrier. Match à domicile, pas de déplacement.", it: "Inizio stagione: rosa fresca, nessun carico di calendario. Gara in casa, nessuna trasferta." },
+        form: { fr: "Aucun match de SuperLiga 2026/2027 disputé : c'est la 1ʳᵉ journée. Le club revient dans l'élite roumaine après 34 ans d'absence.", it: "Nessuna gara di SuperLiga 2026/2027 disputata: è la 1ª giornata. Il club torna nell'élite rumena dopo 34 anni." },
+        xg: { fr: "Aucune donnée xG disponible à ce niveau pour ce club — c'est une inconnue statistique.", it: "Nessun dato xG disponibile a questo livello per questo club — è un'incognita statistica." },
+        context: { fr: "Retour dans l'élite après 34 ans et match d'ouverture à domicile : contexte émotionnel fort, public attendu en nombre, mais gestion prudente probable.", it: "Ritorno nell'élite dopo 34 anni e gara d'apertura in casa: contesto emotivo forte, pubblico atteso numeroso, ma gestione probabilmente prudente." },
+        source: "Wincomparator / fkcsikszereda.ro / oddschecker (20/07/2026)"
+      },
+      away: {
+        name: { fr: "Csikszereda M. Ciuc", it: "Csikszereda M. Ciuc" }, flag: "🔴", coach: "—",
+        lineup: { fr: "Composition non publiée à l'heure de l'analyse.", it: "Formazione non pubblicata al momento dell'analisi." },
+        style: { fr: "Équipe au profil très fermé : 7 de ses 8 derniers matchs de SuperLiga sous 2,5 buts. Peu de production offensive, cotée seulement 1.45 pour marquer sur l'ensemble du match.", it: "Squadra dal profilo molto chiuso: 7 delle ultime 8 gare di SuperLiga sotto i 2,5 gol. Poca produzione offensiva, quotata solo 1.45 per segnare in tutta la gara." },
+        absences: {
+          fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"],
+          it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"]
+        },
+        physical: { fr: "Début de saison, effectif frais. Déplacement interne à la Roumanie (Miercurea Ciuc → Hunedoara), trajet notable mais sans surcharge de calendrier.", it: "Inizio stagione, rosa fresca. Trasferta interna alla Romania (Miercurea Ciuc → Hunedoara), viaggio lungo ma senza sovraccarico di calendario." },
+        form: { fr: "Statistique clé : 7 de ses 8 derniers matchs de SuperLiga se sont terminés sous 2,5 buts. C'est le socle de toute l'analyse.", it: "Statistica chiave: 7 delle ultime 8 gare di SuperLiga sono finite sotto i 2,5 gol. È la base di tutta l'analisi." },
+        xg: { fr: "Pas de données xG publiées, mais le marché est éloquent : 2.50 pour marquer en 1ʳᵉ mi-temps, 1.40 pour rester sous 1,5 but sur le match.", it: "Nessun dato xG pubblicato, ma il mercato è eloquente: 2.50 per segnare nel primo tempo, 1.40 per restare sotto 1,5 gol." },
+        context: { fr: "Équipe installée en SuperLiga qui affronte un promu en ouverture : elle part avec l'expérience du niveau, mais son manque d'efficacité offensive limite son potentiel de victoire nette.", it: "Squadra stabile in SuperLiga che affronta una neopromossa all'esordio: ha l'esperienza del livello, ma la scarsa efficacia offensiva ne limita il potenziale di vittoria netta." },
+        source: "Wincomparator / fctables / oddschecker (20/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🟣", name: { fr: "Effectif Corvinul", it: "Rosa Corvinul" }, pos: { fr: "—", it: "—" }, stat: { fr: "Aucun marché buteur ouvert sur ce match", it: "Nessun mercato marcatori aperto su questa gara" }, note: { fr: "Les bookmakers ne proposent pas de paris joueurs en SuperLiga : impossible d'isoler un joueur clé coté.", it: "I bookmaker non propongono scommesse sui giocatori in SuperLiga: impossibile isolare un giocatore chiave quotato." } },
+      { team: "🔴", name: { fr: "Effectif Csikszereda", it: "Rosa Csikszereda" }, pos: { fr: "—", it: "—" }, stat: { fr: "Cotée 1.45 pour marquer, 2.50 pour marquer en 1ʳᵉ MT", it: "Quotata 1.45 per segnare, 2.50 per segnare nel 1° tempo" }, note: { fr: "C'est l'équipe, pas un joueur, qui porte le signal : l'attaque est le point faible.", it: "È la squadra, non un giocatore, a dare il segnale: l'attacco è il punto debole." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "5 confrontations directes : Corvinul 3 victoires, Csikszereda 1, 1 nul. Nuance importante : les deux dernières se sont terminées sur un match nul, ce qui colle au profil fermé de l'affiche.", it: "5 confronti diretti: Corvinul 3 vittorie, Csikszereda 1, 1 pareggio. Sfumatura importante: gli ultimi due sono finiti in pareggio, in linea con il profilo chiuso della sfida." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse. Aucun marché cartons n'est proposé sur ce match de toute façon.", it: "Arbitro non comunicato al momento dell'analisi. Su questa gara non è comunque proposto alcun mercato cartellini." },
+      stake: { fr: "1ʳᵉ journée de SuperLiga 2026/2027. Corvinul Hunedoara fait son retour dans l'élite roumaine après 34 ans d'absence et reçoit pour l'ouverture ; Csikszereda entame sa saison en déplacement.", it: "1ª giornata di SuperLiga 2026/2027. Il Corvinul Hunedoara torna nell'élite rumena dopo 34 anni e ospita l'apertura; il Csikszereda inizia la stagione in trasferta." },
+      external: { fr: "Match en fin d'après-midi (17:30) au Stadionul Corvinul 1921 de Hunedoara, en plein mois de juillet : chaleur possible, ce qui tend plutôt à ralentir le rythme et va dans le sens d'un match fermé.", it: "Gara di fine pomeriggio (17:30) allo Stadionul Corvinul 1921 di Hunedoara, in pieno luglio: caldo possibile, il che tende a rallentare il ritmo e va nella direzione di una gara chiusa." },
+      supercomputer: { fr: "Le marché voit un match serré et fermé : Corvinul ≈43%, nul ≈29%, Csikszereda ≈28%, avec le moins de 2,5 buts largement favori sur le plus de 2,5.", it: "Il mercato vede una gara equilibrata e chiusa: Corvinul ≈43%, pareggio ≈29%, Csikszereda ≈28%, con l'under 2,5 gol nettamente favorito sull'over." }
+    },
+
+    sources: [
+      { label: "Wincomparator — prédiction & cotes", url: "https://www.wincomparator.com/predictions/cs-corvinul-hunedoara-fk-csikszereda-miercurea-ciuc-8580232/" },
+      { label: "FK Csíkszereda — site officiel (SuperLiga)", url: "https://fkcsikszereda.ro/hirek/szuperliga?lang=en" },
+      { label: "fctables — H2H", url: "https://www.fctables.com/h2h/afk-csikszereda/corvinul_hunedoara/" },
+      { label: "WhoScored — fiche du match", url: "https://www.whoscored.com/matches/1992328/show/romania-superliga-2026-2027-corvinul-hunedoara-csikszereda-miercurea-ciuc" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/romania/liga-i/cs-hunedoara-v-fc-csikszereda-miercurea-ciuc/winner" }
+    ]
+  },
+  {
     id: "orgryte-djurgarden-2026-07-20",
     competition: { fr: "Allsvenskan (Suède) — 13ᵉ journée", it: "Allsvenskan (Svezia) — 13ª giornata" },
     date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },

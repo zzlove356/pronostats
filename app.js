@@ -180,7 +180,7 @@ function renderMatch(){
       <div class="tscroll"><table class="players">
         <thead><tr><th></th><th>${esc(t("kp_player"))}</th><th>${esc(t("kp_pos"))}</th><th>${esc(t("kp_stat"))}</th><th>${esc(t("kp_note"))}</th></tr></thead>
         <tbody>
-          ${m.keyPlayers.map(k=>`<tr><td>${k.team}</td><td><b>${esc(k.name)}</b></td><td>${esc(tr(k.pos))}</td><td>${esc(tr(k.stat))}</td><td style="color:var(--txt-mute)">${esc(tr(k.note))}</td></tr>`).join("")}
+          ${m.keyPlayers.map(k=>`<tr><td>${k.team}</td><td><b>${esc(tr(k.name))}</b></td><td>${esc(tr(k.pos))}</td><td>${esc(tr(k.stat))}</td><td style="color:var(--txt-mute)">${esc(tr(k.note))}</td></tr>`).join("")}
         </tbody>
       </table></div>
     </div>
