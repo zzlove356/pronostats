@@ -1805,4 +1805,20 @@ const MATCHES = [
    TICKETS VÉRIFIÉS (analyses de combinés faites via Cowork)
    Pour ajouter un ticket : copie un bloc dans TICKETS.
    ========================================================= */
-const TICKETS = [];
+const TICKETS = [
+  {
+    title: { fr: "Triple qualifications LDC — 21 juillet 2026", it: "Tripla qualificazioni Champions — 21 luglio 2026" },
+    totalOdds: 2.82,
+    rating: 4.5,
+    would: false,
+    legs: [
+      { fr: "Fenerbahçe 2-5 buts (Fenerbahçe v Górnik Zabrze) — 1.35 · proba estimée 70% · valeur −5,5%", it: "Fenerbahçe 2-5 gol (Fenerbahçe v Górnik Zabrze) — 1.35 · prob. stimata 70% · valore −5,5%" },
+      { fr: "Klaksvík 1-3 buts (KÍ Klaksvík v Kauno Žalgiris) — 1.35 · proba estimée 73% · valeur −1,5%", it: "Klaksvík 1-3 gol (KÍ Klaksvík v Kauno Žalgiris) — 1.35 · prob. stimata 73% · valore −1,5%" },
+      { fr: "Les deux équipes marquent — Oui (Iberia 1999 v Slovan Bratislava) — 1.55 · proba estimée 67% · valeur +3,9%", it: "Entrambe segnano — Sì (Iberia 1999 v Slovan Bratislava) — 1.55 · prob. stimata 67% · valore +3,9%" }
+    ],
+    verdict: {
+      fr: "Probabilité combinée estimée : 34,2% → cote juste 2,92 contre 2,82 proposés, soit une espérance de −3,4%. Sur mon barème (5/10 = pari exactement à sa juste valeur), cela donne 4,5/10 : très légèrement en dessous du seuil de rentabilité. C'est donc techniquement un pari perdant à long terme — mais il faut le dire, c'est de très loin le combiné le mieux construit qui m'ait été soumis (le ticket 13 sélections précédent était à −79%). MEILLEURE JAMBE EN VALEUR : les deux équipes marquent sur Iberia–Slovan (+3,9%), la seule à valeur positive : Iberia a marqué 3 puis 2 buts en qualifications et encaisse 2 buts par match, Slovan a marqué dans 4 de ses 5 amicaux. JAMBE LA PLUS FIABLE : Klaksvík 1-3 (73%), 7 matchs sans défaite, pelouse synthétique inconnue de l'adversaire, et un Kauno Žalgiris avec seulement 3 jours de récupération et 1 victoire sur ses 5 derniers matchs. MAILLON FAIBLE : Fenerbahçe 2-5 buts. Le pari exige 2 buts, or Fener est privé de Vedat Muriqi (son finisseur, blessé), Dorgelès Nene (blessé), N'Golo Kanté (probable forfait) et Mert Hakan Yandaş (suspendu). Une gestion tranquille à 1-0 en match aller ferait tomber tout le ticket. VERDICT : je ne le jouerais pas comme pari de valeur, puisque l'espérance reste négative. Si tu le joues pour le plaisir, mise petit (2-3 €). ⚠ Le bonus « gains boostés de 30% » demande 2 sélections supplémentaires : il peut rendre le ticket légèrement positif SI et SEULEMENT SI tu ajoutes deux jambes de qualité équivalente (Göteborg 1-3 à 1.28 et Aarhus 1-3 à 1.31), jamais les marchés à 1.60+ du ticket initial.",
+      it: "Probabilità combinata stimata: 34,2% → quota equa 2,92 contro i 2,82 offerti, cioè un'aspettativa di −3,4%. Sulla mia scala (5/10 = scommessa esattamente al valore equo), fa 4,5/10: leggermente sotto la soglia di redditività. Tecnicamente è quindi una scommessa perdente sul lungo periodo — ma va detto, è di gran lunga la multipla meglio costruita che mi sia stata sottoposta (la precedente da 13 selezioni era a −79%). MIGLIOR TRATTA PER VALORE: entrambe segnano su Iberia–Slovan (+3,9%), l'unica a valore positivo: l'Iberia ha segnato 3 e poi 2 gol in qualificazione e ne subisce 2 a partita, lo Slovan ha segnato in 4 delle 5 amichevoli. TRATTA PIÙ AFFIDABILE: Klaksvík 1-3 (73%), 7 gare senza sconfitte, campo sintetico sconosciuto all'avversario e un Kauno Žalgiris con soli 3 giorni di recupero e 1 vittoria nelle ultime 5. ANELLO DEBOLE: Fenerbahçe 2-5 gol. La scommessa richiede 2 gol, ma il Fener è privo di Vedat Muriqi (il finalizzatore, infortunato), Dorgelès Nene (infortunato), N'Golo Kanté (probabile assente) e Mert Hakan Yandaş (squalificato). Una gestione tranquilla sull'1-0 all'andata farebbe cadere tutto il ticket. VERDETTO: non la giocherei come scommessa di valore, poiché l'aspettativa resta negativa. Se la giochi per divertimento, punta poco (2-3 €). ⚠ Il bonus « vincite maggiorate del 30% » richiede 2 selezioni in più: può rendere il ticket leggermente positivo SE E SOLO SE aggiungi due tratte di qualità equivalente (Göteborg 1-3 a 1.28 e Aarhus 1-3 a 1.31), mai i mercati a 1.60+ del ticket iniziale."
+    }
+  }
+];
