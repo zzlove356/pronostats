@@ -11,6 +11,326 @@
 
 const MATCHES = [
   {
+    id: "omonia-kairat-2026-07-22",
+    competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
+    date: { fr: "Mercredi 22 juillet 2026", it: "Mercoledì 22 luglio 2026" },
+    kickoff: { fr: "19:00 (heure de Paris)", it: "19:00 (ora italiana)" },
+    venue: "GSP Stadium, Nicosie (Chypre)",
+    home: { name: { fr: "Omonia Nicosie", it: "Omonia Nicosia" }, flag: "🟢" },
+    away: { name: { fr: "Kairat Almaty", it: "Kairat Almaty" }, flag: "🟡" },
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "sources publiques (aperçus)", checkedAt: "22/07/2026",
+      aiProb: { home: 44, draw: 19, away: 37 },
+      best: { home: { dec: 1.73, frac: "8/11", book: "Bwin" }, draw: { dec: 3.80, frac: "14/5", book: "Melbet" }, away: { dec: 4.50, frac: "7/2", book: "William Hill" } }
+    },
+    safeBet: {
+      sel: { fr: "Double chance : Omonia ou match nul (1X)", it: "Doppia chance: Omonia o pareggio (1X)" },
+      dec: 1.30, frac: "3/10", book: "sources publiques", ai: 78,
+      why: {
+        fr: "Choisi comme pari de sécurité pour combiné : Omonia joue à domicile avec une forme solide (3 victoires et 2 nuls sur les 5 derniers matchs, 12 buts marqués pour 5 encaissés) et Kairat arrive après l'un des plus longs déplacements du football européen (Almaty → Chypre, +4h de décalage). Ne pas perdre à domicile est l'issue la plus probable. ⚠ Analyse en mode autonome (sources publiques), sans le balayage complet oddschecker : cote indicative à revérifier chez ton bookmaker.",
+        it: "Scelto come scommessa di sicurezza per multipla: l'Omonia gioca in casa con una forma solida (3 vittorie e 2 pareggi nelle ultime 5, 12 gol fatti e 5 subiti) e il Kairat arriva dopo una delle trasferte più lunghe del calcio europeo (Almaty → Cipro, +4h di fuso). Non perdere in casa è l'esito più probabile. ⚠ Analisi in modalità autonoma (fonti pubbliche), senza lo sweep completo oddschecker: quota indicativa da riverificare dal tuo bookmaker."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Omonia Nicosie gagne", it: "Vittoria Omonia Nicosia" },
+      dec: 1.73, frac: "8/11", book: "Bwin", ai: 44,
+      why: {
+        fr: "Le meilleur rapport valeur/fiabilité en simple : le marché fait d'Omonia le favori de l'aller (1.73) et son avantage à domicile est renforcé par la fatigue de voyage de Kairat. La probabilité réelle est proche de la probabilité implicite, la valeur est neutre à légèrement positive. Kairat reste dangereux (7 victoires de suite), donc confiance moyenne.",
+        it: "Il miglior rapporto valore/affidabilità in singola: il mercato rende l'Omonia favorita dell'andata (1.73) e il suo vantaggio casalingo è rafforzato dalla stanchezza da viaggio del Kairat. La probabilità reale è vicina a quella implicita, valore neutro o leggermente positivo. Il Kairat resta pericoloso (7 vittorie di fila), quindi fiducia media."
+      }
+    },
+    markets: [
+      { category: { fr: "Résultat & double chance", it: "Esito & doppia chance" },
+        note: { fr: "Omonia favori à domicile (1.73), Kairat à 4.50 malgré sa série de 7 victoires — le marché intègre le déplacement.", it: "Omonia favorita in casa (1.73), Kairat a 4.50 nonostante la serie di 7 vittorie — il mercato sconta la trasferta." },
+        rows: [
+          { sel: { fr: "Omonia gagne", it: "Vince l'Omonia" }, dec: 1.73, frac: "8/11" },
+          { sel: { fr: "Match nul", it: "Pareggio" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "Kairat gagne", it: "Vince il Kairat" }, dec: 4.50, frac: "7/2" },
+          { sel: { fr: "Omonia ou nul (1X)", it: "Omonia o pari (1X)" }, dec: 1.30, frac: "3/10" }
+        ] },
+      { category: { fr: "Buts (total & BTTS)", it: "Gol (totale & BTTS)" },
+        note: { fr: "Signal contradictoire : Omonia marque 2,1 buts/match à domicile et Kairat a marqué lors de ses 8 derniers matchs, MAIS les deux confrontations passées se sont finies 0-0. Prudence sur le BTTS.", it: "Segnale contraddittorio: l'Omonia segna 2,1 gol/gara in casa e il Kairat ha segnato nelle ultime 8, MA i due precedenti sono finiti 0-0. Prudenza sul BTTS." },
+        rows: [
+          { sel: { fr: "Plus de 1,5 but", it: "Oltre 1,5 gol" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Plus de 2,5 buts", it: "Oltre 2,5 gol" }, dec: 2.10, frac: "11/10" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.90, frac: "9/10" },
+          { sel: { fr: "Score exact le plus probable : 1-1", it: "Risultato esatto più probabile: 1-1" }, dec: 6.00, frac: "5/1" }
+        ] }
+    ],
+    valueBets: [
+      { label: { fr: "Omonia ou nul (1X)", it: "Omonia o pari (1X)" }, dec: 1.30, ai: 78, note: { fr: "Le socle le plus sûr : domicile + fatigue de voyage adverse.", it: "La base più sicura: casa + stanchezza da viaggio avversaria." } },
+      { label: { fr: "Plus de 1,5 but", it: "Oltre 1,5 gol" }, dec: 1.36, ai: 66, note: { fr: "Deux attaques en forme, mais l'historique 0-0 tempère.", it: "Due attacchi in forma, ma lo storico 0-0 frena." } }
+    ],
+    prediction: {
+      pick: { fr: "Double chance : Omonia ou nul", it: "Doppia chance: Omonia o pari" },
+      pickShort: "Omonia 1X", score: "1 – 1", 
+      goals: { fr: "Match serré, 1 à 2 buts au total attendus", it: "Gara equilibrata, 1-2 gol totali attesi" },
+      confidence: "faible", value: true,
+      summary: {
+        fr: "Aller très équilibré sur le papier. Omonia s'appuie sur un excellent GSP Stadium (2,1 buts/match à domicile) et une série de 5 matchs sans défaite, mais manque de rythme officiel en ce début de saison. Kairat arrive lancé (7 victoires de suite, buteur lors de ses 8 derniers matchs, qualification acquise 4-1 contre Sutjeska) mais doit digérer l'un des plus longs voyages du continent. Les deux seules confrontations européennes passées se sont soldées par des 0-0, ce qui invite à la prudence sur les marchés de buts. Ma lecture : Omonia ne devrait pas perdre à domicile, sans garantie de large victoire. ⚠ Analyse autonome sur sources publiques, sans balayage oddschecker complet.",
+        it: "Andata molto equilibrata sulla carta. L'Omonia si affida a un ottimo GSP Stadium (2,1 gol/gara in casa) e a una serie di 5 gare senza sconfitte, ma difetta di ritmo ufficiale a inizio stagione. Il Kairat arriva lanciato (7 vittorie di fila, a segno nelle ultime 8, qualificazione ottenuta 4-1 col Sutjeska) ma deve smaltire uno dei viaggi più lunghi del continente. I due unici precedenti europei sono finiti 0-0, il che invita alla prudenza sui mercati gol. La mia lettura: l'Omonia non dovrebbe perdere in casa, senza garanzia di larga vittoria. ⚠ Analisi autonoma su fonti pubbliche, senza sweep oddschecker completo."
+      },
+      basedOn: {
+        fr: ["Omonia : 3 victoires et 2 nuls sur les 5 derniers matchs, 12 buts pour 5 encaissés", "2,1 buts marqués par match à domicile au GSP Stadium", "Kairat doit voyager d'Almaty à Chypre (+4h de décalage), facteur de fatigue majeur", "Le marché fait d'Omonia le favori de l'aller (1.73)"],
+        it: ["Omonia: 3 vittorie e 2 pareggi nelle ultime 5, 12 gol fatti e 5 subiti", "2,1 gol segnati a partita in casa al GSP Stadium", "Il Kairat deve viaggiare da Almaty a Cipro (+4h di fuso), grande fattore di stanchezza", "Il mercato rende l'Omonia favorita dell'andata (1.73)"]
+      },
+      against: {
+        fr: ["Kairat reste sur 7 victoires consécutives et a marqué lors de ses 8 derniers matchs", "Kairat a la meilleure dynamique récente des deux équipes", "Omonia manque de matchs officiels dans les jambes en ce début de saison", "Les 2 précédents européens se sont finis 0-0 : rien n'est acquis offensivement"],
+        it: ["Il Kairat viene da 7 vittorie di fila e ha segnato nelle ultime 8", "Il Kairat ha la miglior dinamica recente tra le due", "L'Omonia difetta di gare ufficiali nelle gambe a inizio stagione", "I 2 precedenti europei sono finiti 0-0: nulla di scontato in attacco"]
+      }
+    },
+    teams: {
+      home: { name: { fr: "Omonia Nicosie", it: "Omonia Nicosia" }, flag: "🟢", coach: "—",
+        lineup: { fr: "Composition détaillée non publiée à l'heure de l'analyse.", it: "Formazione dettagliata non pubblicata al momento dell'analisi." },
+        style: { fr: "Équipe à forte production à domicile (2,1 buts/match). Champion de Chypre, appui sur le public bouillant du GSP Stadium.", it: "Squadra ad alta produzione in casa (2,1 gol/gara). Campione di Cipro, forte del pubblico caldo del GSP Stadium." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Peu de matchs officiels dans les jambes en ce début de saison : atout fraîcheur mais possible manque de rythme.", it: "Poche gare ufficiali nelle gambe a inizio stagione: freschezza ma possibile mancanza di ritmo." },
+        form: { fr: "5 matchs sans défaite : 3 victoires, 2 nuls, 12 buts marqués et 5 encaissés.", it: "5 gare senza sconfitte: 3 vittorie, 2 pareggi, 12 gol fatti e 5 subiti." },
+        xg: { fr: "Pas de données xG publiées ; production offensive à domicile élevée selon le marché.", it: "Nessun dato xG pubblicato; alta produzione offensiva in casa secondo il mercato." },
+        context: { fr: "Champion chypriote, entrée en lice dans la campagne européenne.", it: "Campione cipriota, esordio nella campagna europea." },
+        source: "Wincomparator / Betfred / Dailysports" },
+      away: { name: { fr: "Kairat Almaty", it: "Kairat Almaty" }, flag: "🟡", coach: "—",
+        lineup: { fr: "Composition détaillée non publiée à l'heure de l'analyse.", it: "Formazione dettagliata non pubblicata al momento dell'analisi." },
+        style: { fr: "Champion du Kazakhstan, attaque prolifique (buteur lors des 8 derniers matchs) et série de 7 victoires. A éliminé Sutjeska 4-1 au tour précédent.", it: "Campione del Kazakhstan, attacco prolifico (a segno nelle ultime 8) e serie di 7 vittorie. Ha eliminato il Sutjeska 4-1 al turno precedente." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Déplacement très long (Almaty → Chypre, +4h de décalage horaire) : facteur de fatigue à ne pas sous-estimer sur un aller.", it: "Trasferta lunghissima (Almaty → Cipro, +4h di fuso): fattore di stanchezza da non sottovalutare in una gara di andata." },
+        form: { fr: "7 victoires consécutives, 3 succès de suite en déplacement, buteur lors des 8 derniers matchs.", it: "7 vittorie di fila, 3 successi consecutivi in trasferta, a segno nelle ultime 8." },
+        xg: { fr: "Pas de données xG publiées ; dynamique offensive la plus forte des deux équipes.", it: "Nessun dato xG pubblicato; dinamica offensiva più forte tra le due." },
+        context: { fr: "Habitué récent des joutes européennes, vise la phase de ligue.", it: "Frequentatore recente delle coppe, punta alla fase a girone." },
+        source: "Wincomparator / OneFootball / Dailysports" }
+    },
+    keyPlayers: [
+      { team: "🟢", name: "Attaque Omonia", pos: { fr: "Collectif offensif", it: "Reparto offensivo" }, stat: { fr: "2,1 buts/match à domicile", it: "2,1 gol/gara in casa" }, note: { fr: "Le rendement offensif au GSP est la principale arme d'Omonia.", it: "Il rendimento offensivo al GSP è l'arma principale dell'Omonia." } },
+      { team: "🟡", name: "Attaque Kairat", pos: { fr: "Collectif offensif", it: "Reparto offensivo" }, stat: { fr: "Buteur lors des 8 derniers matchs", it: "A segno nelle ultime 8 gare" }, note: { fr: "Régularité offensive remarquable, mais testée par le voyage.", it: "Regolarità offensiva notevole, ma messa alla prova dal viaggio." } }
+    ],
+    matchInfo: {
+      h2h: { fr: "Deux confrontations européennes passées, toutes deux soldées par un 0-0. Historique pauvre en buts qui invite à la prudence sur les marchés offensifs.", it: "Due precedenti europei, entrambi finiti 0-0. Storico povero di gol che invita alla prudenza sui mercati offensivi." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse.", it: "Arbitro non comunicato al momento dell'analisi." },
+      stake: { fr: "2ᵉ tour de qualification de la Ligue des Champions, match aller. Retour le 29 juillet à Almaty. Enjeu majeur vers la phase de ligue.", it: "2° turno di qualificazione di Champions League, gara di andata. Ritorno il 29 luglio ad Almaty. Posta in palio importante verso la fase a girone." },
+      external: { fr: "Match en soirée à Nicosie, chaleur estivale probable. Le déplacement d'Almaty est le facteur externe déterminant.", it: "Gara serale a Nicosia, caldo estivo probabile. La trasferta da Almaty è il fattore esterno determinante." },
+      supercomputer: { fr: "Le marché voit Omonia légèrement favori de l'aller (≈44%) mais le tie reste ouvert sur les deux matchs.", it: "Il mercato vede l'Omonia leggermente favorita dell'andata (≈44%) ma il doppio confronto resta aperto." }
+    },
+    sources: [
+      { label: "Wincomparator — cotes & stats", url: "https://www.wincomparator.com/predictions/omonia-nicosia-kairat-almaty-8552049/" },
+      { label: "OneFootball — preview", url: "https://onefootball.com/en/news/omonia-nicosia-vs-kairat-almaty-prediction-champions-league-qualifier-preview-43163552" },
+      { label: "Dailysports — pronostic", url: "https://dailysports.net/predictions/almaty-side-ready-to-spoil-cypriot-champions-debut-prediction-for-omonia-nicosia-vs-kairat/" }
+    ]
+  },
+  {
+    id: "levski-craiova-2026-07-22",
+    competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
+    date: { fr: "Mercredi 22 juillet 2026", it: "Mercoledì 22 luglio 2026" },
+    kickoff: { fr: "19:30 (heure de Paris)", it: "19:30 (ora italiana)" },
+    venue: "Stade Georgi Asparuhov, Sofia (Bulgarie)",
+    home: { name: { fr: "Levski Sofia", it: "Levski Sofia" }, flag: "🔵" },
+    away: { name: { fr: "U. Craiova", it: "U. Craiova" }, flag: "⚪" },
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "sources publiques (aperçus)", checkedAt: "22/07/2026",
+      aiProb: { home: 45, draw: 29, away: 26 },
+      best: { home: { dec: 2.00, frac: "1/1", book: "sources publiques" }, draw: { dec: 3.20, frac: "11/5", book: "sources publiques" }, away: { dec: 3.90, frac: "29/10", book: "sources publiques" } }
+    },
+    safeBet: {
+      sel: { fr: "Double chance : Levski ou match nul (1X)", it: "Doppia chance: Levski o pareggio (1X)" },
+      dec: 1.35, frac: "7/20", book: "sources publiques", ai: 74,
+      why: {
+        fr: "Pari de sécurité pour combiné : Levski joue à domicile après une démonstration (5-1 cumulé contre Borac Banja Luka) et reste invaincu. Ne pas perdre l'aller à Sofia est l'issue la plus probable. ⚠ Mode autonome (sources publiques), sans balayage oddschecker complet : cote à revérifier chez ton bookmaker.",
+        it: "Scommessa di sicurezza per multipla: il Levski gioca in casa dopo una dimostrazione (5-1 complessivo col Borac Banja Luka) e resta imbattuto. Non perdere l'andata a Sofia è l'esito più probabile. ⚠ Modalità autonoma (fonti pubbliche), senza sweep oddschecker completo: quota da riverificare dal tuo bookmaker."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Les deux équipes marquent — Oui (BTTS)", it: "Entrambe le squadre segnano — Sì (BTTS)" },
+      dec: 2.02, frac: "1/1", book: "sources publiques", ai: 55,
+      why: {
+        fr: "Le meilleur value en simple (≥1.70) : les deux équipes sont en forme offensive (chacune 5 buts marqués sur ses barrages) mais aussi solides derrière (1 seul but encaissé, un clean sheet chacune). À 2.02, le BTTS offre une valeur réelle si le match s'ouvre, ce que suggère le profil des deux attaques. Confiance moyenne car les deux défenses sont elles aussi performantes.",
+        it: "Il miglior value in singola (≥1.70): entrambe in forma offensiva (5 gol ciascuna nei preliminari) ma anche solide dietro (1 solo gol subito, un clean sheet a testa). A 2.02 il BTTS offre valore reale se la gara si apre, come suggerisce il profilo dei due attacchi. Fiducia media perché anche le difese sono efficaci."
+      }
+    },
+    markets: [
+      { category: { fr: "Résultat & double chance", it: "Esito & doppia chance" },
+        note: { fr: "Levski favori à domicile, mais Craiova arrive avec deux victoires de suite (100% de forme sur les 5 derniers).", it: "Levski favorito in casa, ma la Craiova arriva con due vittorie di fila (100% di forma nelle ultime 5)." },
+        rows: [
+          { sel: { fr: "Levski gagne", it: "Vince il Levski" }, dec: 2.00, frac: "1/1" },
+          { sel: { fr: "Match nul", it: "Pareggio" }, dec: 3.20, frac: "11/5" },
+          { sel: { fr: "Craiova gagne", it: "Vince la Craiova" }, dec: 3.90, frac: "29/10" },
+          { sel: { fr: "Levski ou nul (1X)", it: "Levski o pari (1X)" }, dec: 1.35, frac: "7/20" }
+        ] },
+      { category: { fr: "Buts (total & BTTS)", it: "Gol (totale & BTTS)" },
+        note: { fr: "Les deux ont marqué 5 buts et encaissé 1 sur leur tour précédent, avec un clean sheet chacune : profil à la fois offensif ET solide, d'où un BTTS ni évident ni à écarter.", it: "Entrambe hanno segnato 5 gol e subito 1 nel turno precedente, con un clean sheet a testa: profilo offensivo E solido, quindi un BTTS né scontato né da scartare." },
+        rows: [
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 2.02, frac: "1/1" },
+          { sel: { fr: "Plus de 2,5 buts", it: "Oltre 2,5 gol" }, dec: 2.10, frac: "11/10" },
+          { sel: { fr: "Moins de 2,5 buts", it: "Meno di 2,5 gol" }, dec: 1.72, frac: "5/7" }
+        ] }
+    ],
+    valueBets: [
+      { label: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 2.02, ai: 55, note: { fr: "Deux attaques en forme ; le prix de 2.02 paie bien si le match s'ouvre.", it: "Due attacchi in forma; il prezzo di 2.02 paga bene se la gara si apre." } },
+      { label: { fr: "Levski ou nul (1X)", it: "Levski o pari (1X)" }, dec: 1.35, ai: 74, note: { fr: "Le socle sûr : avantage du terrain + invincibilité.", it: "La base sicura: fattore campo + imbattibilità." } }
+    ],
+    prediction: {
+      pick: { fr: "Match ouvert, léger avantage Levski", it: "Gara aperta, lieve vantaggio Levski" },
+      pickShort: "Levski 1X + BTTS", score: "2 – 1",
+      goals: { fr: "Match à buts probable, les deux équipes devraient marquer", it: "Gara da gol probabile, entrambe dovrebbero segnare" },
+      confidence: "moyen", value: true,
+      summary: {
+        fr: "Deux équipes invaincues qui se ressemblent : 5 buts marqués, 1 encaissé et un clean sheet chacune sur le tour précédent. Levski a écrasé Borac Banja Luka 5-1 en cumulé et joue à domicile dans un stade bouillant ; Craiova arrive avec deux victoires de rang et une confiance maximale. Les compositions sont connues (Levski en 4-4-2, Craiova en 3-4-3). Le marché ne dégage pas de favori net, ce qui pousse vers une lecture nuancée : léger avantage à Levski pour l'aller, mais un match qui devrait voir les deux équipes marquer. ⚠ Analyse autonome sur sources publiques.",
+        it: "Due squadre imbattute che si somigliano: 5 gol fatti, 1 subito e un clean sheet a testa nel turno precedente. Il Levski ha travolto il Borac Banja Luka 5-1 complessivo e gioca in casa in uno stadio caldo; la Craiova arriva con due vittorie di fila e massima fiducia. Le formazioni sono note (Levski 4-4-2, Craiova 3-4-3). Il mercato non indica un favorito netto, il che spinge verso una lettura sfumata: lieve vantaggio al Levski per l'andata, ma una gara in cui entrambe dovrebbero segnare. ⚠ Analisi autonoma su fonti pubbliche."
+      },
+      basedOn: {
+        fr: ["Levski invaincu, 5-1 cumulé contre Borac Banja Luka au tour précédent", "Avantage du terrain à Sofia (stade Georgi Asparuhov)", "Les deux équipes ont marqué 5 buts sur leur tour précédent : profils offensifs", "Un pronostic public recommande le BTTS à 2.02"],
+        it: ["Levski imbattuto, 5-1 complessivo col Borac Banja Luka nel turno precedente", "Fattore campo a Sofia (stadio Georgi Asparuhov)", "Entrambe hanno segnato 5 gol nel turno precedente: profili offensivi", "Un pronostico pubblico consiglia il BTTS a 2.02"]
+      },
+      against: {
+        fr: ["Craiova arrive avec deux victoires de suite (100% de forme récente)", "Les deux défenses ont gardé leur cage inviolée : le BTTS n'est pas garanti", "Le marché ne dégage aucun favori net : résultat très incertain", "Match aller : les deux équipes peuvent choisir de ne pas se découvrir"],
+        it: ["La Craiova arriva con due vittorie di fila (100% di forma recente)", "Entrambe le difese hanno tenuto la porta inviolata: il BTTS non è garantito", "Il mercato non indica alcun favorito netto: esito molto incerto", "Gara di andata: entrambe possono scegliere di non scoprirsi"]
+      }
+    },
+    teams: {
+      home: { name: { fr: "Levski Sofia", it: "Levski Sofia" }, flag: "🔵", coach: "—",
+        lineup: { fr: "Dispositif en 4-4-2 : Vutsov — Maicon, Serafimov, Dimitrov, Kamdem — Sentelles, Lobo, Trdin, Oko-Flex — Everton Bala, Reynaldo.", it: "Modulo 4-4-2: Vutsov — Maicon, Serafimov, Dimitrov, Kamdem — Sentelles, Lobo, Trdin, Oko-Flex — Everton Bala, Reynaldo." },
+        style: { fr: "Bloc solide et attaque efficace : 5 buts marqués et 1 encaissé au tour précédent. Public bouillant à Sofia.", it: "Blocco solido e attacco efficace: 5 gol fatti e 1 subito nel turno precedente. Pubblico caldo a Sofia." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Sur une dynamique ascendante (nul puis victoire), effectif en confiance.", it: "Su una dinamica in crescita (pari poi vittoria), rosa in fiducia." },
+        form: { fr: "Invaincu ; qualifié 5-1 en cumulé contre Borac Banja Luka.", it: "Imbattuto; qualificato 5-1 complessivo col Borac Banja Luka." },
+        xg: { fr: "Pas de données xG publiées ; rendement offensif élevé sur le tour précédent.", it: "Nessun dato xG pubblicato; alto rendimento offensivo nel turno precedente." },
+        context: { fr: "Champion/vice-champion de Bulgarie engagé dans la campagne européenne.", it: "Squadra bulgara di vertice impegnata nella campagna europea." },
+        source: "Sofascore / Ratingbet / OneFootball" },
+      away: { name: { fr: "U. Craiova", it: "U. Craiova" }, flag: "⚪", coach: "—",
+        lineup: { fr: "Dispositif en 3-4-3 : Popescu — Badel, Rus, Romanchuk — Telesh, Cicaldau, Mora, Bayram — Al-Hamlawi, Etim, Belutze.", it: "Modulo 3-4-3: Popescu — Badel, Rus, Romanchuk — Telesh, Cicaldau, Mora, Bayram — Al-Hamlawi, Etim, Belutze." },
+        style: { fr: "Équipe roumaine en pleine confiance : deux victoires de suite, 5 buts marqués et 1 encaissé au tour précédent.", it: "Squadra romena in piena fiducia: due vittorie di fila, 5 gol fatti e 1 subito nel turno precedente." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Déplacement court (Roumanie → Bulgarie), pas de surcharge de calendrier.", it: "Trasferta breve (Romania → Bulgaria), nessun sovraccarico di calendario." },
+        form: { fr: "Deux victoires consécutives (100% sur les 5 derniers), invaincu.", it: "Due vittorie consecutive (100% nelle ultime 5), imbattuto." },
+        xg: { fr: "Pas de données xG publiées ; dynamique récente parfaite.", it: "Nessun dato xG pubblicato; dinamica recente perfetta." },
+        context: { fr: "Ambition roumaine de franchir plusieurs tours européens.", it: "Ambizione romena di superare più turni europei." },
+        source: "Sofascore / Ratingbet / Dailysports" }
+    },
+    keyPlayers: [
+      { team: "🔵", name: "Reynaldo", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Pointe de l'attaque de Levski", it: "Punta dell'attacco del Levski" }, note: { fr: "Doit convertir la domination attendue à domicile.", it: "Deve convertire il dominio atteso in casa." } },
+      { team: "⚪", name: "Al-Hamlawi", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Fer de lance du 3-4-3 de Craiova", it: "Punta di diamante del 3-4-3 della Craiova" }, note: { fr: "L'atout offensif majeur des Roumains en déplacement.", it: "L'arma offensiva principale dei romeni in trasferta." } }
+    ],
+    matchInfo: {
+      h2h: { fr: "Pas d'historique récent significatif entre les deux clubs ; le duel se lit surtout à travers leur forme et leur profil très proches.", it: "Nessuno storico recente significativo tra i due club; il duello si legge soprattutto attraverso forma e profilo molto simili." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse.", it: "Arbitro non comunicato al momento dell'analisi." },
+      stake: { fr: "2ᵉ tour de qualification de la Ligue des Champions, match aller. Retour le 29 juillet en Roumanie.", it: "2° turno di qualificazione di Champions League, gara di andata. Ritorno il 29 luglio in Romania." },
+      external: { fr: "Match en soirée à Sofia, conditions estivales. Déplacement court pour Craiova.", it: "Gara serale a Sofia, condizioni estive. Trasferta breve per la Craiova." },
+      supercomputer: { fr: "Le marché penche légèrement pour Levski sur l'aller sans dégager de favori net sur le tie.", it: "Il mercato pende leggermente per il Levski sull'andata senza indicare un favorito netto sul doppio confronto." }
+    },
+    sources: [
+      { label: "Sofascore — H2H & compos", url: "https://www.sofascore.com/football/match/universitatea-craiova-levski-sofia/ypbsyzW" },
+      { label: "Ratingbet — analyse & compos probables", url: "https://ratingbet.com/predictions/levski-vs-universitatea-craiova-prediction-expert-analysis-possible-lineups-july-22-2026/" },
+      { label: "OneFootball — preview", url: "https://onefootball.com/en/news/levski-sofia-vs-universitatea-craiova-prediction-champions-league-qualifier-preview-43163651" }
+    ]
+  },
+  {
+    id: "egnatia-celje-2026-07-22",
+    competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
+    date: { fr: "Mercredi 22 juillet 2026", it: "Mercoledì 22 luglio 2026" },
+    kickoff: { fr: "20:00 (heure de Paris)", it: "20:00 (ora italiana)" },
+    venue: "Arena Egnatia, Rrogozhinë (Albanie)",
+    home: { name: { fr: "Egnatia", it: "Egnatia" }, flag: "🔴" },
+    away: { name: { fr: "NK Celje", it: "NK Celje" }, flag: "🟡" },
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "sources publiques (aperçus)", checkedAt: "22/07/2026",
+      aiProb: { home: 40, draw: 28, away: 32 },
+      best: { home: { dec: 2.45, frac: "29/20", book: "sources publiques" }, draw: { dec: 3.30, frac: "23/10", book: "sources publiques" }, away: { dec: 2.70, frac: "17/10", book: "sources publiques" } }
+    },
+    safeBet: {
+      sel: { fr: "Les deux équipes marquent — Oui (BTTS)", it: "Entrambe le squadre segnano — Sì (BTTS)" },
+      dec: 1.55, frac: "11/20", book: "sources publiques", ai: 66,
+      why: {
+        fr: "Retenu comme pari safe orienté combiné (cible ~1,50) : 5 des 6 derniers matchs d'Egnatia ont vu les deux équipes marquer, Egnatia est très prolifique à domicile (12 buts en 3 matchs) mais encaisse aussi, et Celje marque régulièrement (2-2 en ouverture de championnat). Le profil des deux équipes pointe vers un match ouvert. ⚠ Mode autonome (sources publiques), sans balayage oddschecker complet.",
+        it: "Scelto come scommessa sicura orientata alla multipla (obiettivo ~1,50): 5 delle ultime 6 gare dell'Egnatia hanno visto entrambe segnare, l'Egnatia è molto prolifico in casa (12 gol in 3 gare) ma subisce anche, e il Celje segna con regolarità (2-2 all'esordio di campionato). Il profilo delle due squadre indica una gara aperta. ⚠ Modalità autonoma (fonti pubbliche), senza sweep oddschecker completo."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Plus de 2,5 buts dans le match", it: "Oltre 2,5 gol nella gara" },
+      dec: 1.85, frac: "17/20", book: "sources publiques", ai: 54,
+      why: {
+        fr: "Le meilleur value en simple (≥1.70) : Egnatia a surclassé Petrocub 6-1 et affiche 12 buts en 3 matchs à domicile, Celje encaisse (2-2 en ouverture) mais marque en déplacement (5 victoires de rang à l'extérieur, souvent avec des buts). Le total de buts élevé est cohérent avec le BTTS retenu en safe. Confiance moyenne : Celje peut aussi verrouiller sur un aller.",
+        it: "Il miglior value in singola (≥1.70): l'Egnatia ha surclassato il Petrocub 6-1 e mostra 12 gol in 3 gare in casa, il Celje subisce (2-2 all'esordio) ma segna in trasferta (5 vittorie di fila fuori casa, spesso con gol). L'alto totale gol è coerente col BTTS scelto come sicura. Fiducia media: il Celje può anche blindarsi in una gara di andata."
+      }
+    },
+    markets: [
+      { category: { fr: "Buts (BTTS & total) — le cœur du match", it: "Gol (BTTS & totale) — il cuore della gara" },
+        note: { fr: "5 des 6 derniers matchs d'Egnatia ont vu les deux équipes marquer ; Egnatia a mis 12 buts en 3 matchs à domicile mais en a pris 3. Marché de buts privilégié.", it: "5 delle ultime 6 gare dell'Egnatia hanno visto entrambe segnare; l'Egnatia ha segnato 12 gol in 3 gare in casa ma ne ha subiti 3. Mercato gol da privilegiare." },
+        rows: [
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.55, frac: "11/20" },
+          { sel: { fr: "Plus de 2,5 buts", it: "Oltre 2,5 gol" }, dec: 1.85, frac: "17/20" },
+          { sel: { fr: "Plus de 1,5 but", it: "Oltre 1,5 gol" }, dec: 1.25, frac: "1/4" }
+        ] },
+      { category: { fr: "Résultat & double chance", it: "Esito & doppia chance" },
+        note: { fr: "Match très équilibré : Egnatia porté par sa série à domicile (3 victoires, 12-3), Celje solide en déplacement (5 victoires de suite à l'extérieur). Home avoid defeat à 1.68.", it: "Gara molto equilibrata: Egnatia trascinato dalla striscia casalinga (3 vittorie, 12-3), Celje solido in trasferta (5 vittorie di fila fuori casa). Home avoid defeat a 1.68." },
+        rows: [
+          { sel: { fr: "Egnatia gagne", it: "Vince l'Egnatia" }, dec: 2.45, frac: "29/20" },
+          { sel: { fr: "Match nul", it: "Pareggio" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Celje gagne", it: "Vince il Celje" }, dec: 2.70, frac: "17/10" },
+          { sel: { fr: "Egnatia ou nul (1X)", it: "Egnatia o pari (1X)" }, dec: 1.68, frac: "17/25" }
+        ] }
+    ],
+    valueBets: [
+      { label: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.55, ai: 66, note: { fr: "5/6 des derniers matchs d'Egnatia en BTTS ; Celje marque et encaisse.", it: "5/6 delle ultime gare dell'Egnatia in BTTS; il Celje segna e subisce." } },
+      { label: { fr: "Plus de 2,5 buts", it: "Oltre 2,5 gol" }, dec: 1.85, ai: 54, note: { fr: "Egnatia 12 buts en 3 matchs à domicile ; total élevé cohérent.", it: "Egnatia 12 gol in 3 gare in casa; totale alto coerente." } }
+    ],
+    prediction: {
+      pick: { fr: "Match ouvert — les deux équipes marquent", it: "Gara aperta — entrambe segnano" },
+      pickShort: "BTTS Oui", score: "2 – 1",
+      goals: { fr: "Match à buts probable, total supérieur à 2,5 envisageable", it: "Gara da gol probabile, totale sopra 2,5 ipotizzabile" },
+      confidence: "moyen", value: true,
+      summary: {
+        fr: "Deux équipes qui aiment l'offensive. Egnatia reste sur une série de 3 victoires à domicile en surclassant ses adversaires 12-3, avec un récent 6-1 contre Petrocub, mais sa défense reste perméable. Celje a montré ses failles (2-2 en ouverture de championnat contre Mura) tout en affichant une remarquable série de 5 victoires de rang en déplacement. Le marché est très serré sur le résultat (Egnatia 2.45, Celje 2.70), ce qui rend le pari sec risqué. La vraie lecture est sur les buts : le profil des deux équipes, et surtout la statistique 5/6 BTTS d'Egnatia, orientent vers un match ouvert. ⚠ Analyse autonome sur sources publiques.",
+        it: "Due squadre che amano l'offensiva. L'Egnatia viene da 3 vittorie casalinghe surclassando gli avversari 12-3, con un recente 6-1 sul Petrocub, ma la difesa resta permeabile. Il Celje ha mostrato le sue crepe (2-2 all'esordio col Mura) pur vantando una notevole serie di 5 vittorie di fila in trasferta. Il mercato è cortissimo sull'esito (Egnatia 2.45, Celje 2.70), il che rende rischiosa la scommessa secca. La vera lettura è sui gol: il profilo delle due squadre, e soprattutto la statistica 5/6 BTTS dell'Egnatia, indicano una gara aperta. ⚠ Analisi autonoma su fonti pubbliche."
+      },
+      basedOn: {
+        fr: ["5 des 6 derniers matchs d'Egnatia ont vu les deux équipes marquer", "Egnatia : 3 victoires de suite à domicile, 12 buts marqués pour 3 encaissés, dont un 6-1 sur Petrocub", "Celje encaisse (2-2 en ouverture de championnat) mais marque régulièrement", "Un pronostic public met en avant le BTTS"],
+        it: ["5 delle ultime 6 gare dell'Egnatia hanno visto entrambe segnare", "Egnatia: 3 vittorie di fila in casa, 12 gol fatti e 3 subiti, incluso un 6-1 sul Petrocub", "Il Celje subisce (2-2 all'esordio) ma segna con regolarità", "Un pronostico pubblico evidenzia il BTTS"]
+      },
+      against: {
+        fr: ["Celje reste sur 5 victoires consécutives en déplacement : défense de voyage fiable", "Sur un aller, Celje peut choisir de verrouiller et casser le BTTS", "Le résultat sec est un quasi 50/50 : le pari 1N2 est à éviter", "La défense d'Egnatia peut aussi tenir si le match se ferme"],
+        it: ["Il Celje viene da 5 vittorie di fila in trasferta: difesa da viaggio affidabile", "In una gara di andata il Celje può scegliere di blindarsi e rompere il BTTS", "L'esito secco è quasi un 50/50: la scommessa 1X2 è da evitare", "Anche la difesa dell'Egnatia può reggere se la gara si chiude"]
+      }
+    },
+    teams: {
+      home: { name: { fr: "Egnatia", it: "Egnatia" }, flag: "🔴", coach: "Edlir Tetova",
+        lineup: { fr: "Dispositif en 5-3-2 : Dajsinani — Andrei Yago, Jaime, Djemaili, Bitri, Sota — Lukili, Fernando Medeiros, Kryeziu — Bakayoko, Albanese.", it: "Modulo 5-3-2: Dajsinani — Andrei Yago, Jaime, Djemaili, Bitri, Sota — Lukili, Fernando Medeiros, Kryeziu — Bakayoko, Albanese." },
+        style: { fr: "Équipe albanaise très offensive à domicile : 3 victoires de suite en surclassant 12-3, dont un 6-1 contre Petrocub. Défense perméable.", it: "Squadra albanese molto offensiva in casa: 3 vittorie di fila surclassando 12-3, incluso un 6-1 sul Petrocub. Difesa permeabile." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Série victorieuse à domicile, confiance élevée en ce début de campagne.", it: "Serie vincente in casa, fiducia alta a inizio campagna." },
+        form: { fr: "3 victoires de suite à domicile (12 buts marqués, 3 encaissés), dont un 6-1 contre Petrocub.", it: "3 vittorie di fila in casa (12 gol fatti, 3 subiti), incluso un 6-1 sul Petrocub." },
+        xg: { fr: "Pas de données xG publiées ; production offensive à domicile très élevée.", it: "Nessun dato xG pubblicato; produzione offensiva casalinga molto alta." },
+        context: { fr: "Champion d'Albanie, ambition de créer l'exploit à domicile.", it: "Campione d'Albania, ambizione di firmare l'impresa in casa." },
+        source: "Sports Mole / Ratingbet / Dailysports" },
+      away: { name: { fr: "NK Celje", it: "NK Celje" }, flag: "🟡", coach: "—",
+        lineup: { fr: "Dispositif en 4-3-3 (composition détaillée non publiée à l'heure de l'analyse).", it: "Modulo 4-3-3 (formazione dettagliata non pubblicata al momento dell'analisi)." },
+        style: { fr: "Club slovène redoutable en déplacement (5 victoires de suite à l'extérieur) mais défensivement irrégulier (2-2 en ouverture contre Mura).", it: "Club sloveno temibile in trasferta (5 vittorie di fila fuori casa) ma difensivamente irregolare (2-2 all'esordio col Mura)." },
+        absences: { fr: ["Aucune absence confirmée à l'heure de l'analyse"], it: ["Nessuna assenza confermata al momento dell'analisi"] },
+        physical: { fr: "Déplacement Slovénie → Albanie, sans surcharge notable de calendrier.", it: "Trasferta Slovenia → Albania, senza sovraccarico rilevante di calendario." },
+        form: { fr: "5 victoires consécutives en déplacement, mais 2-2 en ouverture de championnat contre Mura.", it: "5 vittorie consecutive in trasferta, ma 2-2 all'esordio di campionato col Mura." },
+        xg: { fr: "Pas de données xG publiées ; solide loin de ses bases malgré des failles.", it: "Nessun dato xG pubblicato; solido lontano da casa nonostante alcune crepe." },
+        context: { fr: "Représentant slovène expérimenté en Coupe d'Europe.", it: "Rappresentante sloveno esperto nelle coppe europee." },
+        source: "Sports Mole / Mightytips / Freetips" }
+    },
+    keyPlayers: [
+      { team: "🔴", name: "Bakayoko", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Pointe du 5-3-2 d'Egnatia", it: "Punta del 5-3-2 dell'Egnatia" }, note: { fr: "Au cœur de la production offensive à domicile.", it: "Al centro della produzione offensiva in casa." } },
+      { team: "🟡", name: "Attaque Celje", pos: { fr: "Collectif offensif", it: "Reparto offensivo" }, stat: { fr: "5 victoires de suite en déplacement", it: "5 vittorie di fila in trasferta" }, note: { fr: "Capable de marquer loin de ses bases, clé du BTTS.", it: "Capace di segnare lontano da casa, chiave del BTTS." } }
+    ],
+    matchInfo: {
+      h2h: { fr: "Pas d'historique significatif entre les deux clubs ; la lecture repose sur la forme et les profils offensifs.", it: "Nessuno storico significativo tra i due club; la lettura si basa su forma e profili offensivi." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse.", it: "Arbitro non comunicato al momento dell'analisi." },
+      stake: { fr: "2ᵉ tour de qualification de la Ligue des Champions, match aller. Retour le 29 juillet en Slovénie.", it: "2° turno di qualificazione di Champions League, gara di andata. Ritorno il 29 luglio in Slovenia." },
+      external: { fr: "Match en soirée à l'Arena Egnatia, conditions estivales. Déplacement modéré pour Celje.", it: "Gara serale all'Arena Egnatia, condizioni estive. Trasferta moderata per il Celje." },
+      supercomputer: { fr: "Le marché voit un match très équilibré (Egnatia 2.45, Celje 2.70) : le vrai signal est sur les buts, pas sur le résultat sec.", it: "Il mercato vede una gara molto equilibrata (Egnatia 2.45, Celje 2.70): il vero segnale è sui gol, non sull'esito secco." }
+    },
+    sources: [
+      { label: "Sports Mole — preview & compos", url: "https://www.sportsmole.co.uk/football/egnatia-rrogozhine/champions-league/preview/egnatia-rrogozhine-vs-celje-prediction-team-news-lineups_601518.html" },
+      { label: "Ratingbet — analyse & compos", url: "https://ratingbet.com/predictions/egnatia-vs-celje-prediction-team-news-lineups-expert-analysis/" },
+      { label: "Dailysports — pronostic", url: "https://dailysports.net/predictions/albanians-will-once-again-rely-on-home-pressure-prediction-for-egnatia-vs-celje/" }
+    ]
+  },
+
+  {
     id: "sturm-graz-hearts-2026-07-21",
     competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
     date: { fr: "Mardi 21 juillet 2026", it: "Martedì 21 luglio 2026" },
