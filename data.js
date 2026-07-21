@@ -11,6 +11,410 @@
 
 const MATCHES = [
   {
+    id: "sturm-graz-hearts-2026-07-21",
+    competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
+    date: { fr: "Mardi 21 juillet 2026", it: "Martedì 21 luglio 2026" },
+    kickoff: { fr: "20:30 (heure de Paris)", it: "20:30 (ora italiana)" },
+    venue: "Merkur Arena (Liebenauer Stadion), Graz (Autriche)",
+    home: { name: { fr: "Sturm Graz", it: "Sturm Graz" }, flag: "⚫" },
+    away: { name: { fr: "Hearts", it: "Hearts" }, flag: "🟣" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 53, draw: 25, away: 22 },
+      best: {
+        home: { dec: 1.80, frac: "4/5", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 3.90, frac: "29/10", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 4.60, frac: "18/5", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Hearts marque moins de 1,5 but", it: "Hearts segna meno di 1,5 gol" },
+      dec: 1.36, frac: "4/11", book: "top des bookmakers (oddschecker)", ai: 76,
+      why: {
+        fr: "Choisi parmi les 25 marchés de la page, pas un DNB. C'est un match ALLER : l'équipe qui se déplace gère généralement, et Hearts vient jouer en Autriche avec le retour à Tynecastle le 28 juillet en tête. Sturm Graz sort d'un 2-0 à domicile contre le Rapid Vienne et le marché ne donne Hearts qu'à 1.50 pour simplement marquer, contre 3.25 pour inscrire 2 buts ou plus. Qu'Hearts reste à 0 ou 1 but est donc nettement le scénario le plus probable (~76% selon mon estimation) pour une cote de 1.36, dans ta fourchette safe.",
+        it: "Scelto tra i 25 mercati della pagina, non un DNB. È una gara d'ANDATA: chi gioca fuori casa gestisce, e l'Hearts arriva in Austria pensando al ritorno a Tynecastle il 28 luglio. Lo Sturm Graz viene da un 2-0 casalingo col Rapid Vienna e il mercato dà l'Hearts a solo 1.50 per segnare, contro 3.25 per farne 2 o più. Che l'Hearts resti a 0 o 1 gol è quindi lo scenario più probabile (~76% secondo la mia stima) per una quota di 1.36, nella tua fascia sicura."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Sturm Graz marque plus de 1,5 but", it: "Sturm Graz segna più di 1,5 gol" },
+      dec: 1.75, frac: "3/4", book: "top des bookmakers (oddschecker)", ai: 60,
+      why: {
+        fr: "Sturm Graz reçoit à l'aller et a besoin d'un matelas avant le déplacement à Édimbourg. Le marché le donne à 1.15 pour marquer au moins un but (≈87%) : la question n'est pas s'il marque, mais combien. Il sort d'un 2-0 contre le Rapid Vienne et affiche 67% de victoires sur les 30 derniers jours. J'estime la probabilité de 2 buts ou plus autour de 60% pour une cote de 1.75 (57% implicite) → environ +5% de valeur. ⚠ Pas d'AI Probability ici : c'est MON estimation.",
+        it: "Lo Sturm Graz gioca in casa all'andata e ha bisogno di un margine prima della trasferta di Edimburgo. Il mercato lo dà a 1.15 per segnare almeno un gol (≈87%): la domanda non è se segna, ma quanto. Viene da un 2-0 col Rapid Vienna e ha il 67% di vittorie negli ultimi 30 giorni. Stimo la probabilità di 2+ gol intorno al 60% per una quota di 1.75 (57% implicito) → circa +5% di valore. ⚠ Nessuna AI Probability qui: è una MIA stima."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Buts par équipe (le cœur de l'analyse)", it: "Gol per squadra (il cuore dell'analisi)" },
+        note: { fr: "Sturm est à 1.15 pour marquer, Hearts à seulement 1.50 : l'écart de production attendue est le socle des deux paris retenus.", it: "Lo Sturm è a 1.15 per segnare, l'Hearts solo a 1.50: il divario di produzione attesa è la base delle due scommesse scelte." },
+        rows: [
+          { sel: { fr: "Sturm Graz marque (plus de 0,5 but)", it: "Segna lo Sturm Graz (oltre 0,5 gol)" }, dec: 1.15, frac: "2/13" },
+          { sel: { fr: "Sturm Graz plus de 1,5 but (2+)", it: "Sturm Graz oltre 1,5 gol (2+)" }, dec: 1.75, frac: "3/4" },
+          { sel: { fr: "Sturm Graz plus de 2,5 buts (3+)", it: "Sturm Graz oltre 2,5 gol (3+)" }, dec: 3.50, frac: "5/2" },
+          { sel: { fr: "Hearts marque (plus de 0,5 but)", it: "Segna l'Hearts (oltre 0,5 gol)" }, dec: 1.50, frac: "1/2" },
+          { sel: { fr: "Hearts moins de 1,5 but", it: "Hearts meno di 1,5 gol" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Hearts ne marque pas", it: "L'Hearts non segna" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.73, frac: "8/11" },
+          { sel: { fr: "Les deux équipes marquent — Non", it: "Entrambe segnano — No" }, dec: 2.20, frac: "6/5" }
+        ]
+      },
+      {
+        category: { fr: "Résultat, qualification & remboursé si nul", it: "Esito, qualificazione & rimborso se pareggio" },
+        note: { fr: "Le marché « se qualifier » (sur les deux matchs) est quasiment à 50/50 : Sturm 1.91, Hearts 2.10. Le tie est bien plus équilibré que le 1N2 de l'aller ne le laisse croire.", it: "Il mercato « qualificazione » (sui due incontri) è quasi 50/50: Sturm 1.91, Hearts 2.10. Il confronto è molto più equilibrato di quanto suggerisca l'1X2 dell'andata." },
+        rows: [
+          { sel: { fr: "Sturm Graz (1)", it: "Sturm Graz (1)" }, dec: 1.80, frac: "4/5" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 3.90, frac: "29/10" },
+          { sel: { fr: "Hearts (2)", it: "Hearts (2)" }, dec: 4.60, frac: "18/5" },
+          { sel: { fr: "Sturm Graz se qualifie (sur 2 matchs)", it: "Sturm Graz si qualifica (sui 2 incontri)" }, dec: 1.91, frac: "10/11" },
+          { sel: { fr: "Hearts se qualifie (sur 2 matchs)", it: "Hearts si qualifica (sui 2 incontri)" }, dec: 2.10, frac: "11/10" },
+          { sel: { fr: "Sturm Graz remboursé si nul (Draw No Bet)", it: "Sturm Graz rimborso se pareggio (DNB)" }, dec: 1.33, frac: "1/3" },
+          { sel: { fr: "Hearts remboursé si nul (Draw No Bet)", it: "Hearts rimborso se pareggio (DNB)" }, dec: 3.50, frac: "5/2" }
+        ]
+      },
+      {
+        category: { fr: "Nombre de buts & score exact", it: "Numero di gol & risultato esatto" },
+        rows: [
+          { sel: { fr: "Total 2 buts exact (le plus probable)", it: "Totale 2 gol esatti (il più probabile)" }, dec: 3.80, frac: "14/5" },
+          { sel: { fr: "Total 3 buts exact", it: "Totale 3 gol esatti" }, dec: 4.33, frac: "10/3" },
+          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 5.50, frac: "9/2" },
+          { sel: { fr: "Total 1 but exact", it: "Totale 1 gol esatto" }, dec: 6.00, frac: "5/1" },
+          { sel: { fr: "Nul 1-1 (score le plus probable)", it: "Pareggio 1-1 (risultato più probabile)" }, dec: 7.50, frac: "13/2" },
+          { sel: { fr: "Sturm Graz 1-0", it: "Sturm Graz 1-0" }, dec: 8.50, frac: "15/2" },
+          { sel: { fr: "Sturm Graz 2-1", it: "Sturm Graz 2-1" }, dec: 8.50, frac: "15/2" },
+          { sel: { fr: "Sturm Graz 2-0", it: "Sturm Graz 2-0" }, dec: 9.50, frac: "17/2" }
+        ]
+      },
+      {
+        category: { fr: "Tirs cadrés (marché fiable pour combiné)", it: "Tiri in porta (mercato affidabile per multipla)" },
+        rows: [
+          { sel: { fr: "Belmin Beganović — plus de 0,5 tir cadré", it: "Belmin Beganović — oltre 0,5 tiri in porta" }, dec: 1.29, frac: "2/7" },
+          { sel: { fr: "Seedy Jatta — plus de 0,5", it: "Seedy Jatta — oltre 0,5" }, dec: 1.30, frac: "3/10" },
+          { sel: { fr: "Otar Kiteishvili — plus de 0,5", it: "Otar Kiteishvili — oltre 0,5" }, dec: 1.30, frac: "3/10" },
+          { sel: { fr: "Szymon Włodarczyk — plus de 0,5", it: "Szymon Włodarczyk — oltre 0,5" }, dec: 1.36, frac: "4/11" },
+          { sel: { fr: "Leon Grgić / Peter Kiedl / Simon Seidl — plus de 0,5", it: "Leon Grgić / Peter Kiedl / Simon Seidl — oltre 0,5" }, dec: 1.40, frac: "2/5" },
+          { sel: { fr: "Maurice Malone — plus de 0,5", it: "Maurice Malone — oltre 0,5" }, dec: 1.50, frac: "1/2" }
+        ]
+      },
+      {
+        category: { fr: "Buteurs & mi-temps", it: "Marcatori & primo tempo" },
+        rows: [
+          { sel: "Belmin Beganović — buteur", dec: 2.45, frac: "29/20" },
+          { sel: "Amady Camara — buteur", dec: 2.63, frac: "13/8" },
+          { sel: "Otar Kiteishvili — buteur", dec: 2.63, frac: "13/8" },
+          { sel: "Leon Grgić — buteur", dec: 2.63, frac: "13/8" },
+          { sel: "Claudio Braga (Hearts) — buteur", dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Résultat mi-temps : Sturm Graz", it: "Esito primo tempo: Sturm Graz" }, dec: 2.38, frac: "11/8" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 2.38, frac: "11/8" },
+          { sel: { fr: "Score 1ʳᵉ MT : 0-0", it: "Risultato 1° tempo: 0-0" }, dec: 3.30, frac: "23/10" },
+          { sel: { fr: "Sturm gagne & les deux marquent", it: "Vince lo Sturm & entrambe segnano" }, dec: 3.50, frac: "5/2" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Sturm Graz plus de 1,5 but", it: "Sturm Graz oltre 1,5 gol" }, dec: 1.75, ai: 60,
+        note: { fr: "Sturm à 1.15 pour marquer, sort d'un 2-0 contre le Rapid Vienne, et joue l'aller à domicile où il doit creuser l'écart.", it: "Sturm a 1.15 per segnare, viene da un 2-0 col Rapid Vienna e gioca l'andata in casa dove deve scavare il solco." } },
+      { label: { fr: "Hearts moins de 1,5 but", it: "Hearts meno di 1,5 gol" }, dec: 1.36, ai: 76,
+        note: { fr: "Match aller à l'extérieur : Hearts n'est qu'à 3.25 pour marquer 2 buts ou plus. La base safe du combiné.", it: "Andata in trasferta: l'Hearts è a 3.25 per segnare 2+ gol. La base sicura della multipla." } },
+      { label: { fr: "Les deux équipes marquent — Oui", it: "Entrambe segnano — Sì" }, dec: 1.73, ai: 58,
+        note: { fr: "Quasiment à sa juste valeur (Sturm marque à 87%, Hearts à 67%) : à jouer seulement si tu crois à un aller ouvert.", it: "Praticamente al valore equo (Sturm segna all'87%, Hearts al 67%): da giocare solo se credi a un'andata aperta." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Sturm Graz", it: "Vittoria Sturm Graz" },
+      pickShort: "Sturm Graz",
+      score: "2 – 1",
+      goals: { fr: "Sturm devrait marquer 2 buts, Hearts limité à 0 ou 1", it: "Lo Sturm dovrebbe segnare 2 gol, l'Hearts limitato a 0 o 1" },
+      confidence: "moyen",
+      value: true,
+      summary: {
+        fr: "Premier match de l'histoire entre les deux clubs, et un tie que le marché juge très équilibré sur l'ensemble : Sturm 1.91 pour se qualifier contre 2.10 pour Hearts. Sur l'aller à Graz en revanche, Sturm est logiquement favori (1.80) : il joue à domicile, sort d'un 2-0 contre le Rapid Vienne et affiche 67% de victoires sur les 30 derniers jours. Hearts arrive pourtant avec de vraies références — une victoire récente contre le Rayo Vallecano — et le même taux de 67% sur la période. Les deux jouent en 4-3-3, la bataille du milieu décidera du tempo. Ma lecture : le résultat sec à 1.80 n'offre pas de marge suffisante ; la valeur est dans la répartition des buts, avec un Sturm qui doit se créer un matelas avant Tynecastle et un Hearts qui gère son déplacement.",
+        it: "Prima gara nella storia tra i due club, e un confronto che il mercato giudica molto equilibrato: Sturm 1.91 per qualificarsi contro 2.10 dell'Hearts. Sull'andata a Graz però lo Sturm è logicamente favorito (1.80): gioca in casa, viene da un 2-0 col Rapid Vienna e ha il 67% di vittorie negli ultimi 30 giorni. L'Hearts arriva però con referenze vere — una recente vittoria sul Rayo Vallecano — e la stessa percentuale del 67%. Entrambe giocano col 4-3-3, la battaglia a centrocampo deciderà il ritmo. La mia lettura: l'esito secco a 1.80 non offre margine sufficiente; il valore è nella distribuzione dei gol, con uno Sturm che deve costruirsi un margine prima di Tynecastle e un Hearts che gestisce la trasferta."
+      },
+      basedOn: {
+        fr: [
+          "Sturm Graz sort d'un 2-0 à domicile contre le Rapid Vienne (Mamageishvili et Hierländer buteurs)",
+          "Sturm est coté 1.15 pour marquer au moins un but, contre 1.50 pour Hearts",
+          "Hearts n'est qu'à 3.25 pour inscrire 2 buts ou plus : le marché ne l'attend pas prolifique en déplacement",
+          "Match ALLER : l'équipe visiteuse gère traditionnellement, avec le retour à Tynecastle le 28 juillet",
+          "Le total le plus probable est 2 buts (3.80), les scores favoris sont 1-1, Sturm 1-0 et Sturm 2-1"
+        ],
+        it: [
+          "Lo Sturm Graz viene da un 2-0 casalingo col Rapid Vienna (in gol Mamageishvili e Hierländer)",
+          "Lo Sturm è quotato 1.15 per segnare almeno un gol, contro 1.50 dell'Hearts",
+          "L'Hearts è a 3.25 per segnare 2+ gol: il mercato non lo attende prolifico in trasferta",
+          "Gara d'ANDATA: chi gioca fuori tradizionalmente gestisce, col ritorno a Tynecastle il 28 luglio",
+          "Il totale più probabile è 2 gol (3.80), i risultati favoriti sono 1-1, Sturm 1-0 e Sturm 2-1"
+        ]
+      },
+      against: {
+        fr: [
+          "Le marché « qualification » est quasiment à 50/50 (1.91 vs 2.10) : Hearts est loin d'être un faire-valoir",
+          "Hearts vient de battre le Rayo Vallecano, un signal de forme réel avant de venir en Autriche",
+          "Les deux équipes affichent le même taux de 67% de victoires sur les 30 derniers jours",
+          "Première confrontation de l'histoire : aucun historique direct pour s'appuyer",
+          "Aucune AI Probability sur ce match : toutes les probabilités sont mes estimations",
+          "Aucun arbitre annoncé et aucune info blessures fiable trouvée à l'heure de l'analyse"
+        ],
+        it: [
+          "Il mercato « qualificazione » è quasi 50/50 (1.91 vs 2.10): l'Hearts non è una comparsa",
+          "L'Hearts ha appena battuto il Rayo Vallecano, segnale di forma reale prima dell'Austria",
+          "Entrambe hanno la stessa percentuale del 67% di vittorie negli ultimi 30 giorni",
+          "Prima sfida della storia: nessun precedente diretto su cui appoggiarsi",
+          "Nessuna AI Probability su questa gara: tutte le probabilità sono mie stime",
+          "Nessun arbitro annunciato e nessuna info affidabile sugli infortuni al momento dell'analisi"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Sturm Graz", it: "Sturm Graz" }, flag: "⚫", coach: "—",
+        lineup: { fr: "Dispositif en 4-3-3 (composition détaillée non publiée à l'heure de l'analyse).", it: "Modulo 4-3-3 (formazione dettagliata non pubblicata al momento dell'analisi)." },
+        style: { fr: "4-3-3, équipe qui marque beaucoup à domicile : cotée 1.15 pour trouver la faille. Beganović, Kiteishvili et Jatta sont les plus sollicités au tir (tous sous 1.30 pour cadrer).", it: "4-3-3, squadra che segna molto in casa: quotata 1.15 per andare a segno. Beganović, Kiteishvili e Jatta sono i più coinvolti al tiro (tutti sotto 1.30 per centrare la porta)." },
+        absences: { fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"], it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"] },
+        physical: { fr: "Début de saison européenne, effectif frais. Match à domicile, pas de déplacement.", it: "Inizio di stagione europea, rosa fresca. Gara in casa, nessuna trasferta." },
+        form: { fr: "67% de victoires sur les 30 derniers jours. Dernière sortie : victoire 2-0 à domicile contre le Rapid Vienne (Mamageishvili, Hierländer).", it: "67% di vittorie negli ultimi 30 giorni. Ultima uscita: vittoria 2-0 in casa col Rapid Vienna (Mamageishvili, Hierländer)." },
+        xg: { fr: "Pas de données xG publiées, mais le marché est clair : 1.15 pour marquer, 1.75 pour inscrire 2 buts ou plus.", it: "Nessun dato xG pubblicato, ma il mercato è chiaro: 1.15 per segnare, 1.75 per 2+ gol." },
+        context: { fr: "Aller à domicile : Sturm doit se construire une avance avant le déplacement à Édimbourg le 28 juillet.", it: "Andata in casa: lo Sturm deve costruirsi un vantaggio prima della trasferta di Edimburgo del 28 luglio." },
+        source: "Tips.GG / Sportskeeda / SportsGambler (21/07/2026)"
+      },
+      away: {
+        name: { fr: "Hearts", it: "Hearts" }, flag: "🟣", coach: "—",
+        lineup: { fr: "Dispositif en 4-3-3 (composition détaillée non publiée à l'heure de l'analyse).", it: "Modulo 4-3-3 (formazione dettagliata non pubblicata al momento dell'analisi)." },
+        style: { fr: "4-3-3 également. Lawrence Shankland est le meilleur buteur (5 buts), Claudio Braga (3) et Blair Spittal (2) suivent, Marc Leonard est le principal passeur.", it: "Anche 4-3-3. Lawrence Shankland è il capocannoniere (5 gol), seguono Claudio Braga (3) e Blair Spittal (2), Marc Leonard è il principale assistman." },
+        absences: { fr: ["Aucune information de blessure ou suspension publiée à l'heure de l'analyse"], it: ["Nessuna informazione su infortuni o squalifiche pubblicata al momento dell'analisi"] },
+        physical: { fr: "Déplacement Édimbourg → Graz en début de saison européenne. Effectif frais mais voyage à absorber.", it: "Trasferta Edimburgo → Graz a inizio stagione europea. Rosa fresca ma viaggio da assorbire." },
+        form: { fr: "67% de victoires sur les 30 derniers jours, dont une victoire récente contre le Rayo Vallecano. La saison passée s'est conclue par une défaite 3-1 à Celtic Park qui a coûté le titre écossais.", it: "67% di vittorie negli ultimi 30 giorni, inclusa una recente vittoria sul Rayo Vallecano. La scorsa stagione si è chiusa con un 3-1 al Celtic Park che è costato il titolo scozzese." },
+        xg: { fr: "Pas de données xG publiées ; le marché le donne à 1.50 pour marquer et 3.25 pour inscrire 2 buts ou plus.", it: "Nessun dato xG pubblicato; il mercato lo dà a 1.50 per segnare e 3.25 per 2+ gol." },
+        context: { fr: "Retour européen ambitieux après avoir manqué le titre écossais de peu : le club vise la phase de groupes.", it: "Ritorno europeo ambizioso dopo aver mancato di poco il titolo scozzese: il club punta alla fase a gironi." },
+        source: "Tips.GG / Sportskeeda / SportsGambler (21/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "⚫", name: "Belmin Beganović", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Le plus court des buteurs (2.45) et 1.29 pour cadrer un tir", it: "Il più quotato tra i marcatori (2.45) e 1.29 per centrare un tiro" }, note: { fr: "La référence offensive de Sturm sur ce match.", it: "Il riferimento offensivo dello Sturm in questa gara." } },
+      { team: "⚫", name: "Otar Kiteishvili", pos: { fr: "Meneur de jeu", it: "Trequartista" }, stat: { fr: "Buteur à 2.63, tir cadré à 1.30", it: "Marcatore a 2.63, tiro in porta a 1.30" }, note: { fr: "Créateur en chef, très sollicité au tir.", it: "Creatore principale, molto coinvolto al tiro." } },
+      { team: "⚫", name: "Gizo Mamageishvili", pos: { fr: "Milieu", it: "Centrocampista" }, stat: { fr: "Buteur lors du 2-0 contre le Rapid Vienne", it: "In gol nel 2-0 col Rapid Vienna" }, note: { fr: "En confiance après sa dernière sortie.", it: "In fiducia dopo l'ultima uscita." } },
+      { team: "🟣", name: "Lawrence Shankland", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "Meilleur buteur d'Hearts avec 5 buts", it: "Capocannoniere dell'Hearts con 5 gol" }, note: { fr: "La principale menace écossaise ; c'est de lui que dépend le pari « Hearts -1,5 but ».", it: "La principale minaccia scozzese; da lui dipende la scommessa « Hearts -1,5 gol »." } },
+      { team: "🟣", name: "Claudio Braga", pos: { fr: "Attaquant", it: "Attaccante" }, stat: { fr: "3 buts, coté 4.00 buteur", it: "3 gol, quotato 4.00 marcatore" }, note: { fr: "Deuxième option offensive de Hearts.", it: "Seconda opzione offensiva dell'Hearts." } },
+      { team: "🟣", name: "Marc Leonard", pos: { fr: "Milieu", it: "Centrocampista" }, stat: { fr: "Meilleur passeur sur les 10 derniers matchs (2 passes)", it: "Miglior assistman nelle ultime 10 gare (2 assist)" }, note: { fr: "Le relais créatif dans le 4-3-3 écossais.", it: "Il riferimento creativo nel 4-3-3 scozzese." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "Aucun historique : c'est la toute première confrontation entre Sturm Graz et Hearts. Impossible de s'appuyer sur un précédent, ce qui augmente l'incertitude sur le résultat sec.", it: "Nessun precedente: è il primissimo confronto tra Sturm Graz e Hearts. Impossibile appoggiarsi a uno storico, il che aumenta l'incertezza sull'esito secco." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse ; aucun marché cartons exploitable n'a donc pu être croisé avec une tendance arbitrale.", it: "Arbitro non comunicato al momento dell'analisi; nessun mercato cartellini ha quindi potuto essere incrociato con una tendenza arbitrale." },
+      stake: { fr: "2ᵉ tour de qualification de la Ligue des Champions, match aller. Le retour a lieu le 28 juillet à Tynecastle Park (Édimbourg). L'enjeu est majeur : la route vers la phase de groupes.", it: "2° turno di qualificazione di Champions League, gara d'andata. Il ritorno è il 28 luglio a Tynecastle Park (Edimburgo). Posta in palio importante: la strada verso la fase a gironi." },
+      external: { fr: "Match en soirée à la Merkur Arena de Graz, en juillet : conditions estivales douces. Déplacement Écosse → Autriche pour Hearts, sans surcharge de calendrier en début de saison.", it: "Gara serale alla Merkur Arena di Graz, a luglio: condizioni estive miti. Trasferta Scozia → Austria per l'Hearts, senza sovraccarico di calendario a inizio stagione." },
+      supercomputer: { fr: "Le marché voit Sturm favori sur l'aller (≈53%) mais le tie quasiment à 50/50 sur les deux matchs (qualification : Sturm 1.91, Hearts 2.10).", it: "Il mercato vede lo Sturm favorito all'andata (≈53%) ma il confronto quasi 50/50 sui due incontri (qualificazione: Sturm 1.91, Hearts 2.10)." }
+    },
+
+    sources: [
+      { label: "Tips.GG — preview & prédiction", url: "https://tips.gg/article/sturm-graz-vs-hearts-21-07-2026/" },
+      { label: "Sportskeeda — betting tips", url: "https://www.sportskeeda.com/football/sturm-graz-vs-hearts-prediction-betting-tips-july-21st-2026" },
+      { label: "SportsGambler — lineups & odds", url: "https://www.sportsgambler.com/betting-tips/football/sturm-graz-vs-hearts-prediction-lineups-odds-2026-07-21/" },
+      { label: "UEFA — fiche du match", url: "https://www.uefa.com/uefachampionsleague/match/2048726--sturm-graz-vs-hearts/" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/champions-league/sk-sturm-graz-v-hearts/winner" }
+    ]
+  },
+  {
+    id: "fenerbahce-gornik-2026-07-21",
+    competition: { fr: "Ligue des Champions — 2ᵉ tour de qualification (aller)", it: "Champions League — 2° turno di qualificazione (andata)" },
+    date: { fr: "Mardi 21 juillet 2026", it: "Martedì 21 luglio 2026" },
+    kickoff: { fr: "20:00 (heure de Paris)", it: "20:00 (ora italiana)" },
+    venue: "Şükrü Saracoğlu, Istanbul (Turquie)",
+    home: { name: { fr: "Fenerbahçe", it: "Fenerbahçe" }, flag: "🟡" },
+    away: { name: { fr: "Górnik Zabrze", it: "Górnik Zabrze" }, flag: "🔵" },
+
+    odds: {
+      market: { fr: "Résultat du match (1N2)", it: "Esito finale (1X2)" },
+      source: "oddschecker.com",
+      checkedAt: "20/07/2026",
+      aiProb: { home: 78, draw: 14, away: 8 },
+      best: {
+        home: { dec: 1.25, frac: "1/4", book: "meilleure cote du comparateur oddschecker" },
+        draw: { dec: 7.00, frac: "6/1", book: "meilleure cote du comparateur oddschecker" },
+        away: { dec: 13.0, frac: "12/1", book: "meilleure cote du comparateur oddschecker" }
+      }
+    },
+
+    safeBet: {
+      sel: { fr: "Plus de 2,5 buts dans le match", it: "Over 2,5 gol nella partita" },
+      dec: 1.45, frac: "9/20", book: "top des bookmakers (oddschecker)", ai: 67,
+      why: {
+        fr: "Le meilleur pari safe de la soirée, et il ne vient pas du 1N2. Trois éléments convergent : Fenerbahçe a gagné ses 3 matchs de préparation en juillet avec des scores massifs (5-0 contre Admira, 4-0 contre Pogoń Szczecin, 2-1 contre le LASK) ; le gardien titulaire de Górnik, Tomasz Loska, est SUSPENDU, ce qui affaiblit directement le poste le plus exposé face à une attaque turque de ce niveau ; et le marché place le total le plus probable à 3 buts. J'estime le +2,5 buts autour de 67% pour une cote de 1.45 — pile dans ta cible ~1,50.",
+        it: "La miglior scommessa sicura della serata, e non viene dall'1X2. Tre elementi convergono: il Fenerbahçe ha vinto le 3 amichevoli di luglio con punteggi larghi (5-0 all'Admira, 4-0 al Pogoń Szczecin, 2-1 al LASK); il portiere titolare del Górnik, Tomasz Loska, è SQUALIFICATO, il che indebolisce direttamente il ruolo più esposto contro un attacco turco di questo livello; e il mercato colloca il totale più probabile a 3 gol. Stimo l'over 2,5 intorno al 67% per una quota di 1.45 — esattamente nel tuo obiettivo ~1,50."
+      }
+    },
+    simpleBet: {
+      sel: { fr: "Plus de 3,5 buts dans le match", it: "Over 3,5 gol nella partita" },
+      dec: 2.10, frac: "11/10", book: "top des bookmakers (oddschecker)", ai: 50,
+      why: {
+        fr: "Le seul pari à cote ≥1.70 qui garde un vrai angle sur ce match, parce que Fenerbahçe à 1.25 n'offre aucune valeur sur le résultat sec. L'angle est le gardien : Górnik se présente sans Tomasz Loska, son portier n°1, face à une équipe qui vient de planter 5 et 4 buts en préparation et qui reçoit à Kadıköy. J'estime la probabilité de 4 buts ou plus autour de 50% pour une cote de 2.10 (47,6% implicite) → environ +5% de valeur. À jouer en petite mise, la variance reste élevée.",
+        it: "L'unica scommessa a quota ≥1.70 che mantiene un vero angolo su questa gara, perché il Fenerbahçe a 1.25 non offre alcun valore sull'esito secco. L'angolo è il portiere: il Górnik si presenta senza Tomasz Loska, il portiere n°1, contro una squadra che ha appena segnato 5 e 4 gol in preparazione e che gioca a Kadıköy. Stimo la probabilità di 4+ gol intorno al 50% per una quota di 2.10 (47,6% implicito) → circa +5% di valore. Da giocare con puntata piccola, la varianza resta alta."
+      }
+    },
+
+    markets: [
+      {
+        category: { fr: "Nombre de buts (le cœur de l'analyse)", it: "Numero di gol (il cuore dell'analisi)" },
+        note: { fr: "Le total le plus probable est 3 buts, et la distribution a une queue lourde vers le haut : Fenerbahçe a marqué 5 et 4 buts lors de sa préparation.", it: "Il totale più probabile è 3 gol, con una coda pesante verso l'alto: il Fenerbahçe ha segnato 5 e 4 gol in preparazione." },
+        rows: [
+          { sel: { fr: "Plus de 2,5 buts", it: "Over 2,5 gol" }, dec: 1.45, frac: "9/20" },
+          { sel: { fr: "Moins de 2,5 buts", it: "Under 2,5 gol" }, dec: 3.00, frac: "2/1" },
+          { sel: { fr: "Plus de 3,5 buts", it: "Over 3,5 gol" }, dec: 2.10, frac: "11/10" },
+          { sel: { fr: "Moins de 3,5 buts", it: "Under 3,5 gol" }, dec: 1.80, frac: "4/5" },
+          { sel: { fr: "Plus de 1,5 but", it: "Over 1,5 gol" }, dec: 1.17, frac: "1/6" },
+          { sel: { fr: "Total 3 buts exact (le plus probable)", it: "Totale 3 gol esatti (il più probabile)" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Total 4 buts exact", it: "Totale 4 gol esatti" }, dec: 4.75, frac: "15/4" },
+          { sel: { fr: "Total 2 buts exact", it: "Totale 2 gol esatti" }, dec: 4.75, frac: "15/4" }
+        ]
+      },
+      {
+        category: { fr: "Résultat, marge & qualification", it: "Esito, scarto & qualificazione" },
+        note: { fr: "À 1.25, le résultat sec n'a aucune valeur : c'est pourquoi aucun pari n'est recommandé sur le 1N2.", it: "A 1.25 l'esito secco non ha valore: per questo nessuna scommessa è consigliata sull'1X2." },
+        rows: [
+          { sel: { fr: "Fenerbahçe (1)", it: "Fenerbahçe (1)" }, dec: 1.25, frac: "1/4" },
+          { sel: { fr: "Match nul (N)", it: "Pareggio (X)" }, dec: 7.00, frac: "6/1" },
+          { sel: { fr: "Górnik Zabrze (2)", it: "Górnik Zabrze (2)" }, dec: 13.0, frac: "12/1" },
+          { sel: { fr: "Fenerbahçe se qualifie (sur 2 matchs)", it: "Fenerbahçe si qualifica (sui 2 incontri)" }, dec: 1.14, frac: "1/7" },
+          { sel: { fr: "Górnik se qualifie (sur 2 matchs)", it: "Górnik si qualifica (sui 2 incontri)" }, dec: 5.75, frac: "19/4" },
+          { sel: { fr: "Fenerbahçe gagne par 2 buts", it: "Fenerbahçe vince di 2 gol" }, dec: 4.00, frac: "3/1" },
+          { sel: { fr: "Fenerbahçe gagne par 4 buts ou plus", it: "Fenerbahçe vince di 4+ gol" }, dec: 4.40, frac: "17/5" },
+          { sel: { fr: "Fenerbahçe gagne par 1 but", it: "Fenerbahçe vince di 1 gol" }, dec: 4.50, frac: "7/2" },
+          { sel: { fr: "Fenerbahçe remboursé si nul (DNB)", it: "Fenerbahçe rimborso se pareggio (DNB)" }, dec: 1.08, frac: "1/12" }
+        ]
+      },
+      {
+        category: { fr: "Mi-temps & combinés", it: "Primo tempo & combo" },
+        rows: [
+          { sel: { fr: "Résultat mi-temps : Fenerbahçe", it: "Esito primo tempo: Fenerbahçe" }, dec: 1.65, frac: "13/20" },
+          { sel: { fr: "Résultat mi-temps : Nul", it: "Esito primo tempo: Pareggio" }, dec: 3.10, frac: "21/10" },
+          { sel: { fr: "Score 1ʳᵉ MT : Fenerbahçe 1-0", it: "Risultato 1° tempo: Fenerbahçe 1-0" }, dec: 3.50, frac: "5/2" },
+          { sel: { fr: "Score 1ʳᵉ MT : 0-0", it: "Risultato 1° tempo: 0-0" }, dec: 4.40, frac: "17/5" },
+          { sel: { fr: "Score 1ʳᵉ MT : Fenerbahçe 2-0", it: "Risultato 1° tempo: Fenerbahçe 2-0" }, dec: 5.50, frac: "9/2" },
+          { sel: { fr: "Fenerbahçe gagne & les deux marquent", it: "Vince il Fenerbahçe & entrambe segnano" }, dec: 2.75, frac: "7/4" },
+          { sel: { fr: "Nul & les deux marquent", it: "Pareggio & entrambe segnano" }, dec: 9.00, frac: "8/1" }
+        ]
+      }
+    ],
+
+    valueBets: [
+      { label: { fr: "Plus de 2,5 buts", it: "Over 2,5 gol" }, dec: 1.45, ai: 67,
+        note: { fr: "La base safe de la soirée : Fener sort de 5-0 et 4-0 en préparation et Górnik est privé de son gardien titulaire suspendu.", it: "La base sicura della serata: il Fener viene da 5-0 e 4-0 in preparazione e il Górnik è privo del portiere titolare squalificato." } },
+      { label: { fr: "Plus de 3,5 buts", it: "Over 3,5 gol" }, dec: 2.10, ai: 50,
+        note: { fr: "L'angle du gardien suspendu poussé un cran plus loin. Value modeste (+5%) et variance élevée : petite mise seulement.", it: "L'angolo del portiere squalificato spinto oltre. Value modesto (+5%) e varianza alta: solo piccola puntata." } },
+      { label: { fr: "Victoire Fenerbahçe (1N2)", it: "Vittoria Fenerbahçe (1X2)" }, dec: 1.25, ai: 78,
+        note: { fr: "⚠ À NE PAS jouer : 1.25 pour une probabilité estimée à 78% donne une valeur négative (−2,5%). Le favori est correctement évalué, il n'y a rien à gagner ici.", it: "⚠ DA NON giocare: 1.25 per una probabilità stimata al 78% dà valore negativo (−2,5%). Il favorito è valutato correttamente, non c'è nulla da guadagnare." } }
+    ],
+
+    prediction: {
+      pick: { fr: "Victoire Fenerbahçe", it: "Vittoria Fenerbahçe" },
+      pickShort: "Fenerbahçe",
+      score: "3 – 1",
+      goals: { fr: "Match ouvert : plus de 2,5 buts très probable", it: "Gara aperta: over 2,5 gol molto probabile" },
+      confidence: "moyen",
+      value: true,
+      summary: {
+        fr: "Fenerbahçe reçoit à Kadıköy en position de très large favori (1.25) et c'est justifié : le club a terminé 2ᵉ de Süper Lig avec 74 points, à trois longueurs de Galatasaray, et a survolé sa préparation avec trois victoires en trois matchs en juillet — 5-0 contre Admira, 4-0 contre Pogoń Szczecin, 2-1 contre le LASK. En face, Górnik Zabrze a fini 2ᵉ d'Ekstraklasa mais reste sur une défaite 3-1 contre Lech Poznań en Supercoupe de Pologne, et surtout se présente SANS son gardien titulaire Tomasz Loska, suspendu. Conclusion nette : il n'y a rien à jouer sur le résultat, correctement évalué à 1.25. Toute la valeur du match est dans les marchés de buts, et le poste de gardien affaibli côté polonais en est l'argument central. Nuance à ne pas ignorer : Fenerbahçe est lui aussi diminué avec quatre absents notables.",
+        it: "Il Fenerbahçe gioca a Kadıköy da grandissimo favorito (1.25) ed è giustificato: ha chiuso 2° in Süper Lig con 74 punti, a tre lunghezze dal Galatasaray, e ha dominato la preparazione con tre vittorie su tre a luglio — 5-0 all'Admira, 4-0 al Pogoń Szczecin, 2-1 al LASK. Di fronte, il Górnik Zabrze ha chiuso 2° in Ekstraklasa ma viene da un 3-1 subito dal Lech Poznań in Supercoppa di Polonia e soprattutto si presenta SENZA il portiere titolare Tomasz Loska, squalificato. Conclusione netta: non c'è nulla da giocare sull'esito, valutato correttamente a 1.25. Tutto il valore è nei mercati dei gol, e il ruolo di portiere indebolito è l'argomento centrale. Sfumatura da non ignorare: anche il Fenerbahçe è ridotto con quattro assenze rilevanti."
+      },
+      basedOn: {
+        fr: [
+          "Fenerbahçe a gagné ses 3 matchs de préparation en juillet : 5-0 contre Admira, 4-0 contre Pogoń Szczecin, 2-1 contre le LASK",
+          "Le gardien titulaire de Górnik, Tomasz Loska, est SUSPENDU pour ce match aller",
+          "Górnik reste sur une défaite 3-1 contre Lech Poznań en Supercoupe de Pologne (16 juillet)",
+          "Fenerbahçe a terminé 2ᵉ de Süper Lig avec 74 points, à 3 points de Galatasaray",
+          "Le total de buts le plus probable est 3, avec une distribution qui s'étale vers le haut"
+        ],
+        it: [
+          "Il Fenerbahçe ha vinto le 3 amichevoli di luglio: 5-0 all'Admira, 4-0 al Pogoń Szczecin, 2-1 al LASK",
+          "Il portiere titolare del Górnik, Tomasz Loska, è SQUALIFICATO per l'andata",
+          "Il Górnik viene da un 3-1 subito dal Lech Poznań in Supercoppa di Polonia (16 luglio)",
+          "Il Fenerbahçe ha chiuso 2° in Süper Lig con 74 punti, a 3 dal Galatasaray",
+          "Il totale gol più probabile è 3, con una distribuzione che si allunga verso l'alto"
+        ]
+      },
+      against: {
+        fr: [
+          "Fenerbahçe est lui aussi diminué : Mert Hakan Yandaş suspendu, Vedat Muriqi et Dorgelès Nene blessés, N'Golo Kanté probablement forfait",
+          "L'absence de Muriqi prive Fenerbahçe d'un finisseur, ce qui tempère l'argument « beaucoup de buts »",
+          "Górnik a fini 2ᵉ d'Ekstraklasa : ce n'est pas un adversaire anodin malgré l'écart de cotes",
+          "C'est un match ALLER : Fenerbahçe peut gérer et se contenter d'une victoire maîtrisée avant le retour du 29 juillet",
+          "Le pari « Fenerbahçe gagne » à 1.25 est à valeur NÉGATIVE : à ne pas jouer",
+          "Aucune AI Probability disponible : toutes les probabilités sont mes estimations"
+        ],
+        it: [
+          "Anche il Fenerbahçe è ridotto: Mert Hakan Yandaş squalificato, Vedat Muriqi e Dorgelès Nene infortunati, N'Golo Kanté probabile assente",
+          "L'assenza di Muriqi priva il Fenerbahçe di un finalizzatore, il che tempera l'argomento « tanti gol »",
+          "Il Górnik ha chiuso 2° in Ekstraklasa: non è un avversario banale nonostante il divario di quote",
+          "È una gara d'ANDATA: il Fenerbahçe può gestire e accontentarsi di una vittoria controllata prima del ritorno del 29 luglio",
+          "La scommessa « vince il Fenerbahçe » a 1.25 ha valore NEGATIVO: da non giocare",
+          "Nessuna AI Probability disponibile: tutte le probabilità sono mie stime"
+        ]
+      }
+    },
+
+    teams: {
+      home: {
+        name: { fr: "Fenerbahçe", it: "Fenerbahçe" }, flag: "🟡", coach: "—",
+        lineup: { fr: "Composition non publiée à l'heure de l'analyse ; quatre absences notables à intégrer.", it: "Formazione non pubblicata al momento dell'analisi; quattro assenze rilevanti da considerare." },
+        style: { fr: "Équipe offensive qui a écrasé sa préparation (5-0, 4-0) et joue à guichets fermés à Kadıköy, un des stades les plus bruyants d'Europe.", it: "Squadra offensiva che ha dominato la preparazione (5-0, 4-0) e gioca a porte piene a Kadıköy, uno degli stadi più caldi d'Europa." },
+        absences: {
+          fr: ["Mert Hakan Yandaş — suspendu", "Vedat Muriqi — blessé", "Dorgelès Nene — blessé", "N'Golo Kanté — probablement forfait"],
+          it: ["Mert Hakan Yandaş — squalificato", "Vedat Muriqi — infortunato", "Dorgelès Nene — infortunato", "N'Golo Kanté — probabile assente"]
+        },
+        physical: { fr: "Trois matchs de préparation en juillet, tous gagnés : rythme déjà en place pour aborder l'Europe.", it: "Tre amichevoli a luglio, tutte vinte: ritmo già impostato per affrontare l'Europa." },
+        form: { fr: "3 victoires en 3 matchs de préparation en juillet (5-0 Admira, 4-0 Pogoń Szczecin, 2-1 LASK). 2ᵉ de Süper Lig la saison passée avec 74 points.", it: "3 vittorie in 3 amichevoli a luglio (5-0 Admira, 4-0 Pogoń Szczecin, 2-1 LASK). 2° in Süper Lig la scorsa stagione con 74 punti." },
+        xg: { fr: "Pas de données xG publiées sur la préparation, mais 11 buts marqués en 3 matchs parlent d'eux-mêmes.", it: "Nessun dato xG sulla preparazione, ma 11 gol in 3 gare parlano da soli." },
+        context: { fr: "Objectif phase de groupes de Ligue des Champions après une saison à 3 points du titre turc : la pression est maximale dès l'aller.", it: "Obiettivo fase a gironi di Champions dopo una stagione a 3 punti dal titolo turco: pressione massima già all'andata." },
+        source: "Sportskeeda / MightyTips / SportsGambler (21/07/2026)"
+      },
+      away: {
+        name: { fr: "Górnik Zabrze", it: "Górnik Zabrze" }, flag: "🔵", coach: "—",
+        lineup: { fr: "Groupe annoncé au complet sur le plan des blessures, MAIS le gardien titulaire Tomasz Loska est suspendu : un gardien remplaçant débutera.", it: "Gruppo annunciato al completo sul fronte infortuni, MA il portiere titolare Tomasz Loska è squalificato: partirà un secondo portiere." },
+        style: { fr: "Équipe solide d'Ekstraklasa (2ᵉ la saison passée) mais qui se déplace dans un des chaudrons d'Europe avec un gardien remplaçant.", it: "Squadra solida di Ekstraklasa (2ª la scorsa stagione) ma che va in trasferta in una delle bolge d'Europa con un portiere di riserva." },
+        absences: {
+          fr: ["Tomasz Loska (gardien n°1) — SUSPENDU, c'est l'absence clé du match", "Aucune blessure significative signalée par ailleurs"],
+          it: ["Tomasz Loska (portiere n°1) — SQUALIFICATO, è l'assenza chiave della gara", "Nessun infortunio significativo segnalato"]
+        },
+        physical: { fr: "Déplacement Pologne → Istanbul, long voyage en début de saison européenne. Match de Supercoupe disputé le 16 juillet.", it: "Trasferta Polonia → Istanbul, viaggio lungo a inizio stagione europea. Supercoppa giocata il 16 luglio." },
+        form: { fr: "Défaite 3-1 contre Lech Poznań en Supercoupe de Pologne le 16 juillet. 2ᵉ d'Ekstraklasa la saison passée, à 4 points de Lech.", it: "Sconfitta 3-1 col Lech Poznań in Supercoppa di Polonia il 16 luglio. 2° in Ekstraklasa la scorsa stagione, a 4 punti dal Lech." },
+        xg: { fr: "Pas de données xG publiées ; le marché ne lui donne que 13.0 pour gagner et 5.75 pour se qualifier.", it: "Nessun dato xG; il mercato gli dà solo 13.0 per vincere e 5.75 per qualificarsi." },
+        context: { fr: "Retour européen après une belle saison nationale, mais un aller à Istanbul sans gardien titulaire est le pire scénario possible.", it: "Ritorno europeo dopo una buona stagione, ma un'andata a Istanbul senza portiere titolare è lo scenario peggiore." },
+        source: "Sportskeeda / MightyTips / Footballwhispers (21/07/2026)"
+      }
+    },
+
+    keyPlayers: [
+      { team: "🔵", name: "Tomasz Loska", pos: { fr: "Gardien (SUSPENDU)", it: "Portiere (SQUALIFICATO)" }, stat: { fr: "Gardien n°1 de Górnik — absent", it: "Portiere n°1 del Górnik — assente" }, note: { fr: "⚠ L'absence la plus lourde du match et l'argument central du pari sur les buts.", it: "⚠ L'assenza più pesante e l'argomento centrale della scommessa sui gol." } },
+      { team: "🟡", name: "Vedat Muriqi", pos: { fr: "Attaquant (blessé)", it: "Attaccante (infortunato)" }, stat: { fr: "Forfait pour blessure", it: "Assente per infortunio" }, note: { fr: "Son absence prive Fener d'un finisseur : c'est le contre-argument au scénario « beaucoup de buts ».", it: "La sua assenza priva il Fener di un finalizzatore: è il contro-argomento allo scenario « tanti gol »." } },
+      { team: "🟡", name: "N'Golo Kanté", pos: { fr: "Milieu (probable forfait)", it: "Centrocampista (probabile assente)" }, stat: { fr: "Probablement absent", it: "Probabilmente assente" }, note: { fr: "Perte d'équilibre au milieu, ce qui peut rendre le match plus ouvert.", it: "Perdita di equilibrio a centrocampo, il che può rendere la gara più aperta." } },
+      { team: "🟡", name: "Mert Hakan Yandaş", pos: { fr: "Milieu (suspendu)", it: "Centrocampista (squalificato)" }, stat: { fr: "Suspendu", it: "Squalificato" }, note: { fr: "Troisième absence majeure côté turc.", it: "Terza assenza importante lato turco." } }
+    ],
+
+    matchInfo: {
+      h2h: { fr: "Aucune confrontation directe récente documentée entre les deux clubs : l'analyse s'appuie donc sur la forme et les absences plutôt que sur l'historique.", it: "Nessun confronto diretto recente documentato tra i due club: l'analisi si basa quindi su forma e assenze invece che sui precedenti." },
+      referee: { fr: "Arbitre non communiqué à l'heure de l'analyse ; aucun marché cartons n'a donc pu être exploité.", it: "Arbitro non comunicato al momento dell'analisi; nessun mercato cartellini è stato sfruttabile." },
+      stake: { fr: "2ᵉ tour de qualification de la Ligue des Champions, match aller au Şükrü Saracoğlu. Le retour se joue le 29 juillet en Pologne.", it: "2° turno di qualificazione di Champions League, andata allo Şükrü Saracoğlu. Il ritorno si gioca il 29 luglio in Polonia." },
+      external: { fr: "Soirée d'été à Istanbul : chaleur et humidité possibles, dans une ambiance de Kadıköy réputée parmi les plus hostiles d'Europe pour un visiteur. Long déplacement pour Górnik.", it: "Serata estiva a Istanbul: caldo e umidità possibili, in un'atmosfera di Kadıköy tra le più ostili d'Europa per un ospite. Lunga trasferta per il Górnik." },
+      supercomputer: { fr: "Le marché donne Fenerbahçe à ≈78% sur l'aller et 1.14 pour se qualifier : c'est précisément pour cela qu'il n'y a aucune valeur sur le résultat et qu'il faut chercher dans les buts.", it: "Il mercato dà il Fenerbahçe al ≈78% sull'andata e 1.14 per qualificarsi: proprio per questo non c'è valore sull'esito e bisogna cercare nei gol." }
+    },
+
+    sources: [
+      { label: "Sportskeeda — preview & tips", url: "https://www.sportskeeda.com/football/fenerbahce-vs-gornik-zabrze-prediction-betting-tips-july-21st-2026" },
+      { label: "MightyTips — stats & absences", url: "https://www.mightytips.com/football-predictions/fenerbahce-vs-gornik-zabrze-prediction-21-07-2026/" },
+      { label: "Footballwhispers — preview", url: "https://footballwhispers.com/blog/fenerbahce-vs-gornik-zabrze-prediction-21-07-2026/" },
+      { label: "SportsGambler — lineups & odds", url: "https://www.sportsgambler.com/betting-tips/football/fenerbahce-vs-gornik-zabrze-prediction-lineups-odds-2026-07-21/" },
+      { label: "oddschecker — cotes du match", url: "https://www.oddschecker.com/football/champions-league/fenerbahce-v-gornik-zabrze/winner" }
+    ]
+  },
+  {
     id: "rapid-sepsi-2026-07-20",
     competition: { fr: "SuperLiga (Roumanie) — 1ʳᵉ journée", it: "SuperLiga (Romania) — 1ª giornata" },
     date: { fr: "Lundi 20 juillet 2026", it: "Lunedì 20 luglio 2026" },
