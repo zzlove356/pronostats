@@ -2127,6 +2127,21 @@ const MATCHES = [
    ========================================================= */
 const TICKETS = [
   {
+    title: { fr: "⭐ Meilleur combiné du jour — 22 juillet 2026", it: "⭐ Miglior multipla del giorno — 22 luglio 2026" },
+    totalOdds: 2.72,
+    rating: 5.7,
+    would: true,
+    legs: [
+      { fr: "Omonia Nicosie ou match nul (1X) — 1.30 · proba estimée 78% · valeur +1,4%", it: "Omonia Nicosia o pareggio (1X) — 1.30 · prob. stimata 78% · valore +1,4%" },
+      { fr: "Levski Sofia ou match nul (1X) — 1.35 · proba estimée 74% · valeur −0,1%", it: "Levski Sofia o pareggio (1X) — 1.35 · prob. stimata 74% · valore −0,1%" },
+      { fr: "Egnatia–Celje : les deux équipes marquent — Oui — 1.55 · proba estimée 66% · valeur +2,3%", it: "Egnatia–Celje: entrambe segnano — Sì — 1.55 · prob. stimata 66% · valore +2,3%" }
+    ],
+    verdict: {
+      fr: "Le meilleur combiné possible entre les 3 matchs analysés du 22 juillet, construit à partir des paris SAFE les plus fiables de chaque match (pas les plus connus). Cote totale 2.72, probabilité combinée estimée 38,1%, cote juste 2,62 contre 2,72 proposés → espérance POSITIVE de +3,6%. Note 5,7/10 : je le jouerais en petite mise. LOGIQUE : deux « double chance » sur des favoris à domicile (Omonia porté par le très long voyage de Kairat depuis Almaty ; Levski invaincu et 5-1 cumulé au tour précédent) plus le BTTS d'Egnatia–Celje, le marché le plus solide de la soirée (5 des 6 derniers matchs d'Egnatia en BTTS). MAILLON LE PLUS FRAGILE : Levski 1X (valeur quasi nulle), gardé pour la fiabilité plutôt que pour la valeur. ⚠ Analyses en mode autonome (sources publiques), sans balayage oddschecker complet : cotes indicatives à revérifier chez ton bookmaker, et les probabilités sont mes estimations. MISE SUGGÉRÉE : 3 à 4 € sur un bankroll de 25 €. Avantage réel mais mince : ce combiné sera perdu environ 3 fois sur 5, c'est normal. Aide à la décision, pas une garantie. 18+.",
+      it: "La miglior multipla possibile tra le 3 partite analizzate del 22 luglio, costruita a partire dalle scommesse SAFE più affidabili di ogni gara (non le più note). Quota totale 2.72, probabilità combinata stimata 38,1%, quota equa 2,62 contro i 2,72 offerti → aspettativa POSITIVA del +3,6%. Voto 5,7/10: la giocherei con piccola puntata. LOGICA: due « doppia chance » su favoriti in casa (Omonia favorito dal lunghissimo viaggio del Kairat da Almaty; Levski imbattuto e 5-1 complessivo al turno precedente) più il BTTS di Egnatia–Celje, il mercato più solido della serata (5 delle ultime 6 gare dell'Egnatia in BTTS). ANELLO PIÙ FRAGILE: Levski 1X (valore quasi nullo), tenuto per l'affidabilità più che per il valore. ⚠ Analisi in modalità autonoma (fonti pubbliche), senza sweep oddschecker completo: quote indicative da riverificare dal tuo bookmaker, e le probabilità sono mie stime. PUNTATA SUGGERITA: 3-4 € su un bankroll di 25 €. Vantaggio reale ma sottile: questa multipla sarà persa circa 3 volte su 5, è normale. Aiuto alla decisione, non una garanzia. 18+."
+    }
+  },
+  {
     title: { fr: "Triple valeur — Klaksvík / Thun / Iberia — 21 juillet 2026", it: "Tripla valore — Klaksvík / Thun / Iberia — 21 luglio 2026" },
     totalOdds: 3.15,
     rating: 5.6,
