@@ -10,14 +10,12 @@ function frOf(x){ return (x && typeof x === "object") ? (x.fr != null ? x.fr : "
 function confLabel(c){ return t("conf_"+c); }
 
 /* ---------- ACCUEIL ---------- */
-function renderHome(){
-  const grid = document.getElementById("matchGrid");
-  if(!grid) return;
-  if(!MATCHES.length){ grid.innerHTML = `<div class="empty">${esc(t("home_empty"))}</div>`; return; }
+let HOME_SEARCH = "";
+let HOME_COMP = "__all__";
 
-  grid.innerHTML = MATCHES.map(m => {
-    const p = m.prediction;
-    return `
+function matchCardHTML(m){
+  const p = m.prediction;
+  return `
     <a class="match-card" href="match.html?id=${encodeURIComponent(m.id)}">
       <div class="comp">${esc(tr(m.competition))}</div>
       <div class="teams">
@@ -36,7 +34,60 @@ function renderHome(){
       </div>
       <div class="foot"><span class="go">${esc(t("home_recent_sub"))} →</span></div>
     </a>`;
-  }).join("");
+}
+
+function matchHaystack(m){
+  return [tr(m.home.name), tr(m.away.name), tr(m.competition), tr(m.venue),
+          frOf(m.home.name), frOf(m.away.name), frOf(m.competition)]
+         .join(" ").toLowerCase();
+}
+
+function renderCompChips(){
+  const host = document.getElementById("compChips");
+  if(!host) return;
+  const comps = [];
+  MATCHES.forEach(m => { const c = tr(m.competition); if(!comps.includes(c)) comps.push(c); });
+  const chip = (val, label, active) =>
+    `<button class="chip${active?' active':''}" onclick="setComp(${JSON.stringify(val).replace(/"/g,'&quot;')})">${esc(label)}</button>`;
+  host.innerHTML = chip("__all__", t("filter_all"), HOME_COMP==="__all__")
+    + comps.map(c => chip(c, c, HOME_COMP===c)).join("");
+}
+
+function applyFilter(){
+  const grid = document.getElementById("matchGrid");
+  if(!grid) return;
+  const inp = document.getElementById("matchSearch");
+  HOME_SEARCH = inp ? inp.value.trim().toLowerCase() : "";
+  const clr = document.getElementById("searchClear");
+  if(clr) clr.style.display = HOME_SEARCH ? "flex" : "none";
+
+  const list = MATCHES.filter(m => {
+    const okComp = HOME_COMP === "__all__" || tr(m.competition) === HOME_COMP;
+    const okText = !HOME_SEARCH || matchHaystack(m).includes(HOME_SEARCH);
+    return okComp && okText;
+  });
+
+  grid.innerHTML = list.map(matchCardHTML).join("");
+  const nr = document.getElementById("noResults");
+  if(nr) nr.hidden = list.length > 0;
+  const cnt = document.getElementById("matchCount");
+  if(cnt) cnt.textContent = `${list.length} ${t("matches_word")}`;
+}
+
+function setComp(val){ HOME_COMP = val; renderCompChips(); applyFilter(); }
+function clearSearch(){ const i=document.getElementById("matchSearch"); if(i){ i.value=""; i.focus(); } applyFilter(); }
+
+function renderHome(){
+  const grid = document.getElementById("matchGrid");
+  if(!grid) return;
+  const toolbar = document.querySelector(".toolbar");
+  if(!MATCHES.length){
+    grid.innerHTML = `<div class="empty">${esc(t("home_empty"))}</div>`;
+    if(toolbar) toolbar.style.display = "none";
+    return;
+  }
+  renderCompChips();
+  applyFilter();
 }
 
 /* ---------- PAGE MATCH ---------- */
@@ -219,9 +270,31 @@ function teamPanel(tm){
   </div>`;
 }
 
+/* ---------- Bouton "haut de page" ---------- */
+function setupToTop(){
+  if(document.getElementById("toTop")) return;
+  const b = document.createElement("button");
+  b.id = "toTop"; b.className = "to-top"; b.textContent = "↑";
+  b.title = (typeof t === "function") ? t("back_to_top") : "Haut";
+  b.setAttribute("aria-label", b.title);
+  b.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  document.body.appendChild(b);
+  const onScroll = () => b.classList.toggle("show", window.scrollY > 480);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
 /* ---------- Boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof applyStaticI18n === "function") applyStaticI18n();
   renderHome();
   renderMatch();
+  setupToTop();
+  // Raccourci "/" pour aller à la recherche
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "/" && document.getElementById("matchSearch") &&
+       !/^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement||{}).tagName||"")){
+      e.preventDefault(); document.getElementById("matchSearch").focus();
+    }
+  });
 });

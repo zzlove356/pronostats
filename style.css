@@ -351,3 +351,55 @@ footer.site .wrap { display: flex; justify-content: space-between; gap: 14px; fl
   table.odds th, table.odds td,
   table.bets th, table.bets td { padding: 8px 6px; }
 }
+
+/* ===== Barre d'outils accueil : recherche + filtres + compteur ===== */
+.toolbar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 4px 0 18px;
+}
+.search-box { position: relative; flex: 1 1 260px; min-width: 0; }
+.search-box input {
+  width: 100%; box-sizing: border-box;
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  color: var(--txt); font-size: .95rem; padding: 11px 40px 11px 16px;
+  outline: none; transition: border-color .18s, box-shadow .18s;
+}
+.search-box input::placeholder { color: var(--txt-mute); }
+.search-box input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(39,224,138,.14); }
+.search-clear {
+  display: none; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; border-radius: 999px; border: none; cursor: pointer;
+  background: var(--card-2); color: var(--txt-dim); font-size: .8rem;
+  align-items: center; justify-content: center;
+}
+.search-clear:hover { color: var(--txt); background: var(--line); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1 1 auto; }
+.chip {
+  background: var(--card); border: 1px solid var(--line); color: var(--txt-dim);
+  padding: 8px 14px; border-radius: 999px; font-size: .84rem; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: .16s;
+}
+.chip:hover { color: var(--txt); border-color: var(--txt-mute); }
+.chip.active { background: var(--green); color: #04140c; border-color: var(--green); }
+.count { color: var(--txt-mute); font-size: .84rem; flex: 0 0 auto; margin-left: auto; white-space: nowrap; }
+.no-results {
+  text-align: center; color: var(--txt-mute); padding: 40px 16px;
+  background: var(--card); border: 1px dashed var(--line); border-radius: var(--radius);
+}
+
+/* ===== Bouton "haut de page" ===== */
+.to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--card-2); color: var(--green); font-size: 1.25rem; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  opacity: 0; visibility: hidden; transform: translateY(10px); transition: .22s;
+}
+.to-top:hover { background: var(--green); color: #04140c; border-color: var(--green); }
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .toolbar { gap: 10px; }
+  .count { margin-left: 0; }
+  .to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; }
+}
