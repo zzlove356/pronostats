@@ -7,7 +7,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const KEY = process.env.ANTHROPIC_API_KEY;
 if (!KEY) { console.error('ANTHROPIC_API_KEY manquant (ajoute-le en secret GitHub).'); process.exit(1); }
 
-const MODEL = 'claude-haiku-4-5-20251001'; // pour passer en meilleure qualité : 'claude-sonnet-5'
+const MODEL = 'claude-sonnet-5'; // modèle fiable pour le JSON structuré ; économique : 'claude-haiku-4-5-20251001'
 const today = new Date().toISOString().slice(0, 10);
 
 const SCHEMA_EXAMPLE = {
@@ -45,14 +45,16 @@ Réponds UNIQUEMENT avec du JSON minifié valide, sans texte ni balises markdown
 
 TOUT champ visible doit être bilingue {fr, it} (traduis fidèlement en italien). Chaque objet match DOIT respecter EXACTEMENT cette structure de clés (les valeurs "..." sont à remplir) :
 ${JSON.stringify(SCHEMA_EXAMPLE)}
-Les id en kebab-case avec la date (ex "levski-craiova-${today}"). N'invente pas d'infos : si une donnée manque, écris-le honnêtement dans le champ.`;
+Les id en kebab-case avec la date (ex "levski-craiova-${today}"). N'invente pas d'infos : si une donnée manque, écris-le honnêtement dans le champ.
+
+RÈGLE ABSOLUE SUR LE FORMAT : ta réponse entière doit être UNIQUEMENT l'objet JSON. Elle DOIT commencer par le caractère { et finir par le caractère }. Interdiction d'écrire la moindre phrase, explication, salutation ou balise markdown (pas de \`\`\`) avant ou après le JSON. Fais tes recherches web d'abord, puis renvoie seulement le JSON final.`;
 
 async function callClaude() {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'x-api-key': KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
     body: JSON.stringify({
-      model: MODEL, max_tokens: 20000,
+      model: MODEL, max_tokens: 32000,
       tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 10 }],
       system: SYSTEM,
       messages: [{ role: 'user', content: `Produis les analyses du jour (${today}) au format JSON demandé. Rien d'autre que le JSON.` }]
@@ -61,14 +63,19 @@ async function callClaude() {
   if (!res.ok) { console.error('Erreur API', res.status, await res.text()); process.exit(1); }
   const data = await res.json();
   const text = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n');
+  console.log('Réponse modèle — longueur:', text.length, '| stop:', data.stop_reason);
   return text;
 }
 
 function extractJson(text) {
-  let t = text.trim().replace(/^```(json)?/i, '').replace(/```$/,'').trim();
+  // enlève d'éventuelles fences markdown où qu'elles soient
+  let t = text.replace(/```json/gi, '').replace(/```/g, '').trim();
+  // isole le plus grand bloc { ... }
   const a = t.indexOf('{'), b = t.lastIndexOf('}');
-  if (a < 0 || b < 0) throw new Error('Aucun JSON trouvé dans la réponse.');
-  return JSON.parse(t.slice(a, b + 1));
+  if (a < 0 || b < 0) { console.error('RAW (pas de {}):', t.slice(0, 1500)); throw new Error('Aucun JSON trouvé dans la réponse.'); }
+  const slice = t.slice(a, b + 1);
+  try { return JSON.parse(slice); }
+  catch (e) { console.error('RAW (JSON invalide):', slice.slice(0, 1500)); throw e; }
 }
 
 function validateMatch(m) {
@@ -86,9 +93,16 @@ function insertAfter(src, marker, jsonChunk) {
 
 const out = await callClaude();
 const parsed = extractJson(out);
-if (!Array.isArray(parsed.matches) || !parsed.matches.length) throw new Error('Pas de matchs.');
+// tolérance : le modèle peut renvoyer directement un tableau, ou {matches:[...]}
+let matches = Array.isArray(parsed) ? parsed : parsed.matches;
+let combo = Array.isArray(parsed) ? null : parsed.combo;
+if (!Array.isArray(matches) || !matches.length) {
+  console.error('Clés reçues:', Object.keys(parsed || {}), '| aperçu:', JSON.stringify(parsed).slice(0, 1200));
+  throw new Error('Pas de matchs.');
+}
+parsed.matches = matches; parsed.combo = combo;
 parsed.matches.forEach(validateMatch);
-if (!parsed.combo?.title?.fr) throw new Error('Combo invalide.');
+const hasCombo = !!parsed.combo?.title?.fr;
 
 let js = readFileSync('data.js', 'utf8');
 
@@ -98,9 +112,11 @@ const fresh = parsed.matches.filter(m => !existingIds.includes(m.id));
 if (!fresh.length) { console.log('Aucun nouveau match (déjà publiés aujourd\'hui). Rien à faire.'); process.exit(0); }
 
 const matchesChunk = fresh.map(m => JSON.stringify(m) + ',').join('\n');
-const comboChunk = JSON.stringify(parsed.combo) + ',';
 js = insertAfter(js, 'const MATCHES = [', matchesChunk);
-js = insertAfter(js, 'const TICKETS = [', comboChunk);
+if (hasCombo) {
+  const comboChunk = JSON.stringify(parsed.combo) + ',';
+  js = insertAfter(js, 'const TICKETS = [', comboChunk);
+}
 
 // validation finale : le fichier doit s'évaluer sans erreur
 try {
